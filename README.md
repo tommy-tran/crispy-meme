@@ -1,6 +1,13 @@
-# crispy-meme
+# crispy-meme (Leaderboard API)
+## Status: In Progress
 
-To do:
-- Need to figure out how to work with public/private keys (create a library?)
-- Create user model
+Allows users to create their own leaderboards for their games or competitions. 
 
+Owners of leaderboards will be able to call to the api with their private key to add, delete, and modify scores as well as interact with and obtain information about their leaderboard. Users record their scores or times (racing) and user results obtained may be sorted or limited (to show top 5, 10, etc).
+
+The public key allows owners to safely distribute a method to fetch leaderboard information such as individual user stats or retrieval of parts or the whole leaderboard.
+
+To do (possibly):
+* Finish request end point logic
+* Front end to more easily interact with API
+* More endpoints such as key regeneration
