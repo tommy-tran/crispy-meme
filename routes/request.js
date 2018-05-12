@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const leaderboard = mongoose.model('leaderboards');
 const router = express.Router({ mergeParams: true });
+const getRequestType = require('../helpers/getRequestType');
 
 /**
  * Determines if request is by private key, public key, or invalid
@@ -66,30 +67,5 @@ router.get('/clear', (req, res) => {
 router.get('/info', (req, res) => {
   // Check if private key and show database information
 });
-
-
-
-
-/**
- * Checks for request type and returns object specifying request type and the request itself
- */
-const getRequestType = key => {
-  // Used until database is set up
-  return { type: 'private', data: null };
-
-  const privateRequest = leaderboard.findOne({
-    privateKey: key
-  }, result => {
-    return { type: 'private' }
-  });
-
-  const publicRequest = leaderboard.findOne({
-    publicKey: key
-  }, result => {
-    return { type: 'public' }
-  });
-
-  return null;
-};
 
 module.exports = router;
