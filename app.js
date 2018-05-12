@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 require('./models/Leaderboard');
 const Leaderboard = mongoose.model('leaderboards');
 mongoose.connect('mongodb://localhost/crispy-meme');
+
 /**
  * Load routes
  */
