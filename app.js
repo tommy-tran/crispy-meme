@@ -17,9 +17,14 @@ app.get('/', (req, res, next) => {
   res.send('root');
 });
 
-app.use('/:key', requestRoute);
+app.post('/create', (req, res) => {
+
+});
+
+app.use('/lb/:key', requestRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
+

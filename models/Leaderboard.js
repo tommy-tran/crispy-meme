@@ -15,7 +15,7 @@ const leaderboardSchema = new Schema({
   },
   dateCreated: {
     type: Date,
-    required: true
+    default: Date.now()
   },
   data: [userSchema],
   publicKey: stringRequired,
