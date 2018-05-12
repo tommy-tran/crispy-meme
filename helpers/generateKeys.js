@@ -2,12 +2,16 @@ const mongoose = require('mongoose');
 const Leaderboard = mongoose.model('leaderboards');
 
 const generateKeys = () => {
-  const privateKey = Math.random()
-    .toString(36)
-    .replace('0.', '');
-  const publicKey = Math.random()
-    .toString(36)
-    .replace('0.', '');
+  const randomKeys = num => {
+    let key = '';
+    for (let i = 0; i < num; i++) {
+      key += Math.random()
+        .toString(36)
+        .replace('0.', '');
+    }
+  };
+  const privateKey = randomKeys(2);
+  const publicKey = randomKeys(2);
 
   // To handle unlikely case of both private and public keys being the same
   if (privateKey === publicKey) {

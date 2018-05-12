@@ -10,8 +10,8 @@ const getRequestType = require('../helpers/getRequestType');
 router.all('/*', (req, res, next) => {
   const type = getRequestType(req.key);
 
-  if (request) {
-    req.requestType = request;
+  if (type) {
+    req.requestType = type;
     next();
   } else {
     // Invalid request
