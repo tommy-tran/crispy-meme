@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Leaderboard = mongoose.model('leaderboards');
 
 const generateKeys = () => {

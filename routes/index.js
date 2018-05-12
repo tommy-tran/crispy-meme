@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const leaderboard = mongoose.model('leaderboards');
+const Leaderboard = mongoose.model('leaderboards');
 const router = express.Router();
 const generateKeys = require('../helpers/generateKeys');
 
@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/create', (req, res) => {
   const gameName = req.query.gameName;
-  const ownerName = req.query.name;
+  const ownerName = req.query.ownerName;
   const email = req.query.email;
   const keys = generateKeys();
 
@@ -18,13 +18,15 @@ router.post('/create', (req, res) => {
     gameName,
     ownerName,
     email,
-    ...keys
+    privateKey: keys.privateKey,
+    publicKey: keys.publicKey
   })
     .save()
     .then(res.send('Successfully created leaderboard'))
     .catch(err => {
+      console.log(err);
       throw new Error('Failed to create leaderboard!');
     });
 });
 
-export default router;
+module.exports = router;
