@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const userSchema = require('./Users');
 
 const leaderboardSchema = new Schema({
+  gameName: {
+    type: String,
+    required: true
+  },
   owner: {
     name: {
       type: String,
@@ -16,19 +21,7 @@ const leaderboardSchema = new Schema({
     type: Date,
     required: true
   },
-  data: [
-    {
-      // User: UserModel
-      position: {
-        type: Number,
-        required: true
-      },
-      date: {
-        type: Date,
-        required: true
-      }
-    }
-  ],
+  data: [userSchema],
   publicKey: {
     type: String,
     required: true,
@@ -38,3 +31,7 @@ const leaderboardSchema = new Schema({
     required: true
   }
 });
+
+mongoose.model('leaderboards', leaderboardSchema);
+
+export default leaderboardSchema;
