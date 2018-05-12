@@ -1,37 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const userSchema = require('./Users');
+const userSchema = require('./User');
+
+const stringRequired = {
+  type: String,
+  required: true
+}
 
 const leaderboardSchema = new Schema({
-  gameName: {
-    type: String,
-    required: true
-  },
+  gameName: stringRequired,
   owner: {
-    name: {
-      type: String,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true
-    }
+    name: stringRequired,
+    email: stringRequired
   },
   dateCreated: {
     type: Date,
     required: true
   },
   data: [userSchema],
-  publicKey: {
-    type: String,
-    required: true,
-  },
-  privateKey: {
-    type: String,
-    required: true
-  }
+  publicKey: stringRequired,
+  privateKey: stringRequired
 });
 
 mongoose.model('leaderboards', leaderboardSchema);
-
-export default leaderboardSchema;
