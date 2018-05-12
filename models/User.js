@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = {
   username: {
     type: String,
-    required: true   
+    required: true
   },
   position: {
     type: Number,
@@ -22,6 +22,6 @@ const userSchema = {
     type: String,
     required: () => this.score || this.time
   }
-}
+};
 
 module.exports = userSchema;

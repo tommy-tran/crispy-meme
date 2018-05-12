@@ -9,10 +9,8 @@ const stringRequired = {
 
 const leaderboardSchema = new Schema({
   gameName: stringRequired,
-  owner: {
-    name: stringRequired,
-    email: stringRequired
-  },
+  ownerName: stringRequired,
+  email: stringRequired,
   dateCreated: {
     type: Date,
     default: Date.now()
