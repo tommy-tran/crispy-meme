@@ -3,13 +3,13 @@ const express = require('express');
 const leaderboard = mongoose.model('leaderboards');
 const router = express.Router({ mergeParams: true });
 const getRequestType = require('../helpers/getRequestType');
+const userRoute = require('./user');
 
 /**
  * Determines if request is by private key, public key, or invalid
  */
 router.all('/*', (req, res, next) => {
   const type = getRequestType(req.key);
-
   if (type) {
     req.requestType = type;
     next();
@@ -19,25 +19,7 @@ router.all('/*', (req, res, next) => {
   }
 });
 
-
-/**
- * User specific routes
- */
-router.get('/user/:user', (req, res) => {
-  // Return user data (more data if private key?)
-});
-
-router.delete('/user/:user', (req, res) => {
-  // Check for private key and delete user score from leaderboard if valid
-});
-
-router.post('/user/:user/:points', (req, res) => {
-  // Check for private key and set new score/time if valid
-});
-
-router.put('/user/:user/:points', (req, res) => {
-  // Check for private key and set new score/time if valid
-});
+router.use('/user', userRoute);
 
 /**
  * Leaderboard request
