@@ -40,7 +40,7 @@ router.delete('/', (req, res) => {
     .findOneAndRemove({
       privateKey: req.params.key
     })
-    .then(docs => {
+    .then(lb => {
       if (!docs) {
         res.statusCode = '500';
         throw new Error('Error deleting leaderboard');
@@ -55,10 +55,27 @@ router.delete('/', (req, res) => {
 
 router.get('/publickey', (req, res) => {
   // Check if private key and return public key
+  leaderboard.findOne(
+    {
+      privateKey: req.params.key
+    },
+    (err, lb) => {
+      res.send(`Your public key is: ${lb.publicKey}`);
+    }
+  );
 });
 
 router.get('/clear', (req, res) => {
   // Check if private key and clear leaderboard
+  leaderboard.findOneAndUpdate(
+    {
+      privateKey: req.params.key
+    },
+    { data: [] },
+    (err, old) => {
+      res.send(old);
+    }
+  );
 });
 
 router.get('/info', (req, res) => {
