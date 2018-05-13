@@ -36,6 +36,21 @@ router.get('/', (req, res) => {
  */
 router.delete('/', (req, res) => {
   // Check for private key and delete leaderboard if valid
+  leaderboard
+    .findOneAndRemove({
+      privateKey: req.params.key
+    })
+    .then(docs => {
+      if (!docs) {
+        res.statusCode = '500';
+        throw new Error('Error deleting leaderboard');
+      }
+      res.send('Your leaderboard has been deleted.' + docs);
+    })
+    .catch(err => {
+      console.log(err);
+      res.send('Error performing delete request.');
+    });
 });
 
 router.get('/publickey', (req, res) => {
