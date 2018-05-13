@@ -2,22 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const leaderboard = mongoose.model('leaderboards');
 const router = express.Router({ mergeParams: true });
-const getRequestType = require('../helpers/getRequestType');
 const userRoute = require('./user');
-
-/**
- * Determines if request is by private key, public key, or invalid
- */
-router.all('/*', (req, res, next) => {
-  const type = getRequestType(req.key);
-  if (type) {
-    req.requestType = type;
-    next();
-  } else {
-    // Invalid request
-    res.end();
-  }
-});
 
 router.use('/user', userRoute);
 
@@ -34,12 +19,16 @@ router.get('/', (req, res) => {
 /**
  * Private routes
  */
-router.delete('/', (req, res) => {
-  // Check for private key and delete leaderboard if valid
-  if (req.requestType === 'public') {
-    res.send('Unauthorized deletion request');
-  }
+router.get('/info', (req, res) => {
+  // Check if private key and show database information
+  leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
+    console.log(err);
+    console.log(lb);
+    res.send('lb');
+  });
+});
 
+router.delete('/', (req, res) => {
   leaderboard
     .findOneAndRemove({
       privateKey: req.params.key
@@ -58,17 +47,21 @@ router.delete('/', (req, res) => {
 });
 
 router.get('/publickey', (req, res) => {
-  // Check if private key and return public key
-  if (req.requestType === 'public') {
-    res.send('Unauthorized public key request');
-  }
-
   leaderboard.findOne(
     {
       privateKey: req.params.key
     },
     (err, lb) => {
-      res.send(`Your public key is: ${lb.publicKey}`);
+      if (err) {
+        res.send('Error attemping to fetch public key');
+        res.end();
+      }
+
+      if (lb) {
+        res.send(`Your public key is: ${lb.publicKey}`);
+      } else {
+        res.send('Invalid leaderboard, please check your key again!');
+      }
     }
   );
 });
@@ -88,10 +81,6 @@ router.get('/clear', (req, res) => {
       res.send(old);
     }
   );
-});
-
-router.get('/info', (req, res) => {
-  // Check if private key and show database information
 });
 
 module.exports = router;

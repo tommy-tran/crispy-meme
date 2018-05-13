@@ -17,7 +17,6 @@ const generateKeys = () => {
 
   // To handle unlikely case of both private and public keys being the same
   if (privateKey === publicKey) {
-    console.log('Im here');    
     return generateKeys();
   }
 
