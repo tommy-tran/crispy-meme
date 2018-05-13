@@ -36,6 +36,10 @@ router.get('/', (req, res) => {
  */
 router.delete('/', (req, res) => {
   // Check for private key and delete leaderboard if valid
+  if (req.requestType === 'public') {
+    res.send('Unauthorized deletion request');
+  }
+
   leaderboard
     .findOneAndRemove({
       privateKey: req.params.key
@@ -55,6 +59,10 @@ router.delete('/', (req, res) => {
 
 router.get('/publickey', (req, res) => {
   // Check if private key and return public key
+  if (req.requestType === 'public') {
+    res.send('Unauthorized public key request');
+  }
+
   leaderboard.findOne(
     {
       privateKey: req.params.key
@@ -66,6 +74,10 @@ router.get('/publickey', (req, res) => {
 });
 
 router.get('/clear', (req, res) => {
+  if (req.requestType === 'public') {
+    res.send('Unauthorized clear request');
+  }
+
   // Check if private key and clear leaderboard
   leaderboard.findOneAndUpdate(
     {

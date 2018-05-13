@@ -5,8 +5,6 @@ const leaderboard = mongoose.model('leaderboards');
  * Checks for request type and returns object specifying request type and the request itself
  */
 const getRequestType = key => {
-  // Used until database is set up
-  return { type: 'private' };
 
   const privateRequest = leaderboard.findOne({
     privateKey: key
