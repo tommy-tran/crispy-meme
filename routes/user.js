@@ -20,4 +20,4 @@ router.put('/:user/:points', (req, res) => {
 });
 
 
-export default router;
+module.exports = router;
