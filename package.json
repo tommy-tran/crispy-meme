@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon",
-    "test": "mocha"
+    "test": "mocha --exec 'mocha -R min'"
   },
   "repository": {
     "type": "git",
