@@ -10,13 +10,13 @@ router.use('/user', userRoute);
  * Leaderboard request
  */
 router.get('/', (req, res) => {
-  let query = {};
-
   const limit = req.query.limit || 100;
 
   Leaderboard.findOne({
-    $or: [{ privateKey: req.param.key }, { publicKey: req.param.key }]
-  }).select('data').limit(limit).sort({});
+    $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
+  }).select('data').then(data => {
+    res.send(data);
+  });
   /**
    * Get leaderboard, allow options like ascending and descending order, limiter
    * Must be sorted, allow retrieval of JSON and XML(?)
@@ -39,10 +39,9 @@ router.delete('/', (req, res) => {
   })
     .then(lb => {
       if (!docs) {
-        res.statusCode = '500';
         throw new Error('Error deleting leaderboard');
       }
-      res.send('Your leaderboard has been deleted.' + docs);
+      res.send('Your leaderboard has been deleted.');
     })
     .catch(err => {
       console.log(err);
