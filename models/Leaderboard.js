@@ -21,3 +21,5 @@ const leaderboardSchema = new Schema({
 });
 
 mongoose.model('leaderboards', leaderboardSchema);
+
+module.exports = mongoose.model('leaderboards');
