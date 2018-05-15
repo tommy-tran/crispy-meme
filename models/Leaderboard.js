@@ -5,7 +5,7 @@ const userSchema = require('./User');
 const stringRequired = {
   type: String,
   required: true
-}
+};
 
 const leaderboardSchema = new Schema({
   gameName: stringRequired,
@@ -15,7 +15,12 @@ const leaderboardSchema = new Schema({
     type: Date,
     default: Date.now()
   },
-  data: [userSchema],
+  data: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ],
   publicKey: stringRequired,
   privateKey: stringRequired
 });
