@@ -14,9 +14,13 @@ router.get('/', (req, res) => {
 
   Leaderboard.findOne({
     $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
-  }).select('data').then(data => {
-    res.send(data);
-  });
+  })
+    .select('data')
+    .sort({
+      data: {
+        score: -1
+      }
+    });
   /**
    * Get leaderboard, allow options like ascending and descending order, limiter
    * Must be sorted, allow retrieval of JSON and XML(?)

@@ -6,10 +6,6 @@ const userSchema = {
     type: String,
     required: true
   },
-  position: {
-    type: Number,
-    required: true
-  },
   date: {
     type: Date,
     required: true
@@ -23,5 +19,7 @@ const userSchema = {
     required: () => this.score || this.time
   }
 };
+
+mongoose.model('users', userSchema);
 
 module.exports = userSchema;

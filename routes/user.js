@@ -5,6 +5,8 @@ const router = express.Router({ mergeParams: true });
 
 router.get('/:user', (req, res) => {
   // Return user data (more data if private key?)
+  
+
 });
 
 router.delete('/:user', (req, res) => {
