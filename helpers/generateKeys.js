@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Leaderboard = mongoose.model('leaderboards');
+const Leaderboard = require('../models/Leaderboard');
 
 const generateKeys = () => {
   const randomKeys = num => {
@@ -12,8 +12,8 @@ const generateKeys = () => {
 
     return key;
   };
-  const privateKey =  randomKeys(2);
-  const publicKey =  randomKeys(2);
+  const privateKey = randomKeys(2);
+  const publicKey = randomKeys(2);
 
   // To handle unlikely case of both private and public keys being the same
   if (privateKey === publicKey) {

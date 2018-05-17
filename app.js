@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 /**
  * Load models
  */
-require('./models/Leaderboard');
-const Leaderboard = mongoose.model('leaderboards');
+const Leaderboard = require('./models/Leaderboard');
 mongoose.connect('mongodb://localhost/crispy-meme');
 
 /**

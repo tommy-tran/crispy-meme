@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const Leaderboard = mongoose.model('leaderboards');
+const Leaderboard = require('../models/Leaderboard');
 const router = express.Router({ mergeParams: true });
 const userRoute = require('./user');
 

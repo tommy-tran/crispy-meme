@@ -18,13 +18,13 @@ const leaderboardSchema = new Schema({
   data: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'user'
     }
   ],
   publicKey: stringRequired,
   privateKey: stringRequired
 });
 
-const Leaderboard = mongoose.model('leaderboards', leaderboardSchema);
+const Leaderboard = mongoose.model('leaderboard', leaderboardSchema);
 
 module.exports = Leaderboard;
