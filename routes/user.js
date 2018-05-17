@@ -3,10 +3,6 @@ const express = require('express');
 const Leaderboard = require('../models/Leaderboard');
 const User = require('../models/User');
 const router = express.Router({ mergeParams: true });
-const {
-  validatePublicKey,
-  validatePrivateKey
-} = require('../helpers/validateKey');
 
 router.get('/:user', (req, res) => {
   Leaderboard.findOne({
