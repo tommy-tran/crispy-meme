@@ -8,15 +8,11 @@ const userSchema = new Schema({
   },
   date: {
     type: Date,
-    required: true
+    default: Date.now()
   },
   score: {
     type: Number,
-    required: () => this.score || this.time
-  },
-  time: {
-    type: String,
-    required: () => this.score || this.time
+    required: true
   }
 });
 

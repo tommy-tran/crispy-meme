@@ -25,6 +25,6 @@ const leaderboardSchema = new Schema({
   privateKey: stringRequired
 });
 
-mongoose.model('leaderboards', leaderboardSchema);
+const Leaderboard = mongoose.model('leaderboards', leaderboardSchema);
 
-module.exports = mongoose.model('leaderboards');
+module.exports = Leaderboard;
