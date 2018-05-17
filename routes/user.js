@@ -107,7 +107,7 @@ router.post('/:user/:score', (req, res) => {
             // Add reference to leaderboard on new user
             if (newUser) {
               if (err) res.status(500).send('Error');
-              leaderboard.data.push(mongoose.Types.ObjectId(user._id));
+              leaderboard.data.push(user._id);
               leaderboard.save();
               return res.send(user);
             }

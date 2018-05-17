@@ -7,24 +7,44 @@ const userRoute = require('./user');
 router.use('/user', userRoute);
 
 /**
- * Leaderboard request
+ * Get all users from leaderboard
+ * Query options:
+ * limit - limits number of returned users, default 50
+ * order - determines how users sorted and returned, either des(descending) or asc(ascending)
  */
 router.get('/', (req, res) => {
-  const limit = req.query.limit || 100;
+  const limit = req.query.limit || 50;
+  const order = req.query.sort || 'des';
 
-  // Leaderboard.findOne({
-  //   $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
-  // })
-  //   .select('data')
-  //   .sort({
-  //     data: {
-  //       score: -1
-  //     }
-  //   });
-  /**
-   * Get leaderboard, allow options like ascending and descending order, limiter
-   * Must be sorted, allow retrieval of JSON and XML(?)
-   */
+  Leaderboard.findOne({
+    $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
+  })
+    .select('data')
+    .populate('data')
+    .exec((err, leaderboard) => {
+      if (err || !leaderboard)
+        return res.status(404).send('Unable to find leaderboard.');
+
+      res.send(
+        leaderboard.data
+          .map(user => {
+            return {
+              username: user.username,
+              date: user.date,
+              score: user.score
+            };
+          })
+          .sort((a, b) => {
+            if (a.score > b.score) {
+              return order === 'des' ? -1 : 1;
+            } else if (a.score < b.score) {
+              return order === 'des' ? 1 : -1;
+            }
+            return 0;
+          })
+          .slice(0, limit)
+      );
+    });
 });
 
 /**
