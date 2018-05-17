@@ -14,7 +14,7 @@ router.use('/user', userRoute);
  */
 router.get('/', (req, res) => {
   const limit = req.query.limit || 50;
-  const order = req.query.sort || 'des';
+  const order = req.query.order || 'des';
 
   Leaderboard.findOne({
     $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
@@ -36,9 +36,11 @@ router.get('/', (req, res) => {
           })
           .sort((a, b) => {
             if (a.score > b.score) {
-              return order === 'des' ? -1 : 1;
+              if (order === 'asc') return 1;
+              else if (order === 'des') return -1;
             } else if (a.score < b.score) {
-              return order === 'des' ? 1 : -1;
+              if (order === 'asc') return -1;
+              else if (order === 'des') return 1;
             }
             return 0;
           })
