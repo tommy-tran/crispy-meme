@@ -7,7 +7,7 @@ mongoose.connection
     'Mongoose connected to test db';
   })
   .on('error', err => {
-    console.lowarn('WARNING', err);
+    console.warn('WARNING', err);
   });
 
 beforeEach(done => {

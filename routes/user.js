@@ -4,6 +4,7 @@ const Leaderboard = require('../models/Leaderboard');
 const User = require('../models/User');
 const router = express.Router({ mergeParams: true });
 
+// Using private or public key to fetch user
 router.get('/:user', (req, res) => {
   Leaderboard.findOne({
     $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
@@ -29,8 +30,8 @@ router.get('/:user', (req, res) => {
     });
 });
 
+// Check for private key and delete user score from leaderboard if valid
 router.delete('/:user', (req, res) => {
-  // Check for private key and delete user score from leaderboard if valid
   const lbQuery = Leaderboard.findOne({
     privateKey: req.params.key
   })
@@ -63,8 +64,8 @@ router.delete('/:user', (req, res) => {
     });
 });
 
+// Check for private key and post/update score
 router.post('/:user/:score', (req, res) => {
-  // Private key necessary for posting/updating score
   const lbQuery = Leaderboard.findOne({
     privateKey: req.params.key
   })

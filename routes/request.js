@@ -49,11 +49,8 @@ router.get('/', (req, res) => {
     });
 });
 
-/**
- * Private routes
- */
+// Shows information about leaderboard, requires private key
 router.get('/info', (req, res) => {
-  // Check if private key and show database information
   Leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
     res.send(lb);
   });
@@ -65,7 +62,7 @@ router.delete('/', (req, res) => {
   })
     .then(lb => {
       if (!docs) {
-        throw new Error('Error deleting leaderboard');
+        res.status(404).send('Unable to delete specified leaderboard.');
       }
       res.send('Your leaderboard has been deleted.');
     })
@@ -75,6 +72,7 @@ router.delete('/', (req, res) => {
     });
 });
 
+// Fetches public key only, requires private key
 router.get('/publickey', (req, res) => {
   Leaderboard.findOne(
     {
@@ -82,24 +80,20 @@ router.get('/publickey', (req, res) => {
     },
     (err, lb) => {
       if (err) {
-        res.send('Error attemping to fetch public key');
-        res.end();
+        return res.status(400).send('Error attemping to fetch public key');
       }
 
       if (lb) {
-        res.send(`Your public key is: ${lb.publicKey}`);
+        return res.send(`Your leaderboard's public key is: ${lb.publicKey}`);
       } else {
-        res.send('Invalid leaderboard, please check your key again!');
+        return res.send('No leaderboard found, please check your key again!');
       }
     }
   );
 });
 
+// Clears leaderboard, requires private key
 router.get('/clear', (req, res) => {
-  if (req.requestType === 'public') {
-    res.send('Unauthorized clear request');
-  }
-
   // Check if private key and clear leaderboard
   Leaderboard.findOneAndUpdate(
     {
@@ -107,7 +101,11 @@ router.get('/clear', (req, res) => {
     },
     { data: [] },
     (err, old) => {
-      res.send(old);
+      if (old) {
+        res.send('Leaderboard successfully cleared.');
+      } else {
+        res.status(404).send('Unable to clear leaderboard');
+      }
     }
   );
 });
