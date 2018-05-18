@@ -52,7 +52,14 @@ router.get('/', (req, res) => {
 // Shows information about leaderboard, requires private key
 router.get('/info', (req, res) => {
   Leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
-    res.send(lb);
+    res.send({
+      dateCreated: lb.dateCreated,
+      gameName: lb.gameName,
+      ownerName: lb.ownerName,
+      email: lb.email,
+      privateKey: lb.privateKey,
+      publicKey: lb.publicKey
+    })
   });
 });
 

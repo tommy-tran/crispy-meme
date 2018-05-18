@@ -10,10 +10,12 @@ Owners of leaderboards will be able to call to the api with their private key to
 The public key allows owners to safely distribute a method to fetch leaderboard information such as individual user stats or retrieval of parts or the whole leaderboard.
 
 ### To build locally:
-1. Clone or download repo
-2. 'npm start' while in directory
 
-To do:
-* Finish request end point logic
+1. Clone or download repo
+2. Install dependencies
+3. Run local mongo server
+4. 'npm start' while in directory
+
+### To do:
 * Front end to more easily interact with API (possibly)
-* More endpoints such as key regeneration
+* More endpoints such as key regeneration, key retrieval via email

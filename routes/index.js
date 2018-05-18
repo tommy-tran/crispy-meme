@@ -22,18 +22,15 @@ router.post('/create', (req, res) => {
     publicKey: keys.publicKey
   })
     .save()
-    .then(() => {
-      res.send(
-        `Game Name: ${gameName}, Owner: ${ownerName}, Email: ${email}, Private Key: ${
-          keys.privateKey
-        }, Public Key: ${keys.publicKey}`
-      )
-    }
-
-    )
+    .then(lb => {
+      res.send(lb);
+    })
     .catch(err => {
       console.log(err);
-      return res.status(400).send('Failed to create leaderboard!');
+      if (err) {
+        return res.status(400).send(err)
+      }
+      res.status(400).send('Failed to create leaderboard.');
     });
 });
 
