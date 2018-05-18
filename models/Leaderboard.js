@@ -8,7 +8,11 @@ const stringRequired = {
 };
 
 const leaderboardSchema = new Schema({
-  gameName: stringRequired,
+  gameName: {
+    type: String,
+    required: true,
+    unique: true
+  },
   ownerName: stringRequired,
   email: stringRequired,
   dateCreated: {

@@ -30,7 +30,7 @@ router.get('/:user', (req, res) => {
     });
 });
 
-// Check for private key and delete user score from leaderboard if valid
+// Using private key to delete user score from leaderboard if valid
 router.delete('/:user', (req, res) => {
   const lbQuery = Leaderboard.findOne({
     privateKey: req.params.key
@@ -103,7 +103,7 @@ router.post('/:user/:score', (req, res) => {
           user.save().then(user => {
             // Add reference to leaderboard on new user
             if (newUser) {
-              if (err) res.status(500).send('Error');
+              if (err) res.status(500).send('Error creating user');
               leaderboard.data.push(user._id);
               leaderboard.save();
               return res.send(user);
