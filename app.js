@@ -10,12 +10,10 @@ mongoose.connect('mongodb://localhost/crispy-meme');
 /**
  * Load routes
  */
-const index = require('./routes/index');
-const requestRoute = require('./routes/request');
+const requestRoutes = require('./routes/request');
 
 const app = express();
-app.use('/', index);
-app.use('/lb/:key', requestRoute);
+app.use('/lb', requestRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

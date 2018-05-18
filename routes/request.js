@@ -2,17 +2,45 @@ const mongoose = require('mongoose');
 const express = require('express');
 const Leaderboard = require('../models/Leaderboard');
 const router = express.Router({ mergeParams: true });
+const generateKeys = require('../helpers/generateKeys');
 const userRoute = require('./user');
 
-router.use('/user', userRoute);
+router.get('/create', (req, res) => {
+  const gameName = req.query.gameName;
+  const ownerName = req.query.ownerName;
+  const email = req.query.email;
+  const keys = generateKeys();
 
+  new Leaderboard({
+    gameName,
+    ownerName,
+    email,
+    privateKey: keys.privateKey,
+    publicKey: keys.publicKey
+  })
+    .save()
+    .then(lb => {
+      res.send(lb);
+    })
+    .catch(err => {
+      if (err) {
+        return res.status(400).send({
+          status: 400,
+          message: "Invalid parameters"
+        });
+      }
+      res.status(400).send('Failed to create leaderboard.');
+    });
+});
+
+router.use('/:key/user', userRoute);
 /**
  * Get all users from leaderboard
  * Query options:
  * limit - limits number of returned users, default 50
  * order - determines how users sorted and returned, either des(descending) or asc(ascending)
  */
-router.get('/', (req, res) => {
+router.get('/:key', (req, res) => {
   const limit = req.query.limit || 50;
   const order = req.query.order || 'des';
 
@@ -50,7 +78,7 @@ router.get('/', (req, res) => {
 });
 
 // Shows information about leaderboard, requires private key
-router.get('/info', (req, res) => {
+router.get('/:key/info', (req, res) => {
   Leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
     res.send({
       dateCreated: lb.dateCreated,
@@ -63,24 +91,8 @@ router.get('/info', (req, res) => {
   });
 });
 
-router.delete('/', (req, res) => {
-  Leaderboard.findOneAndRemove({
-    privateKey: req.params.key
-  })
-    .then(lb => {
-      if (!docs) {
-        res.status(404).send('Unable to delete specified leaderboard.');
-      }
-      res.send('Your leaderboard has been deleted.');
-    })
-    .catch(err => {
-      console.log(err);
-      res.send('Error performing delete request.');
-    });
-});
-
 // Fetches public key only, requires private key
-router.get('/publickey', (req, res) => {
+router.get('/key/publickey', (req, res) => {
   Leaderboard.findOne(
     {
       privateKey: req.params.key
@@ -100,7 +112,7 @@ router.get('/publickey', (req, res) => {
 });
 
 // Clears leaderboard, requires private key
-router.get('/clear', (req, res) => {
+router.get('/:key/clear', (req, res) => {
   // Check if private key and clear leaderboard
   Leaderboard.findOneAndUpdate(
     {
@@ -115,6 +127,22 @@ router.get('/clear', (req, res) => {
       }
     }
   );
+});
+
+router.delete('/:key', (req, res) => {
+  Leaderboard.findOneAndRemove({
+    privateKey: req.params.key
+  })
+    .then(lb => {
+      if (!docs) {
+        res.status(404).send('Unable to delete specified leaderboard.');
+      }
+      res.send('Your leaderboard has been deleted.');
+    })
+    .catch(err => {
+      console.log(err);
+      res.send('Error performing delete request.');
+    });
 });
 
 module.exports = router;
