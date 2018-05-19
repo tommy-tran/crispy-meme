@@ -15,10 +15,8 @@ class Landing extends Component {
     return (
       <div className="Landing">
         {redirect}
-        <Card>
-          <KeyInput submitKeyHandler={this.props.onFetchLeaderboard} />
-        </Card>
-        <Card />
+        <i className="far fa-trophy-alt fa-10x" />
+        <KeyInput submitKeyHandler={this.props.onFetchLeaderboard} />
       </div>
     );
   }

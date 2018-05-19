@@ -27,10 +27,10 @@ class KeyInput extends Component {
   };
 
   render() {
-    let keyIcon = <i class="far fa-key KeyInput__Icon" />;
+    let keyIcon = <i className="far fa-key KeyInput__Icon" />;
 
     if (this.state.inputting) {
-      keyIcon = <i class="far fa-key KeyInput__Icon fa-spin" />;
+      keyIcon = <i className="far fa-key KeyInput__Icon fa-spin" />;
     }
 
     return (

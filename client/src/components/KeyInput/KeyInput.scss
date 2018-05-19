@@ -6,16 +6,16 @@
   margin: 50px auto;
   transition: 0.3s;
   border-radius: 5px;
-  color: rgb(135, 146, 182);
+  color: rgb(0, 0, 0);
 
   &__Header {
     font-size: 3em;
     margin: 20px 0;
     font-style: oblique;
   }
-
   &__ButtonBox {
     display: flex;
+
     justify-content: center;
   }
 
@@ -30,13 +30,12 @@
   &__Input {
     color: rgb(67, 72, 87);
     font-size: 1.4em;
-    margin: 20px auto;
-    padding: 5px 10px;
-    width: 80%;
+    margin: 30px auto;
+    padding: 5px 0;
+    width: 50%;
     text-align: center;
     outline-color: lightblue;
     flex-grow: 5;
-    width: 100%;
   }
 }
 

@@ -2,11 +2,11 @@
   height: 2.5em;
   line-height: 2.5em;
   width: 100%;
-  background: -webkit-linear-gradient(to right, rgb(128, 134, 167), rgb(138, 105, 93));
-  background: linear-gradient(to right, rgb(128, 134, 167), rgb(177, 212, 211));
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   text-align: center;
   font-size: 1.8em;
-  color: #fff;    
+  color: #fff;
+  position: absolute;
 
   &__Logo {
     padding-left: 0.5em;
