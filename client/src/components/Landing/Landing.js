@@ -15,18 +15,16 @@ class Landing extends Component {
     return (
       <div className="Landing">
         {redirect}
-        <Card><KeyInput submitKeyHandler={this.props.onFetchLeaderboard} /></Card>
-        <Card></Card>
-        
-        
-        
+        <Card>
+          <KeyInput submitKeyHandler={this.props.onFetchLeaderboard} />
+        </Card>
+        <Card />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     leaderboard: state.leaderboard.currentLeaderboard
   };

@@ -15,9 +15,11 @@
     display: flex;
     justify-content: center; }
   .KeyInput__Icon {
+    margin: auto auto;
     font-size: 2em;
-    padding: 0 20px;
-    text-shadow: 0 1px white; }
+    flex-shrink: 2;
+    text-shadow: 0 1px white;
+    width: 100%; }
   .KeyInput__Input {
     color: #434857;
     font-size: 1.4em;
@@ -25,4 +27,6 @@
     padding: 5px 10px;
     width: 80%;
     text-align: center;
-    outline-color: lightblue; }
+    outline-color: lightblue;
+    flex-grow: 5;
+    width: 100%; }

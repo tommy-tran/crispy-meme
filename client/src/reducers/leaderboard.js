@@ -9,8 +9,6 @@ import {
 let initialState = { error: null };
 
 const leaderboardReducer = (state = initialState, action) => {
-  console.log(state);
-  console.log(action);
   switch (action.type) {
     case CREATE_LEADERBOARD:
       return {

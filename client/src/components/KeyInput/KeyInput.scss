@@ -20,9 +20,11 @@
   }
 
   &__Icon {
+    margin: auto auto;
     font-size: 2em;
-    padding: 0 20px;
+    flex-shrink: 2;
     text-shadow: 0 1px rgb(255, 255, 255);
+    width: 100%;
   }
 
   &__Input {
@@ -33,6 +35,8 @@
     width: 80%;
     text-align: center;
     outline-color: lightblue;
+    flex-grow: 5;
+    width: 100%;
   }
 }
 
