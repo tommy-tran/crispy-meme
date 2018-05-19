@@ -22,7 +22,8 @@
       background-color: #86be86; }
     .Button--Confirm:active {
       color: white;
-      background-color: #86be86; }
+      border: 3px solid #86be86;
+      background-color: #5d855d; }
   .Button--Cancel {
     background-color: transparent;
     text-shadow: 1px 1px #b44343;
@@ -34,4 +35,5 @@
     .Button--Cancel:active {
       color: white;
       background-color: #c26e6e;
-      box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2); }
+      box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border: 3px solid #eea8a8; }

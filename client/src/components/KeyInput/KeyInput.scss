@@ -3,12 +3,12 @@
   flex-direction: column;
   text-align: center;
   width: 90%;
-  margin: 10px auto;
+  margin: 50px auto;
   transition: 0.3s;
   border-radius: 5px;
+  color: rgb(135, 146, 182);
 
   &__Header {
-    color: rgb(135, 146, 182);
     font-size: 3em;
     margin: 20px 0;
     font-style: oblique;
@@ -21,16 +21,19 @@
 
   &__Icon {
     font-size: 2em;
-    color: rgb(135, 146, 182);
     padding: 0 20px;
     text-shadow: 0 1px rgb(255, 255, 255);
   }
+
+  &__Input {
+    color: rgb(67, 72, 87);
+    font-size: 1.4em;
+    margin: 20px auto;
+    padding: 5px 10px;
+    width: 80%;
+    text-align: center;
+    outline-color: lightblue;
+  }
 }
 
-input {
-  font-size: 1.4em;
-  margin: 20px auto;
-  padding: 5px 10px;
-  width: 80%;
-  text-align: center;
-}
+

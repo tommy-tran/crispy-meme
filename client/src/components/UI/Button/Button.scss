@@ -26,7 +26,8 @@
 
     &:active {
       color: white;
-      background-color: rgb(134, 190, 134);
+      border: 3px solid rgb(134, 190, 134);
+      background-color: rgb(93, 133, 93);
     }
   }
 
@@ -44,7 +45,8 @@
     &:active {
       color: white;
       background-color: rgb(194, 110, 110);
-      box-shadow: 1px 4px 8px 0 rgba(0,0,0,0.2);      
+      box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border: 3px solid rgb(238, 168, 168);
     }
   }
 }

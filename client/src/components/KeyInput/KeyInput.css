@@ -3,11 +3,11 @@
   flex-direction: column;
   text-align: center;
   width: 90%;
-  margin: 10px auto;
+  margin: 50px auto;
   transition: 0.3s;
-  border-radius: 5px; }
+  border-radius: 5px;
+  color: #8792b6; }
   .KeyInput__Header {
-    color: #8792b6;
     font-size: 3em;
     margin: 20px 0;
     font-style: oblique; }
@@ -16,13 +16,13 @@
     justify-content: center; }
   .KeyInput__Icon {
     font-size: 2em;
-    color: #8792b6;
     padding: 0 20px;
     text-shadow: 0 1px white; }
-
-input {
-  font-size: 1.4em;
-  margin: 20px auto;
-  padding: 5px 10px;
-  width: 80%;
-  text-align: center; }
+  .KeyInput__Input {
+    color: #434857;
+    font-size: 1.4em;
+    margin: 20px auto;
+    padding: 5px 10px;
+    width: 80%;
+    text-align: center;
+    outline-color: lightblue; }

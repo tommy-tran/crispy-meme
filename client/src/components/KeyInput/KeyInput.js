@@ -40,14 +40,13 @@ class KeyInput extends Component {
         </span>
         <div>
           {keyIcon}
-          <input
+          <input className="KeyInput__Input"
             placeholder="Input your key here!"
             value={this.state.value}
             onChange={this.updateKeyInput}
             onFocus={this.rotateIcon}
             onBlur={this.rotateIcon}
           />
-          {keyIcon}
         </div>
         <div className="KeyInput__ButtonBox">
           <Button
