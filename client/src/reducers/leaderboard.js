@@ -6,11 +6,18 @@ import {
   CLEAR_LEADERBOARD
 } from '../actions/types';
 
-let initialState = {};
+let initialState = { error: null };
 
-export default (state = null, action) => {
+const leaderboardReducer = (state = initialState, action) => {
+  console.log(state);
+  console.log(action);
   switch (action.type) {
     case CREATE_LEADERBOARD:
+      return {
+        ...state,
+        error: null,
+        currentLeaderboard: action.payload
+      };
     case FETCH_LEADERBOARD:
       return {
         ...state,
@@ -35,6 +42,8 @@ export default (state = null, action) => {
         error: action.error
       };
     default:
-      return state
+      return state;
   }
 };
+
+export default leaderboardReducer;

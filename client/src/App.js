@@ -6,7 +6,6 @@ import Landing from './components/Landing/Landing';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 
-
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {

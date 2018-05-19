@@ -3,16 +3,29 @@ import './Landing.css';
 import KeyInput from '../KeyInput/KeyInput';
 import { connect } from 'react-redux';
 import { fetchLeaderboard } from '../../actions/leaderboard';
+import { Redirect } from 'react-router';
 
 class Landing extends Component {
   render() {
+    let redirect = null;
+    if (this.props.leaderboard) {
+      redirect = <Redirect to="/dashboard" />;
+    }
     return (
       <div className="Landing">
+        {redirect}
         <KeyInput submitKeyHandler={this.props.onFetchLeaderboard} />
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    leaderboard: state.leaderboard.currentLeaderboard
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -20,4 +33,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

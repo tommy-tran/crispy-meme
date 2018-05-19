@@ -8,19 +8,18 @@ import {
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
-  const requestLeaderboardInfo = await axios.get(`/${key}/info`);
-  const requestUsers = await axios.get(`/${key}`);
-
-  if (requestLeaderboardInfo.status === 200 && requestUsers === 200) {
+  const requestLeaderboardInfo = await axios.get(`/lb/${key}/info`);
+  const requestUsers = await axios.get(`/lb/${key}`);
+  if (requestLeaderboardInfo.status === 200 && requestUsers.status === 200) {
     const result = {
       ...requestLeaderboardInfo.data,
       data: requestUsers.data
     };
 
-    return {
+    dispatch({
       type: FETCH_LEADERBOARD,
       payload: result
-    };
+    });
   } else {
     const errorType = 'fetch leaderboard';
     dispatch(leaderboardError(errorType));
@@ -39,10 +38,10 @@ export const createLeaderboard = (
   });
 
   if (response.status === 200) {
-    return {
+    dispatch({
       type: CREATE_LEADERBOARD,
       payload: response.data
-    };
+    });
   } else {
     const errorType = 'creating leaderboard';
     dispatch(leaderboardError(errorType));
@@ -50,12 +49,12 @@ export const createLeaderboard = (
 };
 
 export const deleteLeaderboard = key => async dispatch => {
-  const response = await axios.delete(`/${key}`);
+  const response = await axios.delete(`/lb/${key}`);
 
   if (response.status === 200) {
-    return {
+    dispatch({
       type: DELETE_LEADERBOARD
-    };
+    });
   } else {
     const errorType = 'deleting leaderboard';
     dispatch(leaderboardError(errorType));
@@ -63,19 +62,20 @@ export const deleteLeaderboard = key => async dispatch => {
 };
 
 export const clearLeaderboard = key => async dispatch => {
-  const response = axios.get(`${key}/clear`);
+  const response = axios.get(`/lb/${key}/clear`);
 
   if (response.status === 200) {
-    return {
+    dispatch({
       type: CLEAR_LEADERBOARD
-    };
+    });
   } else {
     const errorType = 'clearing leaderboard';
     dispatch(leaderboardError(errorType));
   }
 };
 
-export const leaderboardError = error => () => ({
-  type: LEADERBOARD_ERROR,
-  error: error
-});
+export const leaderboardError = error => dispatch =>
+  dispatch({
+    type: LEADERBOARD_ERROR,
+    error: error
+  });

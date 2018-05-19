@@ -22,17 +22,18 @@ class KeyInput extends Component {
   render() {
     return (
       <div className="KeyInput">
-        <h3>Input your key here!</h3>
+        <span className="KeyInput__Header">Input your key here!</span>
         <input value={this.state.value} onChange={this.updateKeyInput} />
-        <Button
-          handleClick={() => {
-            this.props.submitKeyHandler(this.state.value);
-          }}
-          label="Confirm"
-          confirm
-        />
-
-        <Button handleClick={this.clearInput} label="Clear" cancel />
+        <div className="KeyInput__ButtonBox">
+          <Button
+            handleClick={() => {
+              this.props.submitKeyHandler(this.state.value);
+            }}
+            label="Confirm"
+            confirm
+          />
+          <Button handleClick={this.clearInput} label="Clear" cancel />
+        </div>
       </div>
     );
   }

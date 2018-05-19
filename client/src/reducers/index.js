@@ -4,7 +4,7 @@ import leaderboardReducer from './leaderboard';
 
 const rootReducer = combineReducers({
   // authReducer,
-  leaderboardReducer
+  leaderboard: leaderboardReducer
 });
 
 export default rootReducer;
