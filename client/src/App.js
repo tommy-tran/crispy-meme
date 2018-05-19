@@ -5,20 +5,23 @@ import Landing from './components/Landing/Landing';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 
+import { Route, Switch } from 'react-router-dom';
+
 class App extends Component {
   render() {
     /**
      * Landing, Header, Login page, Profile page(reset password, change email)
      * Panel(create lb, delete lbs, view lbs(add,delete,modify users)), Userlist(User)
      */
-    return(
+    return (
       <div>
         <Header />
-        <Landing />
-        <Login />
+        <Switch>
+          <Route path="/" exact component={Landing} />
+          <Route path="/login" component={Login} />
+        </Switch>
       </div>
-    )
-    
+    );
   }
 }
 
