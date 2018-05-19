@@ -1,7 +1,15 @@
 .KeyInput {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   border: 2px solid black; }
+  .KeyInput__Header {
+    font-size: 2em; }
+  .KeyInput__ButtonBox {
+    display: flex;
+    justify-content: center; }
 
 input {
-  margin: 10px 0 20px 0;
-  padding: 10px 20px; }
+  margin: 2em auto;
+  padding: 1em 1em;
+  width: 80%; }

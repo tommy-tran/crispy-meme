@@ -2,21 +2,33 @@
   background: #1aab8a;
   color: #fff;
   border: none;
+  border-radius: 10px;
   position: relative;
   height: 60px;
+  width: 200px;
   font-size: 1.6em;
   padding: 0 2em;
+  margin: 20px 15px;
   cursor: pointer;
-  transition: 800ms ease all;
+  transition: 600ms ease-out all;
   outline: none; }
   .Button--Confirm {
-    background-color: #a4dba4; }
+    background-color: transparent;
+    color: #a4dba4;
+    border: 1px solid #a4dba4; }
     .Button--Confirm:hover {
-      color: #a4dba4;
-      background-color: transparent;
-      border: 1px solid #a4dba4; }
+      color: white;
+      background-color: #a4dba4; }
     .Button--Confirm:active {
       color: white;
-      background-color: #7fc97f; }
+      background-color: #69aa69; }
   .Button--Cancel {
-    background-color: #eea8a8; }
+    background-color: transparent;
+    border: 1px solid #eea8a8;
+    color: #eea8a8; }
+    .Button--Cancel:hover {
+      color: white;
+      background-color: #eea8a8; }
+    .Button--Cancel:active {
+      color: white;
+      background-color: #c26e6e; }

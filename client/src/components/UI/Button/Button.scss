@@ -2,12 +2,15 @@
   background: #1aab8a;
   color: #fff;
   border: none;
+  border-radius: 10px;
   position: relative;
   height: 60px;
+  width: 200px;
   font-size: 1.6em;
   padding: 0 2em;
+  margin: 20px 15px;
   cursor: pointer;
-  transition: 800ms ease all;
+  transition: 600ms ease-out all;
   outline: none;
 
   // &:hover {
@@ -17,21 +20,34 @@
   // }
 
   &--Confirm {
-    background-color: rgb(164, 219, 164);
+    background-color: transparent;
+    color: rgb(164, 219, 164);
+    border: 1px solid rgb(164, 219, 164);
 
     &:hover {
-      color: rgb(164, 219, 164);
-      background-color: transparent;
-      border: 1px solid rgb(164, 219, 164);
+      color: white;
+      background-color: rgb(164, 219, 164);
     }
 
     &:active {
       color: white;
-      background-color: rgb(127, 201, 127);
+      background-color: rgb(105, 170, 105);
     }
   }
 
   &--Cancel {
-    background-color: rgb(238, 168, 168);
+    background-color: transparent;
+    border: 1px solid rgb(238, 168, 168);
+    color: rgb(238, 168, 168);
+
+    &:hover {
+      color: white;
+      background-color: rgb(238, 168, 168);
+    }
+
+    &:active {
+      color: white;
+      background-color: rgb(194, 110, 110);
+    }
   }
 }
