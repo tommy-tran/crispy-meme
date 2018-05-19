@@ -62,6 +62,19 @@ export const deleteLeaderboard = key => async dispatch => {
   }
 };
 
+export const clearLeaderboard = key => async dispatch => {
+  const response = axios.get(`${key}/clear`);
+
+  if (response.status === 200) {
+    return {
+      type: CLEAR_LEADERBOARD
+    };
+  } else {
+    const errorType = 'clearing leaderboard';
+    dispatch(leaderboardError(errorType));
+  }
+};
+
 export const leaderboardError = error => () => ({
   type: LEADERBOARD_ERROR,
   error: error
