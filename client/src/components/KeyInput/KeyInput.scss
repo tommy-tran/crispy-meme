@@ -2,20 +2,35 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 2px solid black;
+  width: 90%;
+  margin: 10px auto;
+  transition: 0.3s;
+  border-radius: 5px;
 
   &__Header {
-    font-size: 2em;
+    color: rgb(135, 146, 182);
+    font-size: 3em;
+    margin: 20px 0;
+    font-style: oblique;
   }
 
   &__ButtonBox {
     display: flex;
     justify-content: center;
   }
+
+  &__Icon {
+    font-size: 2em;
+    color: rgb(135, 146, 182);
+    padding: 0 20px;
+    text-shadow: 0 1px rgb(255, 255, 255);
+  }
 }
 
 input {
-  margin: 2em auto;
-  padding: 1em 1em;
+  font-size: 1.4em;
+  margin: 20px auto;
+  padding: 5px 10px;
   width: 80%;
+  text-align: center;
 }

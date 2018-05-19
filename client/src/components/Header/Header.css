@@ -2,14 +2,14 @@
   height: 2.5em;
   line-height: 2.5em;
   width: 100%;
-  background-color: #ccc;
+  background: -webkit-linear-gradient(to right, #8086a7, #8a695d);
+  background: linear-gradient(to right, #8086a7, #b1d4d3);
   text-align: center;
-  font-size: 1.8em; }
+  font-size: 1.8em;
+  color: #fff; }
   .Header__Logo {
-    color: #fff;
     padding-left: 0.5em;
-    font-weight: 700;
-    text-shadow: 2px 2px black; }
+    font-size: 1.1em; }
   .Header__Options {
     display: none;
     font-size: 0.75em;

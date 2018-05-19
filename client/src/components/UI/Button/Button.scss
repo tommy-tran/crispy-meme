@@ -5,38 +5,34 @@
   border-radius: 10px;
   position: relative;
   height: 60px;
-  width: 200px;
+  width: 160px;
   font-size: 1.6em;
-  padding: 0 2em;
-  margin: 20px 15px;
+  padding: 0 1.2em;
   cursor: pointer;
   transition: 600ms ease-out all;
   outline: none;
-
-  // &:hover {
-  //   background:#fff;
-  //   color:black;
-  //   border: 1px solid black;
-  // }
+  margin: 10px 10px;
 
   &--Confirm {
     background-color: transparent;
-    color: rgb(164, 219, 164);
-    border: 1px solid rgb(164, 219, 164);
+    color: rgb(134, 190, 134);
+    text-shadow: 1px 1px rgb(98, 168, 81);
+    border: 1px solid rgb(134, 190, 134);
 
     &:hover {
       color: white;
-      background-color: rgb(164, 219, 164);
+      background-color: rgb(134, 190, 134);
     }
 
     &:active {
       color: white;
-      background-color: rgb(105, 170, 105);
+      background-color: rgb(134, 190, 134);
     }
   }
 
   &--Cancel {
     background-color: transparent;
+    text-shadow: 1px 1px rgb(180, 67, 67);
     border: 1px solid rgb(238, 168, 168);
     color: rgb(238, 168, 168);
 
@@ -48,6 +44,7 @@
     &:active {
       color: white;
       background-color: rgb(194, 110, 110);
+      box-shadow: 1px 4px 8px 0 rgba(0,0,0,0.2);      
     }
   }
 }

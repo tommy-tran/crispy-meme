@@ -5,25 +5,27 @@
   border-radius: 10px;
   position: relative;
   height: 60px;
-  width: 200px;
+  width: 160px;
   font-size: 1.6em;
-  padding: 0 2em;
-  margin: 20px 15px;
+  padding: 0 1.2em;
   cursor: pointer;
   transition: 600ms ease-out all;
-  outline: none; }
+  outline: none;
+  margin: 10px 10px; }
   .Button--Confirm {
     background-color: transparent;
-    color: #a4dba4;
-    border: 1px solid #a4dba4; }
+    color: #86be86;
+    text-shadow: 1px 1px #62a851;
+    border: 1px solid #86be86; }
     .Button--Confirm:hover {
       color: white;
-      background-color: #a4dba4; }
+      background-color: #86be86; }
     .Button--Confirm:active {
       color: white;
-      background-color: #69aa69; }
+      background-color: #86be86; }
   .Button--Cancel {
     background-color: transparent;
+    text-shadow: 1px 1px #b44343;
     border: 1px solid #eea8a8;
     color: #eea8a8; }
     .Button--Cancel:hover {
@@ -31,4 +33,5 @@
       background-color: #eea8a8; }
     .Button--Cancel:active {
       color: white;
-      background-color: #c26e6e; }
+      background-color: #c26e6e;
+      box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2); }

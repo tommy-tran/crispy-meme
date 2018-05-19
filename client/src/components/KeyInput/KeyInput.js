@@ -4,7 +4,8 @@ import Button from '../UI/Button/Button';
 
 class KeyInput extends Component {
   state = {
-    value: ''
+    value: '',
+    inputting: false
   };
 
   updateKeyInput = event => {
@@ -19,11 +20,35 @@ class KeyInput extends Component {
     });
   };
 
+  rotateIcon = () => {
+    this.setState(oldState => {
+      return { inputting: !oldState.inputting };
+    });
+  };
+
   render() {
+    let keyIcon = <i class="far fa-key KeyInput__Icon" />;
+
+    if (this.state.inputting) {
+      keyIcon = <i class="far fa-key KeyInput__Icon fa-spin" />;
+    }
+
     return (
       <div className="KeyInput">
-        <span className="KeyInput__Header">Input your key here!</span>
-        <input value={this.state.value} onChange={this.updateKeyInput} />
+        <span className="KeyInput__Header">
+          Have a leaderboard key already?
+        </span>
+        <div>
+          {keyIcon}
+          <input
+            placeholder="Input your key here!"
+            value={this.state.value}
+            onChange={this.updateKeyInput}
+            onFocus={this.rotateIcon}
+            onBlur={this.rotateIcon}
+          />
+          {keyIcon}
+        </div>
         <div className="KeyInput__ButtonBox">
           <Button
             handleClick={() => {

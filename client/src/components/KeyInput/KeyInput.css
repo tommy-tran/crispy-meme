@@ -2,14 +2,27 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 2px solid black; }
+  width: 90%;
+  margin: 10px auto;
+  transition: 0.3s;
+  border-radius: 5px; }
   .KeyInput__Header {
-    font-size: 2em; }
+    color: #8792b6;
+    font-size: 3em;
+    margin: 20px 0;
+    font-style: oblique; }
   .KeyInput__ButtonBox {
     display: flex;
     justify-content: center; }
+  .KeyInput__Icon {
+    font-size: 2em;
+    color: #8792b6;
+    padding: 0 20px;
+    text-shadow: 0 1px white; }
 
 input {
-  margin: 2em auto;
-  padding: 1em 1em;
-  width: 80%; }
+  font-size: 1.4em;
+  margin: 20px auto;
+  padding: 5px 10px;
+  width: 80%;
+  text-align: center; }
