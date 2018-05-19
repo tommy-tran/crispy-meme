@@ -4,9 +4,16 @@
   width: 100%;
   background-color: #ccc;
   text-align: center;
-  font-size: 30px; }
+  font-size: 1.8em; }
+  .Header__Logo {
+    color: #fff;
+    padding-left: 0.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px black; }
   .Header__Options {
-    display: none; }
+    display: none;
+    font-size: 0.75em;
+    padding: 0 0; }
   @media (min-width: 480px) {
     .Header {
       display: flex; }
