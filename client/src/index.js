@@ -12,7 +12,12 @@ import reduxThunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, {}, applyMiddleware(reduxThunk));
+const initialState = {};
+const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(reduxThunk)
+);
 
 ReactDOM.render(
   <Provider store={store}>

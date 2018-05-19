@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import auth from './auth';
-import leaderboard from './leaderboard';
+import authReducer from './auth';
+import leaderboardReducer from './leaderboard';
 
 const rootReducer = combineReducers({
-  auth,
-  leaderboard
+  // authReducer,
+  leaderboardReducer
 });
+
+export default rootReducer;

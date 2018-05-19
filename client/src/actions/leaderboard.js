@@ -13,7 +13,7 @@ export const fetchLeaderboard = key => async dispatch => {
 
   if (request.status === 200) {
     const result = {
-      ...requestLeaderboardInfo,
+      ...requestLeaderboardInfo.data,
       data: requestUsers.data
     };
 

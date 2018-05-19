@@ -34,5 +34,7 @@ export default (state = null, action) => {
         ...state,
         error: action.error
       };
+    default:
+      return state
   }
 };
