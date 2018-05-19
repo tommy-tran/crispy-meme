@@ -11,7 +11,7 @@ export const fetchLeaderboard = key => async dispatch => {
   const requestLeaderboardInfo = await axios.get(`/${key}/info`);
   const requestUsers = await axios.get(`/${key}`);
 
-  if (request.status === 200) {
+  if (requestLeaderboardInfo.status === 200 && requestUsers === 200) {
     const result = {
       ...requestLeaderboardInfo.data,
       data: requestUsers.data

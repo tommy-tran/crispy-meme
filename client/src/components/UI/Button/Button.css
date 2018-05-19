@@ -1,0 +1,22 @@
+.Button {
+  background: #1aab8a;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 60px;
+  font-size: 1.6em;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none; }
+  .Button--Confirm {
+    background-color: #a4dba4; }
+    .Button--Confirm:hover {
+      color: #a4dba4;
+      background-color: transparent;
+      border: 1px solid #a4dba4; }
+    .Button--Confirm:active {
+      color: white;
+      background-color: #7fc97f; }
+  .Button--Cancel {
+    background-color: #eea8a8; }

@@ -1,0 +1,37 @@
+.Button {
+  background: #1aab8a;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 60px;
+  font-size: 1.6em;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+
+  // &:hover {
+  //   background:#fff;
+  //   color:black;
+  //   border: 1px solid black;
+  // }
+
+  &--Confirm {
+    background-color: rgb(164, 219, 164);
+
+    &:hover {
+      color: rgb(164, 219, 164);
+      background-color: transparent;
+      border: 1px solid rgb(164, 219, 164);
+    }
+
+    &:active {
+      color: white;
+      background-color: rgb(127, 201, 127);
+    }
+  }
+
+  &--Cancel {
+    background-color: rgb(238, 168, 168);
+  }
+}
