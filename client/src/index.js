@@ -13,6 +13,7 @@ import { BrowserRouter } from 'react-router-dom';
 import rootReducer from './reducers';
 
 const initialState = {};
+
 const store = createStore(
   rootReducer,
   initialState,

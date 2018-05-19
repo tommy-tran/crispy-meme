@@ -26,7 +26,7 @@ router.get('/create', (req, res) => {
       if (err) {
         return res.status(400).send({
           status: 400,
-          message: "Invalid parameters"
+          message: 'Invalid parameters'
         });
       }
       res.status(400).send('Failed to create leaderboard.');
@@ -79,16 +79,18 @@ router.get('/:key', (req, res) => {
 
 // Shows information about leaderboard, requires private key
 router.get('/:key/info', (req, res) => {
-  Leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
-    res.send({
-      dateCreated: lb.dateCreated,
-      gameName: lb.gameName,
-      ownerName: lb.ownerName,
-      email: lb.email,
-      privateKey: lb.privateKey,
-      publicKey: lb.publicKey
-    })
-  });
+  Leaderboard.findOne(
+    { $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }] },
+    (err, lb) => {
+      res.send({
+        dateCreated: lb.dateCreated,
+        gameName: lb.gameName,
+        ownerName: lb.ownerName,
+        email: lb.email,
+        publicKey: lb.publicKey
+      });
+    }
+  );
 });
 
 // Fetches public key only, requires private key
