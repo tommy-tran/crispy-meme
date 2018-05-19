@@ -40,7 +40,8 @@ class KeyInput extends Component {
         </span>
         <div>
           {keyIcon}
-          <input className="KeyInput__Input"
+          <input
+            className="KeyInput__Input"
             placeholder="Input your key here!"
             value={this.state.value}
             onChange={this.updateKeyInput}
@@ -49,14 +50,24 @@ class KeyInput extends Component {
           />
         </div>
         <div className="KeyInput__ButtonBox">
-          <Button
+          {/* <Button
             handleClick={() => {
               this.props.submitKeyHandler(this.state.value);
             }}
             label="Confirm"
             confirm
+          /> */}
+          <i
+            className="fal fa-check-circle fa-4x confirm"
+            onClick={() => {
+              this.props.submitKeyHandler(this.state.value);
+            }}
           />
-          <Button handleClick={this.clearInput} label="Clear" cancel />
+          {/* <Button handleClick={this.clearInput} label="Clear" cancel /> */}
+          <i
+            className="fal fa-times-circle fa-4x clear"
+            onClick={this.clearInput}
+          />
         </div>
       </div>
     );

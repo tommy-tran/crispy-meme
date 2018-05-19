@@ -9,8 +9,16 @@
   position: absolute;
 
   &__Logo {
-    padding-left: 0.5em;
-    font-size: 1.1em;
+    display: none;
+
+    @media (min-width: 600px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-left: 20px;
+      margin-right: 20px;
+      font-size: 45px;
+    }
   }
 
   &__Options {

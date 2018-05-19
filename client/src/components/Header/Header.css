@@ -8,8 +8,15 @@
   color: #fff;
   position: absolute; }
   .Header__Logo {
-    padding-left: 0.5em;
-    font-size: 1.1em; }
+    display: none; }
+    @media (min-width: 600px) {
+      .Header__Logo {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 45px; } }
   .Header__Options {
     display: none;
     font-size: 0.75em;

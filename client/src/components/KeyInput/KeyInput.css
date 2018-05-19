@@ -25,7 +25,24 @@
     font-size: 1.4em;
     margin: 30px auto;
     padding: 5px 0;
-    width: 50%;
+    width: 95%;
     text-align: center;
     outline-color: lightblue;
     flex-grow: 5; }
+    @media (min-width: 600px) {
+      .KeyInput__Input {
+        width: 60%; } }
+
+.confirm {
+  color: #99c999;
+  margin: 0 20px; }
+  .confirm:hover {
+    transition: 0.7s;
+    color: #49d449; }
+
+.clear {
+  color: #da8c8c;
+  margin: 0 20px; }
+  .clear:hover {
+    transition: 0.7s;
+    color: #d84343; }
