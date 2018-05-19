@@ -8,12 +8,18 @@ import {
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
-  const request = axios.get(`/${key}/info`);
+  const requestLeaderboardInfo = await axios.get(`/${key}/info`);
+  const requestUsers = await axios.get(`/${key}`);
 
   if (request.status === 200) {
+    const result = {
+      ...requestLeaderboardInfo,
+      data: requestUsers.data
+    };
+
     return {
       type: FETCH_LEADERBOARD,
-      payload: response.data
+      payload: result
     };
   } else {
     const errorType = 'fetch leaderboard';
