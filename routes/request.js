@@ -79,9 +79,9 @@ router.get('/:key', (req, res) => {
 
 // Shows information about leaderboard, requires private key
 router.get('/:key/info', (req, res) => {
-  Leaderboard.findOne(
-    { $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }] },
-    (err, lb) => {
+  Leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
+    if (err) res.status(500).send('Error fetching leaderboard information');
+    if (lb) {
       res.send({
         dateCreated: lb.dateCreated,
         gameName: lb.gameName,
@@ -89,8 +89,22 @@ router.get('/:key/info', (req, res) => {
         email: lb.email,
         publicKey: lb.publicKey
       });
+    } else {
+      Leaderboard.findOne({ publicKey: req.params.key }, (err, lb) => {
+        if (err) res.status(500).send('Error fetching leaderboard information');
+        if (lb) {
+          res.send({
+            dateCreated: lb.dateCreated,
+            gameName: lb.gameName,
+            ownerName: lb.ownerName,
+            publicKey: lb.publicKey
+          });
+        } else {
+          res.status(404).send('No leaderboard found');
+        }
+      });
     }
-  );
+  });
 });
 
 // Fetches public key only, requires private key

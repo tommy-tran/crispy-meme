@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 const LeaderboardInfo = props => {
   let redirect = null;
   let table = null;
-  let privateMsg = null;
+  let emailRow = null;
 
   if (!props.leaderboard) {
     redirect = <Redirect to="/" />;
@@ -18,21 +18,16 @@ const LeaderboardInfo = props => {
       publicKey
     } = props.leaderboard;
 
-    let privateRow = null;
-
-    if (props.leaderboard.privateKey) {
-      privateRow = (
+    if (email) {
+      emailRow = (
         <tr>
-          <td>Private Key</td>
-          <td>{props.leaderboard.privateKey}</td>
+          <td>Email</td>
+          <td>{email}</td>
         </tr>
       );
-      privateMsg = (
-        <div style={{ textAlign: 'center', color: 'red' }}>
-          Please save the private key!
-        </div>
-      );
     }
+
+    let privateRow = null;
 
     table = (
       <table>
@@ -45,15 +40,11 @@ const LeaderboardInfo = props => {
             <td>Owner Name</td>
             <td>{ownerName}</td>
           </tr>
-          <tr>
-            <td>Email</td>
-            <td>{email}</td>
-          </tr>
+          {emailRow}
           <tr>
             <td>Public Key</td>
             <td>{publicKey}</td>
           </tr>
-          {privateRow}
           <tr>
             <td>Date Created</td>
             <td>{dateCreated.split('T')[0]}</td>
@@ -68,7 +59,9 @@ const LeaderboardInfo = props => {
       <div className="LeaderboardInfo__Block">CURRENT LEADERBOARD</div>
       {redirect}
       {table}
-      {privateMsg}
+      <div style={{ textAlign: 'center', color: 'red', marginTop: '10px' }}>
+        Please save and protect your private key!
+      </div>
     </div>
   );
 };
