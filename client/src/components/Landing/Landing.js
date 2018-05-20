@@ -4,7 +4,6 @@ import KeyInput from '../KeyInput/KeyInput';
 import { connect } from 'react-redux';
 import { fetchLeaderboard } from '../../actions/leaderboard';
 import { Redirect } from 'react-router';
-import Card from '../Card/Card';
 
 class Landing extends Component {
   render() {

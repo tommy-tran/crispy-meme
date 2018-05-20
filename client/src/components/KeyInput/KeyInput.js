@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './KeyInput.css';
-import Button from '../UI/Button/Button';
 
 class KeyInput extends Component {
   state = {

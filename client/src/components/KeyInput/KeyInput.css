@@ -3,17 +3,24 @@
   flex-direction: column;
   text-align: center;
   width: 90%;
-  margin: 50px auto;
+  margin: 0 auto;
+  margin-bottom: auto;
   transition: 0.3s;
   border-radius: 5px;
-  color: black; }
+  color: black;
+  font-size: 10px; }
+  @media (min-width: 600px) {
+    .KeyInput {
+      font-size: inherit; } }
   .KeyInput__Header {
     font-size: 3em;
     margin: 20px 0;
     font-style: oblique; }
   .KeyInput__ButtonBox {
-    display: flex;
-    justify-content: center; }
+    font-size: 16px; }
+    @media (min-width: 600px) {
+      .KeyInput__ButtonBox {
+        font-size: inherit; } }
   .KeyInput__Icon {
     margin: auto auto;
     font-size: 2em;
@@ -22,8 +29,9 @@
     width: 100%; }
   .KeyInput__Input {
     color: #434857;
-    font-size: 1.4em;
-    margin: 30px auto;
+    font-size: 1.8em;
+    margin: 20px auto;
+    margin-top: 10px;
     padding: 5px 0;
     width: 95%;
     text-align: center;
@@ -31,7 +39,8 @@
     flex-grow: 5; }
     @media (min-width: 600px) {
       .KeyInput__Input {
-        width: 60%; } }
+        width: 60%;
+        font-size: 1.4em; } }
 
 .confirm {
   color: #99c999;

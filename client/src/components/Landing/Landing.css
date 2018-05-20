@@ -6,14 +6,14 @@
   margin: 0 auto;
   height: 100vh;
   text-align: center;
-  font-size: 0.8em;
-  padding-top: 5em; }
+  font-size: 0.8em; }
   .Landing__Logo {
+    margin-top: auto;
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
+    font-size: 8em;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
   @media (min-width: 600px) {
     .Landing {
-      font-size: 1em;
-      padding-top: 2em; } }
+      font-size: 1em; } }

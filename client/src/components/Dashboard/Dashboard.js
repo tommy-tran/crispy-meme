@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Dashboard.css';
 import { connect } from 'react-redux';
 import LeaderboardInfo from '../LeaderboardInfo/LeaderboardInfo';
-import Card from '../Card/Card';
 
 class Dashboard extends Component {
   render() {
@@ -13,7 +12,7 @@ class Dashboard extends Component {
             <div className="Dashboard__Section">
               <LeaderboardInfo leaderboard={this.props.leaderboard} />
             </div>
-            <div className="Dashboard__Section Dashboard__Section--Large">
+            <div className="Dashboard__Section Dashboard__Section--Large ">
               <div className="Dashboard__Header">Dashboard</div>
             </div>
           </div>

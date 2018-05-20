@@ -5,7 +5,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
-import Card from './components/Card/Card';
 
 import { Route, Switch } from 'react-router-dom';
 

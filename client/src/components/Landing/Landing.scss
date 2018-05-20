@@ -7,17 +7,17 @@
   height: 100vh;
   text-align: center;
   font-size: 0.8em;
-  padding-top: 5em;
 
   &__Logo {
+    margin-top: auto;
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
+    font-size: 8em;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   @media (min-width: 600px) {
     font-size: 1em;
-    padding-top: 2em;
   }
 }
