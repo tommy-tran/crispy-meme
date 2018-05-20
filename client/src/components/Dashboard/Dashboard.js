@@ -8,13 +8,14 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="Container">
-        <div className="Dashboard__Header">Dashboard</div>
         <div className="Dashboard">
           <div className="Dashboard__Content">
             <div className="Dashboard__Section">
               <LeaderboardInfo leaderboard={this.props.leaderboard} />
             </div>
-            <div className="Dashboard__Section Dashboard__Section--Large" />
+            <div className="Dashboard__Section Dashboard__Section--Large">
+              <div className="Dashboard__Header">Dashboard</div>
+            </div>
           </div>
         </div>
       </div>

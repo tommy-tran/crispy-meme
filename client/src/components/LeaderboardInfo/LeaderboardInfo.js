@@ -41,7 +41,7 @@ const LeaderboardInfo = props => {
 
   return (
     <div className="LeaderboardInfo">
-      <div className="LeaderboardInfo__Block">Your Leaderboard</div>
+      <div className="LeaderboardInfo__Block">CURRENT LEADERBOARD</div>
       {redirect}
       {table}
     </div>
