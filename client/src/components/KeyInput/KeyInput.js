@@ -61,20 +61,12 @@ class KeyInput extends Component {
           {input}
         </div>
         <div className="KeyInput__ButtonBox">
-          {/* <Button
-            handleClick={() => {
-              this.props.submitKeyHandler(this.state.value);
-            }}
-            label="Confirm"
-            confirm
-          /> */}
           <i
             className="fal fa-check-circle fa-4x confirm"
             onClick={() => {
               this.props.submitKeyHandler(this.state.value);
             }}
           />
-          {/* <Button handleClick={this.clearInput} label="Clear" cancel /> */}
           <i
             className="fal fa-times-circle fa-4x clear"
             onClick={this.clearInput}
