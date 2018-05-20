@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CreateForm.css';
 import Input from '../UI/Input/Input';
+import { Link } from 'react-router-dom';
 
 class CreateForm extends Component {
   state = {
@@ -36,7 +37,9 @@ class CreateForm extends Component {
         <Input inputType="email" changed={this.emailHandler} />
         <div className="CreateForm__ButtonBox">
           <i className="fal fa-check-circle fa-5x confirm" />
-          <i className="fal fa-times-circle fa-5x clear" />
+          <Link to="/">
+            <i className="fal fa-times-circle fa-5x clear" />
+          </Link>
         </div>
       </div>
     );

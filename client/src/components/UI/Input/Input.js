@@ -14,19 +14,19 @@ const Input = props => {
 
   switch (props.inputType) {
     case 'ownerName':
-      label = 'Enter your name: ';
+      label = <span className="Label">Enter your name: </span>;
       break;
     case 'gameName':
-      label = "Enter the game/competition: ";
+      label = <span className="Label">Enter game's name: </span>;
       break;
     case 'email':
-      label = 'Enter your email: ';
+      label = <span className="Label">Enter your email: </span>;
       break;
     default:
   }
 
   const fullInput = (
-    <label className="Label">
+    <label className="InputBox">
       {label}
       {input}
     </label>

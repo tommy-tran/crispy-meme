@@ -20,7 +20,7 @@
     font-size: 16px; }
     @media (min-width: 600px) {
       .KeyInput__ButtonBox {
-        font-size: inherit; } }
+        font-size: 18px; } }
   .KeyInput__Icon {
     margin: auto auto;
     font-size: 2em;

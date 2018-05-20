@@ -1,5 +1,6 @@
 .CreateForm {
   display: flex;
+  font-size: 0.9em;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
@@ -7,6 +8,9 @@
   height: 100vh;
   text-align: center;
   padding-top: 3em; }
+  @media (min-width: 600px) {
+    .CreateForm {
+      font-size: inherit; } }
   .CreateForm .Logo {
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
@@ -16,17 +20,24 @@
   .CreateForm__ButtonBox {
     margin-top: 10px;
     box-sizing: border-box; }
+    @media (min-width: 600px) {
+      .CreateForm__ButtonBox {
+        font-size: 18px; } }
 
 .confirm {
-  color: #99c999;
-  margin: 0 20px; }
+  color: #99c999; }
   .confirm:hover {
     transition: 0.7s;
     color: #49d449; }
+  @media (min-width: 600px) {
+    .confirm {
+      margin: 0 30px !important; } }
 
 .clear {
-  color: #da8c8c;
-  margin: 0 20px; }
+  color: #da8c8c; }
   .clear:hover {
     transition: 0.7s;
     color: #d84343; }
+  @media (min-width: 600px) {
+    .clear {
+      margin: 0 30px !important; } }
