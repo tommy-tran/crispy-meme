@@ -1,3 +1,16 @@
 .LeaderboardInfo {
-  margin-top: 80px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  &__Block {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    justify-content: center;
+    background-image: linear-gradient(to left, rgb(98, 161, 95) 0%, rgb(67, 122, 64) 100%);
+    height: 3em;
+  }
 }

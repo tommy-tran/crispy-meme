@@ -1,23 +1,30 @@
 .Dashboard {
-  padding-top: 5em;
+  padding-top: 4.5em;
   height: 100%;
   position: absolute;
   right: 0;
   left: 0; }
-  .Dashboard__Content {
-    display: flex;
-    flex-direction: row;
-    height: 100%; }
   .Dashboard__Header {
     font-size: 2em;
+    font-style: oblique;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 2.5em;
     text-align: center; }
-  .Dashboard__Column {
+  .Dashboard__Content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
+    @media (min-width: 600px) {
+      .Dashboard__Content {
+        flex-direction: row; } }
+  .Dashboard__Section {
     width: 100%;
-    padding: 10px 20px;
+    height: 100%;
     flex-shrink: 2; }
-  .Dashboard__Column--Large {
-    width: 100%;
-    padding: 10px 20px;
+  .Dashboard__Section--Large {
     flex-shrink: 1; }
 
 .Container {

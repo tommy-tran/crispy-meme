@@ -6,7 +6,9 @@
   text-align: center;
   font-size: 1.8em;
   color: #fff;
-  position: absolute; }
+  position: absolute;
+  border-bottom: 1px solid #c8c8c8;
+  z-index: 2; }
   .Header__Name {
     text-shadow: 1px 1px black; }
   .Header__Logo {
