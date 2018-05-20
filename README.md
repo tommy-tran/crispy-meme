@@ -1,21 +1,23 @@
-# crispy-meme (Leaderboard API)
+# crispy-meme (Leaderboard Management Application)
+## Built with React, Redux, Express, Mongo(ose), Node
+
 ## Status: In Progress
 
 ### Description:
 
-Allows users to create their own leaderboards for their games or competitions. 
+This is a full stack Leaderboard Management application with it's own fully functional RESTful API that allows users to create their own leaderboards for their games/competitions. 
 
-Owners of leaderboards will be able to call to the api with their private key to add, delete, and modify scores as well as interact with and obtain information about their leaderboard. Users record their scores or times (racing) and user results obtained may be sorted or limited (to show top 5, 10, etc).
+Users may create a leaderboard (and save the private key) to fully interact with their leaderboard via HTTP requests or via the online web application. With their private key, owners of leaderboards may manage their leaderboard by adding, delete and modify score submissions. Non-owners of the leaderboard may be given a public key which can only fetch leaderboard information (no adding,removing or modifying scores).
 
-The public key allows owners to safely distribute a method to fetch leaderboard information such as individual user stats or retrieval of parts or the whole leaderboard.
+Ideally game developers encapsulate the private key within game logic to fully handle any interactions with the API. For non-gaming competitions the owner shall be able to interact with the web application to add, modify and delete scores.
 
 ### To build locally:
 
 1. Clone or download repo
 2. Install dependencies
-3. Run local mongo server
+3. Run local mongo server on port 27017(default)
 4. 'npm start' while in directory
 
 ### To do:
-* Front end to more easily interact with API (possibly)
+* Add functionality to front end
 * More endpoints such as key regeneration, key retrieval via email
