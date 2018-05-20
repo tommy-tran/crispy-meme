@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
+import './Dashboard.css';
+import { connect } from 'react-redux';
+import LeaderboardInfo from '../LeaderboardInfo/LeaderboardInfo';
+import Card from '../Card/Card';
 
 class Dashboard extends Component {
   render() {
-    return <h1 style={{ textAlign: 'center' }}>Dashboard</h1>;
+    return (
+      <div className="Container">
+        <div className="Dashboard">
+          <div className="Dashboard__Header">Dashboard</div>
+          <Card><LeaderboardInfo leaderboard={this.props.leaderboard} /></Card>
+        </div>
+      </div>
+    );
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    leaderboard: state.leaderboard.currentLeaderboard
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard);

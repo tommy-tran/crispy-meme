@@ -5,4 +5,10 @@
   background-color: #f0f0f0;
   margin: 0 auto;
   height: 100vh;
-  text-align: center; }
+  text-align: center;
+  font-size: 0.8em;
+  padding-top: 5em; }
+  @media (min-width: 600px) {
+    .Landing {
+      font-size: 1em;
+      padding-top: 2em; } }

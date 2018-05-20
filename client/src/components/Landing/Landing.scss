@@ -6,4 +6,11 @@
   margin: 0 auto;
   height: 100vh;
   text-align: center;
+  font-size: 0.8em;
+  padding-top: 5em;
+
+  @media (min-width: 600px) {
+    font-size: 1em;
+    padding-top: 2em;
+  }
 }
