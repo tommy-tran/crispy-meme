@@ -1,0 +1,32 @@
+.CreateForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  height: 100vh;
+  text-align: center;
+  padding-top: 3em; }
+  .CreateForm .Logo {
+    background: -webkit-linear-gradient(#434343, black);
+    background-clip: text;
+    font-size: 8em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+  .CreateForm__ButtonBox {
+    margin-top: 10px;
+    box-sizing: border-box; }
+
+.confirm {
+  color: #99c999;
+  margin: 0 20px; }
+  .confirm:hover {
+    transition: 0.7s;
+    color: #49d449; }
+
+.clear {
+  color: #da8c8c;
+  margin: 0 20px; }
+  .clear:hover {
+    transition: 0.7s;
+    color: #d84343; }

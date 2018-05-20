@@ -1,0 +1,14 @@
+.Input {
+  color: #434857;
+  font-size: 1em;
+  text-align: center;
+  outline-color: lightblue;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto; }
+
+.Label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4em;
+  margin: 10px 0; }
