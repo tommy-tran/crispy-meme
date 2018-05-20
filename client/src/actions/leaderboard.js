@@ -8,11 +8,13 @@ import {
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
-  const requestLeaderboardInfo = await axios.get(`/lb/${key}/info`).catch(err => {
-    return dispatch(leaderboardError('fetching leaderboard'))
-  });
+  const requestLeaderboardInfo = await axios
+    .get(`/lb/${key}/info`)
+    .catch(err => {
+      return dispatch(leaderboardError('fetching leaderboard'));
+    });
   const requestUsers = await axios.get(`/lb/${key}`).catch(err => {
-    return dispatch(leaderboardError('fetching leaderboard'))
+    return dispatch(leaderboardError('fetching leaderboard'));
   });
   if (requestLeaderboardInfo.status === 200 && requestUsers.status === 200) {
     const result = {
@@ -35,13 +37,17 @@ export const createLeaderboard = (
   ownerName,
   email
 ) => async dispatch => {
-  const response = await axios.post('/create', {
-    gameName,
-    ownerName,
-    email
-  }).catch(err => {
-    return dispatch(leaderboardError('creating leaderboard'))
-  });;
+  const response = await axios
+    .get('lb/create', {
+      params: {
+        gameName,
+        ownerName,
+        email
+      }
+    })
+    .catch(err => {
+      return dispatch(leaderboardError('creating leaderboard'));
+    });
 
   if (response.status === 200) {
     dispatch({
@@ -53,8 +59,8 @@ export const createLeaderboard = (
 
 export const deleteLeaderboard = key => async dispatch => {
   const response = await axios.delete(`/lb/${key}`).catch(err => {
-    return dispatch(leaderboardError('deleting leaderboard'))
-  });;
+    return dispatch(leaderboardError('deleting leaderboard'));
+  });
 
   if (response.status === 200) {
     dispatch({
@@ -65,7 +71,7 @@ export const deleteLeaderboard = key => async dispatch => {
 
 export const clearLeaderboard = key => async dispatch => {
   const response = axios.get(`/lb/${key}/clear`).catch(err => {
-    return dispatch(leaderboardError('clearing leaderboard'))
+    return dispatch(leaderboardError('clearing leaderboard'));
   });
 
   if (response.status === 200) {

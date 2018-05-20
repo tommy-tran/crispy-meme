@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './CreateForm.css';
 import Input from '../UI/Input/Input';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createLeaderboard } from '../../actions/leaderboard';
+import { Redirect } from 'react-router';
 
 class CreateForm extends Component {
   state = {
@@ -29,14 +32,29 @@ class CreateForm extends Component {
   };
 
   render() {
+    let redirect = null;
+    if (this.props.leaderboard) {
+      redirect = <Redirect to="/dashboard" />;
+    }
+
     return (
       <div className="CreateForm">
+        {redirect}
         <i className="far fa-trophy-alt fa-10x Logo" />
         <Input inputType="gameName" changed={this.gameNameHandler} />
         <Input inputType="ownerName" changed={this.ownerNameHandler} />
         <Input inputType="email" changed={this.emailHandler} />
         <div className="CreateForm__ButtonBox">
-          <i className="fal fa-check-circle fa-5x confirm" />
+          <i
+            className="fal fa-check-circle fa-5x confirm"
+            onClick={() => {
+              this.props.sendCreateRequest(
+                this.state.gameName,
+                this.state.ownerName,
+                this.state.email
+              );
+            }}
+          />
           <Link to="/">
             <i className="fal fa-times-circle fa-5x clear" />
           </Link>
@@ -46,4 +64,18 @@ class CreateForm extends Component {
   }
 }
 
-export default CreateForm;
+const mapStateToProps = state => {
+  return {
+    leaderboard: state.leaderboard.currentLeaderboard
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    sendCreateRequest: (gameName, ownerName, email) => {
+      dispatch(createLeaderboard(gameName, ownerName, email));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);

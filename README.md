@@ -11,11 +11,11 @@ Users may create a leaderboard (and save the private key) to fully interact with
 
 Ideally game developers encapsulate the private key within game logic to fully handle any interactions with the API. For non-gaming competitions the owner shall be able to interact with the web application to add, modify and delete scores.
 
-### To build locally:
+### To run locally:
 
 1. Clone or download repo
 2. Install dependencies
-3. Run local mongo server on port 27017(default)
+3. Run local mongo server
 4. 'npm start' while in directory
 
 ### To do:
