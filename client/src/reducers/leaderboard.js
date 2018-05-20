@@ -3,7 +3,8 @@ import {
   DELETE_LEADERBOARD,
   FETCH_LEADERBOARD,
   LEADERBOARD_ERROR,
-  CLEAR_LEADERBOARD
+  CLEAR_LEADERBOARD,
+  UNSET_LEADERBOARD
 } from '../actions/types';
 
 let initialState = { error: null };
@@ -29,6 +30,12 @@ const leaderboardReducer = (state = initialState, action) => {
         currentLeaderboard: { ...state.currentLeaderboard, data: [] }
       };
     case DELETE_LEADERBOARD:
+      return {
+        ...state,
+        error: null,
+        currentLeaderboard: null
+      };
+    case UNSET_LEADERBOARD:
       return {
         ...state,
         error: null,

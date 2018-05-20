@@ -4,7 +4,8 @@ import {
   DELETE_LEADERBOARD,
   CLEAR_LEADERBOARD,
   FETCH_LEADERBOARD,
-  LEADERBOARD_ERROR
+  LEADERBOARD_ERROR,
+  UNSET_LEADERBOARD
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
@@ -79,6 +80,12 @@ export const clearLeaderboard = key => async dispatch => {
       type: CLEAR_LEADERBOARD
     });
   }
+};
+
+export const unsetLeaderboard = dispatch => {
+  dispatch({
+    type: UNSET_LEADERBOARD
+  });
 };
 
 export const leaderboardError = error => dispatch =>
