@@ -28,9 +28,28 @@ class KeyInput extends Component {
 
   render() {
     let keyIcon = <i className="far fa-key KeyInput__Icon" />;
+    let input = (
+      <input
+        className="KeyInput__Input"
+        placeholder="Input your key here!"
+        value={this.state.value}
+        onChange={this.updateKeyInput}
+        onFocus={this.rotateIcon}
+        onBlur={this.rotateIcon}
+      />
+    );
 
     if (this.state.inputting) {
       keyIcon = <i className="far fa-key KeyInput__Icon fa-spin" />;
+      input = (
+        <input
+          className="KeyInput__Input"
+          value={this.state.value}
+          onChange={this.updateKeyInput}
+          onFocus={this.rotateIcon}
+          onBlur={this.rotateIcon}
+        />
+      );
     }
 
     return (
@@ -40,14 +59,7 @@ class KeyInput extends Component {
         </span>
         <div>
           {keyIcon}
-          <input
-            className="KeyInput__Input"
-            placeholder="Input your key here!"
-            value={this.state.value}
-            onChange={this.updateKeyInput}
-            onFocus={this.rotateIcon}
-            onBlur={this.rotateIcon}
-          />
+          {input}
         </div>
         <div className="KeyInput__ButtonBox">
           {/* <Button

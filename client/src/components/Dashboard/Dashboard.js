@@ -10,17 +10,22 @@ class Dashboard extends Component {
       <div className="Container">
         <div className="Dashboard">
           <div className="Dashboard__Header">Dashboard</div>
-          <Card><LeaderboardInfo leaderboard={this.props.leaderboard} /></Card>
+          <div className="Dashboard__Content">
+            <div className="Dashboard__Column">
+              <LeaderboardInfo leaderboard={this.props.leaderboard} />
+            </div>
+            <div className="Dashboard__Column Dashboard__Column--Large" />
+          </div>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     leaderboard: state.leaderboard.currentLeaderboard
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Dashboard);

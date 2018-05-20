@@ -15,7 +15,7 @@ class Landing extends Component {
     return (
       <div className="Landing">
         {redirect}
-        <i className="far fa-trophy-alt fa-10x" />
+        <i className="far fa-trophy-alt fa-10x Landing__Logo" />
         <KeyInput submitKeyHandler={this.props.onFetchLeaderboard} />
       </div>
     );

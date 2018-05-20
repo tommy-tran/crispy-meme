@@ -8,6 +8,11 @@
   text-align: center;
   font-size: 0.8em;
   padding-top: 5em; }
+  .Landing__Logo {
+    background: -webkit-linear-gradient(#434343, black);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
   @media (min-width: 600px) {
     .Landing {
       font-size: 1em;
