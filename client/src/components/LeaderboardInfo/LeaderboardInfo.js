@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 const LeaderboardInfo = props => {
   let redirect = null;
   let table = null;
-  let emailRow = null;
 
   if (!props.leaderboard) {
     redirect = <Redirect to="/" />;
@@ -15,19 +14,23 @@ const LeaderboardInfo = props => {
       ownerName,
       email,
       dateCreated,
-      publicKey
+      publicKey,
+      privateKey
     } = props.leaderboard;
 
-    if (email) {
-      emailRow = (
-        <tr>
-          <td>Email</td>
-          <td>{email}</td>
-        </tr>
-      );
-    }
+    const emailRow = email ? (
+      <tr>
+        <td>Email</td>
+        <td>{email}</td>
+      </tr>
+    ) : null;
 
-    let privateRow = null;
+    const privateRow = privateKey ? (
+      <tr>
+        <td>Private Key</td>
+        <td>{privateKey}</td>
+      </tr>
+    ) : null;
 
     table = (
       <table>
@@ -42,13 +45,14 @@ const LeaderboardInfo = props => {
           </tr>
           {emailRow}
           <tr>
-            <td>Public Key</td>
-            <td>{publicKey}</td>
-          </tr>
-          <tr>
             <td>Date Created</td>
             <td>{dateCreated.split('T')[0]}</td>
           </tr>
+          <tr>
+            <td>Public Key</td>
+            <td>{publicKey}</td>
+          </tr>
+          {privateRow}
         </tbody>
       </table>
     );

@@ -135,6 +135,8 @@ router.get('/:key/info', (req, res) => {
   });
 });
 
+// TODO: Post to change leaderboard information
+
 // Clears leaderboard, requires private key
 router.get('/:key/clear', (req, res) => {
   // Check if private key and clear leaderboard

@@ -7,19 +7,33 @@ import { connect } from 'react-redux';
 const Header = props => {
   return (
     <div className="Header">
-      <span className="Header__Logo"><i className="far fa-trophy-alt" /></span>
+      <span className="Header__Logo">
+        <i className="far fa-trophy-alt" />
+      </span>
       <div className="Header__Name">Crispy Leaderboards</div>
       <ul className="Header__Options">
-        <Link style={{textDecoration: 'none', color: 'white', marginRight: '20px'}} to="/create" onClick={props.clearLeaderboard} >CREATE</Link>
+        <Link
+          style={{
+            textDecoration: 'none',
+            color: 'white',
+            marginRight: '20px'
+          }}
+          to="/create"
+          onClick={props.clearLeaderboard}
+        >
+          CREATE
+        </Link>
       </ul>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    clearLeaderboard: unsetLeaderboard
-  }
-}
+    clearLeaderboard: () => {
+      dispatch(unsetLeaderboard);
+    }
+  };
+};
 
 export default connect(null, mapDispatchToProps)(Header);

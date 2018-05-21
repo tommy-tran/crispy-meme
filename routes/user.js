@@ -66,8 +66,12 @@ router.delete('/:user', (req, res) => {
 
 // Check for private key and post/update score
 router.post('/:user/:score', (req, res) => {
+  const key = req.body.key || req.params.key;
+  const username = req.body.user || req.params.user;
+  const score = req.body.score || req.params.score;
+
   const lbQuery = Leaderboard.findOne({
-    privateKey: req.params.key
+    privateKey: key
   })
     .select('data _id')
     .exec((err, leaderboard) => {
@@ -76,16 +80,16 @@ router.post('/:user/:score', (req, res) => {
 
       User.findOne(
         {
-          username: req.params.user
+          username: username
         },
         (err, user) => {
           let newUser = false;
-
           if (err) console.log(err);
+
           if (user) {
             // User exists
-            if (user.score < req.params.score) {
-              user.score = req.params.score;
+            if (user.score < score) {
+              user.score = score;
             } else {
               return res.status(200).send(user);
             }
@@ -94,8 +98,8 @@ router.post('/:user/:score', (req, res) => {
             newUser = true;
             user = new User({
               _id: new mongoose.Types.ObjectId(),
-              username: req.params.user,
-              score: req.params.score,
+              username: username,
+              score: score,
               leaderboardID: leaderboard._id
             });
           }
