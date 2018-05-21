@@ -15,7 +15,7 @@ class Landing extends Component {
       <div className="Landing">
         {redirect}
         <i className="far fa-trophy-alt fa-10x Landing__Logo" />
-        <KeyInput submitKeyHandler={this.props.onFetchLeaderboard} />
+        <KeyInput loading={this.props.loading} submitKeyHandler={this.props.onFetchLeaderboard} />
       </div>
     );
   }
@@ -23,7 +23,8 @@ class Landing extends Component {
 
 const mapStateToProps = state => {
   return {
-    leaderboard: state.leaderboard.currentLeaderboard
+    leaderboard: state.leaderboard.currentLeaderboard,
+    loading: state.leaderboard.loading
   };
 };
 

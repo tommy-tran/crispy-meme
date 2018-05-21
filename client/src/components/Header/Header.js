@@ -7,9 +7,9 @@ import { connect } from 'react-redux';
 const Header = props => {
   return (
     <div className="Header">
-      <span className="Header__Logo">
-        <i className="far fa-trophy-alt" />
-      </span>
+      <Link className="Header__Logo" to="/" onClick={props.clearLeaderboard}>
+        <i className="far fa-trophy-alt " />
+      </Link>
       <div className="Header__Name">Crispy Leaderboards</div>
       <div className="Header__Container Header__Container--Menu">
         <div className="Header__Menu">
@@ -18,16 +18,7 @@ const Header = props => {
       </div>
 
       <div className="Header__Container Header__Container--Link">
-        <a
-          className="Header__Link"
-          href="https://github.com/tommy-tran/crispy-meme"
-        >
-          <i className="fab fa-github-alt" />
-        </a>
-        <Link
-          className="Header__Link"
-          to="/about"
-        >
+        <Link className="Header__Link" to="/about">
           ABOUT
         </Link>
         <Link

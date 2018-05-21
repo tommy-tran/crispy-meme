@@ -1,5 +1,5 @@
 .Header {
-  height: 2.6em;
+  height: 2.8em;
   line-height: 2.5em;
   width: 100%;
   background-image: linear-gradient(to left, #292929 20%, black 100%);
@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   transition: transform 0.3s ease-out;
+  user-select: none;
 
   &__Name {
     text-shadow: 1px 1px black;
@@ -26,6 +27,8 @@
     width: 100%;
     flex-shrink: 2;
     display: none;
+    color: white;
+    text-decoration: none;
 
     @media (min-width: 400px) {
       display: block;

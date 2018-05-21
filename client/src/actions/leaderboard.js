@@ -5,10 +5,12 @@ import {
   CLEAR_LEADERBOARD,
   FETCH_LEADERBOARD,
   LEADERBOARD_ERROR,
-  UNSET_LEADERBOARD
+  UNSET_LEADERBOARD,
+  LOADING_LEADERBOARD
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
+  dispatch(loadingLeaderboard);
   const requestLeaderboardInfo = await axios
     .get(`/lb/${key}/info`)
     .catch(err => {
@@ -38,6 +40,7 @@ export const createLeaderboard = (
   ownerName,
   email
 ) => async dispatch => {
+  dispatch(loadingLeaderboard);
   const response = await axios
     .post('lb/create', {
       gameName,
@@ -57,6 +60,7 @@ export const createLeaderboard = (
 };
 
 export const deleteLeaderboard = key => async dispatch => {
+  dispatch(loadingLeaderboard);
   const response = await axios.delete(`/lb/${key}`).catch(err => {
     return dispatch(leaderboardError('deleting leaderboard'));
   });
@@ -69,6 +73,7 @@ export const deleteLeaderboard = key => async dispatch => {
 };
 
 export const clearLeaderboard = key => async dispatch => {
+  dispatch(loadingLeaderboard);
   const response = axios.get(`/lb/${key}/clear`).catch(err => {
     return dispatch(leaderboardError('clearing leaderboard'));
   });
@@ -91,3 +96,9 @@ export const leaderboardError = error => dispatch =>
     type: LEADERBOARD_ERROR,
     error: error
   });
+
+export const loadingLeaderboard = dispatch => {
+  dispatch({
+    type: LOADING_LEADERBOARD
+  })
+}

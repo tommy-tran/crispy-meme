@@ -38,7 +38,7 @@ class KeyInput extends Component {
       />
     );
 
-    if (this.state.inputting) {
+    if (this.props.loading) {
       keyIcon = <i className="far fa-key KeyInput__Icon fa-spin" />;
       input = (
         <input
@@ -56,9 +56,10 @@ class KeyInput extends Component {
         <span className="KeyInput__Header">
           Have a leaderboard key already?
         </span>
-        <div>
+        <div className="KeyInput__InputBox">
           {keyIcon}
           {input}
+          <div className="_Balancer" />
         </div>
         <div className="KeyInput__ButtonBox">
           <i
