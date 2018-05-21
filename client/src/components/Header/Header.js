@@ -18,6 +18,18 @@ const Header = props => {
       </div>
 
       <div className="Header__Container Header__Container--Link">
+        <a
+          className="Header__Link"
+          href="https://github.com/tommy-tran/crispy-meme"
+        >
+          <i className="fab fa-github-alt" />
+        </a>
+        <Link
+          className="Header__Link"
+          to="/about"
+        >
+          ABOUT
+        </Link>
         <Link
           className="Header__Link"
           to="/create"

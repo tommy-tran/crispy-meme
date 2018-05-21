@@ -11,6 +11,7 @@
   z-index: 2;
   display: flex;
   justify-content: space-between;
+  transition: transform 0.3s ease-out;
 
   &__Name {
     text-shadow: 1px 1px black;
@@ -57,7 +58,8 @@
     &--Link {
       display: none;
       @media (min-width: 600px) {
-        display: block;
+        display: flex;
+        justify-content: space-around;
       }
     }
 
@@ -67,7 +69,7 @@
       flex-direction: column;
       text-align: center;
       width: 60px;
-      
+
       @media (min-width: 400px) {
         width: 100%;
       }

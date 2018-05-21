@@ -10,7 +10,8 @@
   border-bottom: 1px solid #c8c8c8;
   z-index: 2;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  transition: transform 0.3s ease-out; }
   .Header__Name {
     text-shadow: 1px 1px black;
     width: 100%; }
@@ -45,7 +46,8 @@
       display: none; }
       @media (min-width: 600px) {
         .Header__Container--Link {
-          display: block; } }
+          display: flex;
+          justify-content: space-around; } }
     .Header__Container--Menu {
       display: flex;
       justify-content: center;

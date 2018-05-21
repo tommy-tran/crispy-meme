@@ -19,5 +19,7 @@ Ideally game developers encapsulate the private key within game logic to fully h
 4. 'npm start' while in directory
 
 ### To do:
-* Add functionality to front end
+* Add About page
+* Add user list on dashboard (and add/delete/modify users and scores)
 * More endpoints such as key regeneration, key retrieval via email
+
