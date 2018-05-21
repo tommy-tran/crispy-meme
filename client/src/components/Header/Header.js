@@ -1,15 +1,15 @@
 import React from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { unsetLeaderboard } from '../../actions/leaderboard';
 import { connect } from 'react-redux';
 
 const Header = props => {
   return (
     <div className="Header">
-      <Link className="Header__Logo" to="/" onClick={props.clearLeaderboard}>
+      <NavLink className="Header__Logo" to="/" onClick={props.clearLeaderboard}>
         <i className="far fa-trophy-alt " />
-      </Link>
+      </NavLink>
       <div className="Header__Name">Crispy Leaderboards</div>
       <div className="Header__Container Header__Container--Menu">
         <div className="Header__Menu">
@@ -18,16 +18,18 @@ const Header = props => {
       </div>
 
       <div className="Header__Container Header__Container--Link">
-        <Link className="Header__Link" to="/about">
+        <NavLink className="Header__Link" to="/about" activeClassName="Active">
           ABOUT
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="Header__Link"
+          exact
           to="/create"
           onClick={props.clearLeaderboard}
+          activeClassName="Active"
         >
           CREATE
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
@@ -41,4 +43,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps, null, { pure: false })(Header);
