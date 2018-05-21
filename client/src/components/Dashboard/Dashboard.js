@@ -21,9 +21,11 @@ class Dashboard extends Component {
             <div className="Dashboard__Section">
               <LeaderboardInfo leaderboard={this.props.leaderboard} />
             </div>
-            <div className="Dashboard__Section Dashboard__Section--Large ">
+            <div className="Dashboard__Section Dashboard__Section--Large  Dashboard__Section--Flex">
               <div className="Dashboard__Header">Dashboard</div>
-              <UserTable leaderboardData={tableData} />
+              <div className="Dashboard__Table">
+                <UserTable leaderboardData={tableData} />
+              </div>
             </div>
           </div>
         </div>

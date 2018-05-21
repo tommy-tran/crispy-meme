@@ -1,7 +1,9 @@
 .LeaderboardInfo {
-  height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5); }
+  @media (min-width: 600px) {
+    .LeaderboardInfo {
+      height: 100%; } }
   .LeaderboardInfo__Block {
     display: flex;
     flex-direction: column;

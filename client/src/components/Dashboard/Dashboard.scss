@@ -1,6 +1,12 @@
 .Dashboard {
   height: 100%;
 
+  &__Table {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
   &__Header {
     font-size: 3em;
     font-style: oblique;
@@ -29,6 +35,11 @@
     width: 100%;
     height: 100%;
     flex-shrink: 2;
+  }
+
+  &__Section--Flex {
+    display: flex;
+    flex-direction: column;
   }
 
   &__Section--Large {
