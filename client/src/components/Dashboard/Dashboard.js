@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
 import { connect } from 'react-redux';
-import LeaderboardInfo from '../LeaderboardInfo/LeaderboardInfo';
+import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
+import UserTable from './UserTable/UserTable';
 
 class Dashboard extends Component {
   render() {
+    const tableData = this.props.leaderboard.data.map((user, index) => {
+      return {
+        rank: index + 1,
+        ...user,
+        date: user.date.split('T')[0]
+      };
+    });
+
     return (
       <div className="Container">
         <div className="Dashboard">
@@ -14,6 +23,7 @@ class Dashboard extends Component {
             </div>
             <div className="Dashboard__Section Dashboard__Section--Large ">
               <div className="Dashboard__Header">Dashboard</div>
+              <UserTable leaderboardData={tableData} />
             </div>
           </div>
         </div>

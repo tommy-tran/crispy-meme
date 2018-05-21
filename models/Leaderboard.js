@@ -6,9 +6,9 @@ const stringRequired = {
   required: true
 };
 
-const validateEmail = (email) => {
+const validateEmail = email => {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return re.test(email)
+  return re.test(email);
 };
 
 const leaderboardSchema = new Schema({
@@ -23,7 +23,10 @@ const leaderboardSchema = new Schema({
     trim: true,
     lowercase: true,
     required: true,
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    match: [
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      'Please fill a valid email address'
+    ]
   },
   dateCreated: {
     type: Date,

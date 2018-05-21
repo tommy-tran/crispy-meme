@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #f0f0f0;
   margin: 0 auto;
   height: 100vh;
   text-align: center;
@@ -10,9 +9,9 @@
   .Landing__Logo {
     margin-top: auto;
     padding-top: 0.5em;
-    background: -webkit-linear-gradient(#434343, black);
-    background-clip: text;
     font-size: 8em;
+    background: -webkit-linear-gradient(#626262, black);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
   @media (min-width: 600px) {
