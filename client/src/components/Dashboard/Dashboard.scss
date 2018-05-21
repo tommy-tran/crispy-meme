@@ -16,7 +16,8 @@
     box-sizing: border-box;
 
     @media (min-width: 600px) {
-      display: block;
+      display: flex;
+      justify-content: space-between;
     }
   }
 
@@ -47,8 +48,39 @@
   }
 }
 
+.Header {
+  &__Title {
+    width: 100%;
+    font-size: 0.8em;
+    flex-shrink: 1;
+
+    @media (min-width: 700px) {
+      font-size: 1em;
+    }
+  }
+
+  &__Options {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-shrink: 3;
+
+    &__Icon {
+      margin: auto auto;
+    }
+  }
+}
+
 .Container {
   height: 100vh;
   box-sizing: border-box;
   padding-top: 4.5em;
+}
+
+.Green {
+  color: rgb(111, 223, 111);
+}
+
+.Red {
+  color: rgb(255, 72, 72);
 }

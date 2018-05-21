@@ -22,7 +22,7 @@ const LeaderboardInfo = props => {
 
     const emailRow = email ? (
       <tr>
-        <td>Email</td>
+        <td><strong>Email</strong></td>
         <td>{email}</td>
       </tr>
     ) : null;
@@ -36,7 +36,7 @@ const LeaderboardInfo = props => {
 
       privateRow = (
         <tr>
-          <td>Private Key</td>
+          <td><strong>Private Key</strong></td>
           <td>{privateKey}</td>
         </tr>
       );
@@ -46,20 +46,20 @@ const LeaderboardInfo = props => {
       <table>
         <tbody>
           <tr>
-            <td>Game Name</td>
+            <td><strong>Game Name</strong></td>
             <td>{gameName}</td>
           </tr>
           <tr>
-            <td>Owner Name</td>
+            <td><strong>Owner Name</strong></td>
             <td>{ownerName}</td>
           </tr>
           {emailRow}
           <tr>
-            <td>Date Created</td>
+            <td><strong>Date Created</strong></td>
             <td>{dateCreated.split('T')[0]}</td>
           </tr>
           <tr>
-            <td>Public Key</td>
+            <td><strong>Public Key</strong></td>
             <td>{publicKey}</td>
           </tr>
           {privateRow}

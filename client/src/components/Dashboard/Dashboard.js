@@ -8,6 +8,7 @@ class Dashboard extends Component {
   render() {
     let tableData = [];
     if (this.props.leaderboard) {
+      console.log(this.props.leaderboard);
       tableData = this.props.leaderboard.data.map((user, index) => {
         return {
           rank: index + 1,
@@ -18,6 +19,16 @@ class Dashboard extends Component {
       });
     }
 
+    let options = null;
+    if (this.props.leaderboard && this.props.leaderboard.admin) {
+      options = (
+        <div className="Header__Options">
+          <i className="fal fa-plus-circle Header__Options__Icon Green" />
+          <i className="fal fa-ban Header__Options__Icon Red" />
+        </div>
+      );
+    }
+
     return (
       <div className="Container">
         <div className="Dashboard">
@@ -26,7 +37,10 @@ class Dashboard extends Component {
               <LeaderboardInfo leaderboard={this.props.leaderboard} />
             </div>
             <div className="Dashboard__Section Dashboard__Section--Large  Dashboard__Section--Flex">
-              <div className="Dashboard__Header">Dashboard</div>
+              <div className="Dashboard__Header">
+                <span className="Header__Title">Dashboard</span>
+                {options}
+              </div>
               <div className="Dashboard__Table">
                 <UserTable
                   leaderboardData={tableData}
