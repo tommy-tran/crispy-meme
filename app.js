@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 /**
  * Load models
@@ -13,6 +14,7 @@ mongoose.connect('mongodb://localhost/crispy-meme');
 const requestRoutes = require('./routes/request');
 
 const app = express();
+app.use(bodyParser.json());
 app.use('/lb', requestRoutes);
 
 const PORT = process.env.PORT || 5000;

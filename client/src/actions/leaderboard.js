@@ -39,12 +39,10 @@ export const createLeaderboard = (
   email
 ) => async dispatch => {
   const response = await axios
-    .get('lb/create', {
-      params: {
-        gameName,
-        ownerName,
-        email
-      }
+    .post('lb/create', {
+      gameName,
+      ownerName,
+      email
     })
     .catch(err => {
       return dispatch(leaderboardError('creating leaderboard'));

@@ -33,6 +33,34 @@ router.get('/create', (req, res) => {
     });
 });
 
+router.post('/create', (req, res) => {
+  const gameName = req.body.gameName;
+  const ownerName = req.body.ownerName;
+  const email = req.body.email;
+  const keys = generateKeys();
+
+  new Leaderboard({
+    gameName,
+    ownerName,
+    email,
+    privateKey: keys.privateKey,
+    publicKey: keys.publicKey
+  })
+    .save()
+    .then(lb => {
+      res.send(lb);
+    })
+    .catch(err => {
+      if (err) {
+        return res.status(400).send({
+          status: 400,
+          message: 'Invalid parameters'
+        });
+      }
+      res.status(400).send('Failed to create leaderboard.');
+    });
+});
+
 router.use('/:key/user', userRoute);
 /**
  * Get all users from leaderboard
@@ -105,26 +133,6 @@ router.get('/:key/info', (req, res) => {
       });
     }
   });
-});
-
-// Fetches public key only, requires private key
-router.get('/key/publickey', (req, res) => {
-  Leaderboard.findOne(
-    {
-      privateKey: req.params.key
-    },
-    (err, lb) => {
-      if (err) {
-        return res.status(400).send('Error attemping to fetch public key');
-      }
-
-      if (lb) {
-        return res.send(`Your leaderboard's public key is: ${lb.publicKey}`);
-      } else {
-        return res.send('No leaderboard found, please check your key again!');
-      }
-    }
-  );
 });
 
 // Clears leaderboard, requires private key
