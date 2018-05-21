@@ -6,7 +6,8 @@ import {
   CLEAR_LEADERBOARD,
   UNSET_LEADERBOARD,
   LOADING_LEADERBOARD,
-  REDIRECTED_LEADERBOARD
+  REDIRECTED_LEADERBOARD,
+  DELETE_USER
 } from '../actions/types';
 
 let initialState = { error: null };
@@ -64,6 +65,16 @@ const leaderboardReducer = (state = initialState, action) => {
       return {
         ...state,
         redirectToDashboard: false
+      };
+    case DELETE_USER:
+      return {
+        ...state,
+        currentLeaderboard: {
+          ...state.currentLeaderboard,
+          data: state.currentLeaderboard.data.filter(user => {
+            return user.id !== action.userID;
+          })
+        }
       };
     default:
       return state;

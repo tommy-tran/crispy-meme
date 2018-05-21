@@ -10,7 +10,8 @@ class Dashboard extends Component {
       return {
         rank: index + 1,
         ...user,
-        date: user.date.split('T')[0]
+        date: user.date.split('T')[0],
+        id: user.id
       };
     });
 
@@ -24,7 +25,11 @@ class Dashboard extends Component {
             <div className="Dashboard__Section Dashboard__Section--Large  Dashboard__Section--Flex">
               <div className="Dashboard__Header">Dashboard</div>
               <div className="Dashboard__Table">
-                <UserTable leaderboardData={tableData} />
+                <UserTable
+                  leaderboardData={tableData}
+                  admin={this.props.leaderboard.admin}
+                  requestKey={this.props.leaderboard.privateKey}
+                />
               </div>
             </div>
           </div>
@@ -40,4 +45,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, null, null, {
+  pure: false
+})(Dashboard);

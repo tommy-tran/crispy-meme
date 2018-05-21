@@ -40,14 +40,20 @@ router.delete('/:user', (req, res) => {
       if (leaderboard) {
         User.findOneAndRemove(
           {
-            username: req.params.user
+            $or: [
+              {
+                username: req.params.user
+              },
+              {
+                _id: req.params.user
+              }
+            ]
           },
           (err, deletedUser) => {
             if (deletedUser) {
-              leaderboard.data.filter(user => {
-                return !(user === deletedUser._id);
-              });
-
+              // leaderboard.data.filter(user => {
+              //   return !(user === deletedUser._id);
+              // });
               return res.send('Successfully deleted user');
             } else {
               return res.status(404).send('Unable to delete specified user');

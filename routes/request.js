@@ -87,7 +87,8 @@ router.get('/:key', (req, res) => {
             return {
               username: user.username,
               date: user.date,
-              score: user.score
+              score: user.score,
+              id: user._id
             };
           })
           .sort((a, b) => {
@@ -115,7 +116,9 @@ router.get('/:key/info', (req, res) => {
         gameName: lb.gameName,
         ownerName: lb.ownerName,
         email: lb.email,
-        publicKey: lb.publicKey
+        publicKey: lb.publicKey,
+        admin: true,
+        privateKey: lb.privateKey
       });
     } else {
       Leaderboard.findOne({ publicKey: req.params.key }, (err, lb) => {
@@ -125,7 +128,8 @@ router.get('/:key/info', (req, res) => {
             dateCreated: lb.dateCreated,
             gameName: lb.gameName,
             ownerName: lb.ownerName,
-            publicKey: lb.publicKey
+            publicKey: lb.publicKey,
+            admin: false
           });
         } else {
           res.status(404).send('No leaderboard found');

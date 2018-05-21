@@ -7,7 +7,8 @@ import {
   LEADERBOARD_ERROR,
   UNSET_LEADERBOARD,
   LOADING_LEADERBOARD,
-  REDIRECTED_LEADERBOARD
+  REDIRECTED_LEADERBOARD,
+  DELETE_USER
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
@@ -113,4 +114,19 @@ export const redirectedLeaderboard = dispatch => {
   dispatch({
     type: REDIRECTED_LEADERBOARD
   });
+};
+
+export const deleteUser = (key, userID) => async dispatch => {
+  const response = await axios
+    .delete(`/lb/${key}/user/${userID}`)
+    .catch(err => {
+      return dispatch(leaderboardError('deleting user'));
+    });
+
+  if (response.status === 200) {
+    dispatch({
+      type: DELETE_USER,
+      userID: userID
+    });
+  }
 };
