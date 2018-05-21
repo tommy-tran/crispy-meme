@@ -33,41 +33,42 @@ class CreateForm extends Component {
 
   render() {
     let redirect = null;
-    if (this.props.leaderboard) {
+    if (this.props.redirect) {
       redirect = <Redirect to="/dashboard" />;
     }
 
     return (
-        <div className="CreateForm">
-          {redirect}
-          <div className="CreateForm__Header">Creating Leaderboard</div>
-          <i className="far fa-trophy-alt fa-10x Logo" />
-          <Input inputType="gameName" changed={this.gameNameHandler} />
-          <Input inputType="ownerName" changed={this.ownerNameHandler} />
-          <Input inputType="email" changed={this.emailHandler} />
-          <div className="CreateForm__ButtonBox">
-            <i
-              className="fal fa-check-circle fa-5x confirm"
-              onClick={() => {
-                this.props.sendCreateRequest(
-                  this.state.gameName,
-                  this.state.ownerName,
-                  this.state.email
-                );
-              }}
-            />
-            <Link to="/">
-              <i className="fal fa-times-circle fa-5x clear" />
-            </Link>
-          </div>
+      <div className="CreateForm">
+        {redirect}
+        <div className="CreateForm__Header">Creating Leaderboard</div>
+        <i className="far fa-trophy-alt fa-10x Logo" />
+        <Input inputType="gameName" changed={this.gameNameHandler} />
+        <Input inputType="ownerName" changed={this.ownerNameHandler} />
+        <Input inputType="email" changed={this.emailHandler} />
+        <div className="CreateForm__ButtonBox">
+          <i
+            className="fal fa-check-circle fa-5x confirm"
+            onClick={() => {
+              this.props.sendCreateRequest(
+                this.state.gameName,
+                this.state.ownerName,
+                this.state.email
+              );
+            }}
+          />
+          <Link to="/">
+            <i className="fal fa-times-circle fa-5x clear" />
+          </Link>
         </div>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    leaderboard: state.leaderboard.currentLeaderboard
+    leaderboard: state.leaderboard.currentLeaderboard,
+    redirect: state.leaderboard.redirectToDashboard
   };
 };
 

@@ -136,13 +136,15 @@
 
   &__Link {
     display: none;
-
+    
     @media (min-width: 600px) {
       text-decoration: none;
       color: white;
       margin-right: 20px;
       display: block;
+      outline: none;      
     }
+
   }
 
   @media (min-width: 480px) {

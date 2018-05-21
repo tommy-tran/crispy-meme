@@ -5,7 +5,8 @@ import {
   LEADERBOARD_ERROR,
   CLEAR_LEADERBOARD,
   UNSET_LEADERBOARD,
-  LOADING_LEADERBOARD
+  LOADING_LEADERBOARD,
+  REDIRECTED_LEADERBOARD
 } from '../actions/types';
 
 let initialState = { error: null };
@@ -17,6 +18,7 @@ const leaderboardReducer = (state = initialState, action) => {
         ...state,
         error: null,
         loading: false,
+        redirectToDashboard: true,
         currentLeaderboard: action.payload
       };
     case FETCH_LEADERBOARD:
@@ -24,6 +26,7 @@ const leaderboardReducer = (state = initialState, action) => {
         ...state,
         error: null,
         loading: false,
+        redirectToDashboard: true,
         currentLeaderboard: action.payload
       };
     case CLEAR_LEADERBOARD:
@@ -56,6 +59,11 @@ const leaderboardReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true
+      };
+    case REDIRECTED_LEADERBOARD:
+      return {
+        ...state,
+        redirectToDashboard: false
       };
     default:
       return state;

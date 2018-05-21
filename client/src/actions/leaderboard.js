@@ -6,7 +6,8 @@ import {
   FETCH_LEADERBOARD,
   LEADERBOARD_ERROR,
   UNSET_LEADERBOARD,
-  LOADING_LEADERBOARD
+  LOADING_LEADERBOARD,
+  REDIRECTED_LEADERBOARD
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
@@ -29,6 +30,8 @@ export const fetchLeaderboard = key => async dispatch => {
       type: FETCH_LEADERBOARD,
       payload: result
     });
+
+    dispatch(redirectedLeaderboard);
   } else {
     const errorType = 'fetch leaderboard';
     dispatch(leaderboardError(errorType));
@@ -56,6 +59,8 @@ export const createLeaderboard = (
       type: CREATE_LEADERBOARD,
       payload: response.data
     });
+
+    dispatch(redirectedLeaderboard);
   }
 };
 
@@ -86,6 +91,7 @@ export const clearLeaderboard = key => async dispatch => {
 };
 
 export const unsetLeaderboard = dispatch => {
+  dispatch(redirectedLeaderboard);
   dispatch({
     type: UNSET_LEADERBOARD
   });
@@ -100,5 +106,11 @@ export const leaderboardError = error => dispatch =>
 export const loadingLeaderboard = dispatch => {
   dispatch({
     type: LOADING_LEADERBOARD
-  })
-}
+  });
+};
+
+export const redirectedLeaderboard = dispatch => {
+  dispatch({
+    type: REDIRECTED_LEADERBOARD
+  });
+};

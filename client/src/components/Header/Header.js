@@ -5,19 +5,35 @@ import { unsetLeaderboard } from '../../actions/leaderboard';
 import { connect } from 'react-redux';
 
 const Header = props => {
+  let leaderboard = null;
+
+  if (props.leaderboard) {
+    leaderboard = (
+      <NavLink
+        className="Header__Link"
+        exact
+        to="/dashboard"
+        activeClassName="Active"
+      >
+        CURRENT
+      </NavLink>
+    );
+  }
+
   return (
     <div className="Header">
-      <NavLink className="Header__Logo" to="/" onClick={props.clearLeaderboard}>
+      <NavLink className="Header__Logo" to="/" > {/*onClick={props.clearLeaderboard*/}
         <i className="far fa-trophy-alt " />
       </NavLink>
       <div className="Header__Name">Crispy Leaderboards</div>
       <div className="Header__Container Header__Container--Menu">
         <div className="Header__Menu">
-          <div class="Header__Menu__Middle" />
+          <div className="Header__Menu__Middle" />
         </div>
       </div>
 
       <div className="Header__Container Header__Container--Link">
+        {leaderboard}
         <NavLink className="Header__Link" to="/about" activeClassName="Active">
           ABOUT
         </NavLink>
@@ -25,7 +41,6 @@ const Header = props => {
           className="Header__Link"
           exact
           to="/create"
-          onClick={props.clearLeaderboard}
           activeClassName="Active"
         >
           CREATE
@@ -43,4 +58,12 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps, null, { pure: false })(Header);
+const mapStateToProps = state => {
+  return {
+    leaderboard: state.leaderboard.currentLeaderboard
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps, null, {
+  pure: false
+})(Header);

@@ -8,7 +8,7 @@ import { Redirect } from 'react-router';
 class Landing extends Component {
   render() {
     let redirect = null;
-    if (this.props.leaderboard) {
+    if (this.props.redirect) {
       redirect = <Redirect to="/dashboard" />;
     }
     return (
@@ -24,6 +24,7 @@ class Landing extends Component {
 const mapStateToProps = state => {
   return {
     leaderboard: state.leaderboard.currentLeaderboard,
+    redirect: state.leaderboard.redirectToDashboard,
     loading: state.leaderboard.loading
   };
 };
