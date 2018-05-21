@@ -7,18 +7,27 @@
   box-sizing: border-box;
   height: 100vh;
   text-align: center;
-  padding-top: 3em;
+  padding-top: 5em;
 
   @media (min-width: 600px) {
     font-size: inherit;
   }
 
+  &__Header {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
   .Logo {
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
-    font-size: 8em;
+    font-size: 5em;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media (min-width: 600px) {
+      font-size: 8em;
+    }
   }
 
   &__ButtonBox {
@@ -56,3 +65,5 @@
     margin: 0 30px !important;
   }
 }
+
+.Container {}

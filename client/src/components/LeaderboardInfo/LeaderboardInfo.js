@@ -5,6 +5,8 @@ import { Redirect } from 'react-router-dom';
 const LeaderboardInfo = props => {
   let redirect = null;
   let table = null;
+  let privateMsg = null;
+  let privateRow = null;
 
   if (!props.leaderboard) {
     redirect = <Redirect to="/" />;
@@ -25,12 +27,20 @@ const LeaderboardInfo = props => {
       </tr>
     ) : null;
 
-    const privateRow = privateKey ? (
-      <tr>
-        <td>Private Key</td>
-        <td>{privateKey}</td>
-      </tr>
-    ) : null;
+    if (privateKey) {
+      privateMsg = (
+        <div style={{ textAlign: 'center', color: 'red', marginTop: '10px' }}>
+          Please save and protect your private key!
+        </div>
+      );
+
+      privateRow = (
+        <tr>
+          <td>Private Key</td>
+          <td>{privateKey}</td>
+        </tr>
+      );
+    }
 
     table = (
       <table>
@@ -63,9 +73,7 @@ const LeaderboardInfo = props => {
       <div className="LeaderboardInfo__Block">CURRENT LEADERBOARD</div>
       {redirect}
       {table}
-      <div style={{ textAlign: 'center', color: 'red', marginTop: '10px' }}>
-        Please save and protect your private key!
-      </div>
+      {privateMsg}
     </div>
   );
 };

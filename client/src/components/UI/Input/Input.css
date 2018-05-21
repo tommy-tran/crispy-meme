@@ -31,5 +31,5 @@
   @media (min-width: 600px) {
     .InputBox {
       flex-direction: row;
-      margin: 30px auto;
+      margin: 20px auto;
       width: 90%; } }
