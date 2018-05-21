@@ -18,27 +18,32 @@ const UserTable = props => {
             }}
           />
         ),
-        width: 100
+        width: 70,
+        sortable: false
       }
     : {
-      width: 0
-    };
+        width: 0
+      };
   const columns = [
     {
       Header: 'Rank',
-      accessor: 'rank'
+      accessor: 'rank',
+      minWidth: 50
     },
     {
-      Header: 'Username',
-      accessor: 'username' // String-based value accessors!
+      Header: 'Name',
+      accessor: 'username',
+      minWidth: 70
     },
     {
       Header: 'Score',
-      accessor: 'score'
+      accessor: 'score',
+      minWidth: 70
     },
     {
       Header: 'Date',
-      accessor: 'date'
+      accessor: 'date',
+      minWidth: 60
     },
     { ...deleteColumn }
   ];

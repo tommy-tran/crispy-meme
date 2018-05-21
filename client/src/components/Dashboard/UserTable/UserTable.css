@@ -3,4 +3,22 @@
   top: 0;
   right: 0;
   left: 0;
-  bottom: 0; }
+  bottom: 0;
+  font-size: 10px; }
+  @media (min-width: 400px) {
+    .UserTable {
+      font-size: 0.8em; } }
+  @media (min-width: 600px) {
+    .UserTable {
+      font-size: 0.7em; } }
+  @media (min-width: 800px) {
+    .UserTable {
+      font-size: 1em; } }
+  @media (min-width: 1000px) {
+    .UserTable {
+      font-size: 1.2em; } }
+  .UserTable .rt-td {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }

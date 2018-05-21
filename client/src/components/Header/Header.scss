@@ -60,9 +60,15 @@
 
     &--Link {
       display: none;
+      font-size: 0.8em;
+
       @media (min-width: 600px) {
         display: flex;
         justify-content: space-around;
+      }
+
+      @media(min-width: 800px) {
+        font-size: 1em;
       }
     }
 
