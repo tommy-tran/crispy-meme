@@ -11,18 +11,21 @@ const Header = props => {
         <i className="far fa-trophy-alt" />
       </span>
       <div className="Header__Name">Crispy Leaderboards</div>
-      <div className="Header__Container">
+      <div className="Header__Container Header__Container--Menu">
         <div className="Header__Menu">
           <div class="Header__Menu__Middle" />
         </div>
       </div>
-      <Link
-        className="Header__Menu__Link"
-        to="/create"
-        onClick={props.clearLeaderboard}
-      >
-        CREATE
-      </Link>
+
+      <div className="Header__Container Header__Container--Link">
+        <Link
+          className="Header__Link"
+          to="/create"
+          onClick={props.clearLeaderboard}
+        >
+          CREATE
+        </Link>
+      </div>
     </div>
   );
 };

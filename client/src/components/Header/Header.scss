@@ -15,27 +15,67 @@
   &__Name {
     text-shadow: 1px 1px black;
     width: 100%;
+
+    @media (min-width: 400px) {
+      flex-shrink: 1;
+    }
   }
 
   &__Logo {
+    width: 100%;
+    flex-shrink: 2;
     display: none;
 
-    @media (min-width: 600px) {
+    @media (min-width: 400px) {
+      display: block;
+    }
+
+    i {
+      display: none;
+
+      @media (min-width: 400px) {
+        display: block;
+      }
+    }
+
+    @media (min-width: 400px) {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      margin-left: 20px;
-      margin-right: 20px;
-      font-size: 45px;
+      font-size: 40px;
     }
   }
 
   &__Container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: 50px;
+    width: 100%;
+
+    @media (min-width: 400px) {
+      flex-shrink: 2;
+      width: 100%;
+    }
+
+    &--Link {
+      display: none;
+      @media (min-width: 600px) {
+        display: block;
+      }
+    }
+
+    &--Menu {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      width: 60px;
+      
+      @media (min-width: 400px) {
+        width: 100%;
+      }
+
+      @media (min-width: 600px) {
+        display: none;
+      }
+    }
   }
 
   &__Menu {
@@ -45,6 +85,10 @@
     height: 19px;
     position: relative;
     margin: auto auto;
+
+    @media (min-width: 600px) {
+      display: none;
+    }
 
     &::before {
       content: '';
@@ -83,22 +127,16 @@
       transition: transform 0.3s ease-out;
       border-radius: 2px;
     }
+  }
 
-    &__Link {
-      display: none;
+  &__Link {
+    display: none;
 
-      @media (min-width: 600px) {
-        text-decoration: none;
-        color: white;
-        margin-right: 20px;
-      }
-    }
-
-    @media (min-width: 480px) {
-      display: flex;
-      list-style-type: none;
-      margin-left: auto;
-      margin-top: 0;
+    @media (min-width: 600px) {
+      text-decoration: none;
+      color: white;
+      margin-right: 20px;
+      display: block;
     }
   }
 
