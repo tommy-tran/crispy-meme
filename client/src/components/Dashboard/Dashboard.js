@@ -6,14 +6,17 @@ import UserTable from './UserTable/UserTable';
 
 class Dashboard extends Component {
   render() {
-    const tableData = this.props.leaderboard.data.map((user, index) => {
-      return {
-        rank: index + 1,
-        ...user,
-        date: user.date.split('T')[0],
-        id: user.id
-      };
-    });
+    let tableData = [];
+    if (this.props.leaderboard) {
+      tableData = this.props.leaderboard.data.map((user, index) => {
+        return {
+          rank: index + 1,
+          ...user,
+          date: user.date.split('T')[0],
+          id: user.id
+        };
+      });
+    }
 
     return (
       <div className="Container">
@@ -27,8 +30,14 @@ class Dashboard extends Component {
               <div className="Dashboard__Table">
                 <UserTable
                   leaderboardData={tableData}
-                  admin={this.props.leaderboard.admin}
-                  requestKey={this.props.leaderboard.privateKey}
+                  admin={
+                    this.props.leaderboard ? this.props.leaderboard.admin : null
+                  }
+                  requestKey={
+                    this.props.leaderboard
+                      ? this.props.leaderboard.privateKey
+                      : null
+                  }
                 />
               </div>
             </div>

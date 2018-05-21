@@ -6,6 +6,23 @@ import { deleteUser } from '../../../actions/leaderboard';
 import { connect } from 'react-redux';
 
 const UserTable = props => {
+  const deleteColumn = props.admin
+    ? {
+        Header: 'Delete',
+        accessor: 'id',
+        Cell: user => (
+          <i
+            className="fas fa-trash-alt"
+            onClick={() => {
+              props.onDeleteUser(props.requestKey, user.original.id);
+            }}
+          />
+        ),
+        width: 100
+      }
+    : {
+      width: 0
+    };
   const columns = [
     {
       Header: 'Rank',
@@ -23,19 +40,7 @@ const UserTable = props => {
       Header: 'Date',
       accessor: 'date'
     },
-    {
-      Header: 'Delete',
-      accessor: 'id',
-      Cell: user => (
-        <i
-          className="fas fa-trash-alt"
-          onClick={() => {
-            props.onDeleteUser(props.requestKey, user.original.id);
-          }}
-        />
-      ),
-      width: 100
-    }
+    { ...deleteColumn }
   ];
 
   return (
@@ -57,6 +62,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps, null, {
-  pure: false
-})(UserTable);
+export default connect(null, mapDispatchToProps)(UserTable);
