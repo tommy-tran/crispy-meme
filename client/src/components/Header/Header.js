@@ -11,19 +11,18 @@ const Header = props => {
         <i className="far fa-trophy-alt" />
       </span>
       <div className="Header__Name">Crispy Leaderboards</div>
-      <ul className="Header__Options">
-        <Link
-          style={{
-            textDecoration: 'none',
-            color: 'white',
-            marginRight: '20px'
-          }}
-          to="/create"
-          onClick={props.clearLeaderboard}
-        >
-          CREATE
-        </Link>
-      </ul>
+      <div className="Header__Container">
+        <div className="Header__Menu">
+          <div class="Header__Menu__Middle" />
+        </div>
+      </div>
+      <Link
+        className="Header__Menu__Link"
+        to="/create"
+        onClick={props.clearLeaderboard}
+      >
+        CREATE
+      </Link>
     </div>
   );
 };

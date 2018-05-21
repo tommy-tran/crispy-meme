@@ -1,17 +1,20 @@
 .Header {
-  height: 2.5em;
+  height: 2.6em;
   line-height: 2.5em;
   width: 100%;
   background-image: linear-gradient(to left, #292929 20%, black 100%);
   text-align: center;
-  font-size: 1.8em;
+  font-size: 1.6em;
   color: #fff;
   position: absolute;
   border-bottom: 1px solid rgb(200, 200, 200);
   z-index: 2;
+  display: flex;
+  justify-content: space-between;
 
   &__Name {
     text-shadow: 1px 1px black;
+    width: 100%;
   }
 
   &__Logo {
@@ -27,25 +30,79 @@
     }
   }
 
-  &__Options {
-    display: none;
-    font-size: 0.75em;
-    padding: 0 0;
+  &__Container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 50px;
   }
 
-  @media (min-width: 480px) {
-    display: flex;
+  &__Menu {
+    display: block;
+    font-size: 0.75em;
+    width: 30px;
+    height: 19px;
+    position: relative;
+    margin: auto auto;
 
-    &__Logo {
-    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 30px;
+      background-color: white;
+      transform-origin: 0 0;
+      transition: transform 0.3s ease-out;
+      border-radius: 2px;
     }
-  
-    &__Options {
+
+    &__Middle {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease-out;
+      transform-origin: 0 50%;
+      border-radius: 2px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      transform-origin: 0 100%;
+      transition: transform 0.3s ease-out;
+      border-radius: 2px;
+    }
+
+    &__Link {
+      display: none;
+
+      @media (min-width: 600px) {
+        text-decoration: none;
+        color: white;
+        margin-right: 20px;
+      }
+    }
+
+    @media (min-width: 480px) {
       display: flex;
       list-style-type: none;
       margin-left: auto;
       margin-top: 0;
     }
+  }
 
+  @media (min-width: 480px) {
+    display: flex;
   }
 }

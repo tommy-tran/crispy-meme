@@ -9,6 +9,7 @@
   font-size: 0.8em; }
   .Landing__Logo {
     margin-top: auto;
+    padding-top: 0.5em;
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
     font-size: 8em;
