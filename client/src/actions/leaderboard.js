@@ -14,7 +14,12 @@ import {
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
+  if (!key) {
+    return;
+  }
+
   dispatch(loadingLeaderboard);
+
   const requestLeaderboardInfo = await axios
     .get(`/lb/${key}/info`)
     .catch(err => {

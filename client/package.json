@@ -27,5 +27,8 @@
     "/lb/*": {
       "target": "http://localhost:5000"
     }
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.3"
   }
 }
