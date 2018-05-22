@@ -14,14 +14,19 @@
   border: 1px solid black;
   border-radius: 20px;
   margin: auto auto;
-  height: 50%;
-  width: 50%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   background-color: rgb(240, 240, 240);
   text-align: center;
   z-index: 5;
+  height: 60%;
+  width: 80%;
+
+  @media (min-width: 600px) {
+    height: 50%;
+    width: 50%;
+  }
 
   &__Status {
     font-size: 1.2em;
