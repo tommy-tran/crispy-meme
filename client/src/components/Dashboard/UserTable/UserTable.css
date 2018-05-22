@@ -4,7 +4,8 @@
   right: 0;
   left: 0;
   bottom: 0;
-  font-size: 10px; }
+  font-size: 10px;
+  background-color: whitesmoke !important; }
   @media (min-width: 400px) {
     .UserTable {
       font-size: 0.8em; } }

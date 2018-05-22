@@ -40,7 +40,7 @@ class CreateForm extends Component {
     return (
       <div className="CreateForm">
         {redirect}
-        <div className="CreateForm__Header">Creating Leaderboard</div>
+        <div className="CreateForm__Header"><strong>Creating Leaderboard</strong></div>
         <i className="far fa-trophy-alt fa-10x Logo" />
         <Input inputType="gameName" changed={this.gameNameHandler} />
         <Input inputType="ownerName" changed={this.ownerNameHandler} />

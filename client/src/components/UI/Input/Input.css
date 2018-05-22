@@ -10,11 +10,10 @@
   @media (min-width: 600px) {
     .Input {
       width: 45%;
-      margin: 0px 20px; } }
+      margin: 0px 10px; } }
   @media (min-width: 800px) {
     .Input {
-      width: 35%;
-      margin: 0px 20px; } }
+      width: 40%; } }
 
 .Label {
   box-sizing: border-box; }

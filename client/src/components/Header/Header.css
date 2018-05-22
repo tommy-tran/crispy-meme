@@ -15,10 +15,14 @@
   user-select: none; }
   .Header__Name {
     text-shadow: 1px 1px black;
-    width: 100%; }
+    width: 100%;
+    font-size: 1em; }
     @media (min-width: 400px) {
       .Header__Name {
         flex-shrink: 1; } }
+    @media (min-width: 550px) {
+      .Header__Name {
+        font-size: 1.2em; } }
   .Header__Logo {
     width: 100%;
     flex-shrink: 2;

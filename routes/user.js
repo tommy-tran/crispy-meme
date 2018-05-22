@@ -70,12 +70,7 @@ router.delete('/:user', (req, res) => {
     });
 });
 
-// Check for private key and post/update score
-router.post('/:user/:score', (req, res) => {
-  const key = req.body.key || req.params.key;
-  const username = req.body.user || req.params.user;
-  const score = req.body.score || req.params.score;
-
+const postUserScore = (key, username, score) => {
   const lbQuery = Leaderboard.findOne({
     privateKey: key
   })
@@ -90,7 +85,7 @@ router.post('/:user/:score', (req, res) => {
         },
         (err, user) => {
           let newUser = false;
-          if (err) console.log(err);
+          if (err) res.status(500).send(err);
 
           if (user) {
             // User exists
@@ -124,6 +119,21 @@ router.post('/:user/:score', (req, res) => {
         }
       );
     });
+};
+
+// Check for private key and post/update score
+router.post('/:user/:score', (req, res) => {
+  const key = req.body.key || req.params.key;
+  const username = req.body.user || req.params.user;
+  const score = req.body.score || req.params.score;
+  postUserScore(key, username, score);
+});
+
+router.post('/', (req, res) => {
+  const key = req.body.key;
+  const username = req.body.user;
+  const score = req.body.score;
+  postUserScore(key, username, score);
 });
 
 module.exports = router;

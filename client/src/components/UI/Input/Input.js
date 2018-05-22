@@ -3,7 +3,8 @@ import './Input.css';
 
 const Input = props => {
   const input = (
-    <input className="Input"
+    <input
+      className="Input"
       name={props.inputType}
       type={props.inputType === 'email' ? 'email' : 'text'}
       onChange={props.changed}
@@ -21,6 +22,12 @@ const Input = props => {
       break;
     case 'email':
       label = <span className="Label">Enter your email: </span>;
+      break;
+    case 'userName':
+      label = <span className="Label">Enter the user's name</span>;
+      break;
+    case 'score':
+      label = <span className="Label">Enter the user's score</span>;
       break;
     default:
   }

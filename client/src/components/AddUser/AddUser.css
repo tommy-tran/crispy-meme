@@ -1,0 +1,42 @@
+.AddUser {
+  background-color: #f0f0f0;
+  z-index: 100;
+  width: 90%;
+  height: 80%;
+  position: absolute;
+  margin: auto auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column; }
+  @media (min-width: 600px) {
+    .AddUser {
+      width: 70%; } }
+  @media (min-width: 750px) {
+    .AddUser {
+      width: 60%; } }
+  @media (min-height: 550px) {
+    .AddUser {
+      height: 60%; } }
+  @media (min-height: 700px) {
+    .AddUser {
+      height: 50%; } }
+  .AddUser__Title {
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: 1em; }
+  .AddUser__Close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px 15px;
+    font-size: 2em; }
+
+.Button {
+  margin: 0 auto; }

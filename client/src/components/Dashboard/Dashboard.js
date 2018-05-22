@@ -3,12 +3,28 @@ import './Dashboard.css';
 import { connect } from 'react-redux';
 import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
 import UserTable from './UserTable/UserTable';
+import AddUser from '../AddUser/AddUser';
 
 class Dashboard extends Component {
+  state = {
+    showAdd: false
+  };
+
+  onAddUser = () => {
+    this.setState({
+      showAdd: true
+    });
+  };
+
+  onCloseAddUser = () => {
+    this.setState({
+      showAdd: false
+    });
+  };
+
   render() {
     let tableData = [];
     if (this.props.leaderboard) {
-      console.log(this.props.leaderboard);
       tableData = this.props.leaderboard.data.map((user, index) => {
         return {
           rank: index + 1,
@@ -23,7 +39,10 @@ class Dashboard extends Component {
     if (this.props.leaderboard && this.props.leaderboard.admin) {
       options = (
         <div className="Header__Options">
-          <i className="fal fa-plus-circle Header__Options__Icon Green" />
+          <i
+            className="fal fa-plus-circle Header__Options__Icon Green"
+            onClick={this.onAddUser}
+          />
           <i className="fal fa-ban Header__Options__Icon Red" />
         </div>
       );
@@ -31,6 +50,7 @@ class Dashboard extends Component {
 
     return (
       <div className="Container">
+        <AddUser show={this.state.showAdd} clicked={this.onCloseAddUser} />
         <div className="Dashboard">
           <div className="Dashboard__Content">
             <div className="Dashboard__Section">

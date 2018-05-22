@@ -130,3 +130,18 @@ export const deleteUser = (key, userID) => async dispatch => {
     });
   }
 };
+
+export const addUser = (key, userID) => async dispatch => {
+  const response = await axios
+    .post(`/lb/${key}/user/${userID}`)
+    .catch(err => {
+      return dispatch(leaderboardError('deleting user'));
+    });
+
+  if (response.status === 200) {
+    dispatch({
+      type: DELETE_USER,
+      userID: userID
+    });
+  }
+};

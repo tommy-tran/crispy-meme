@@ -12,17 +12,23 @@
     .CreateForm {
       font-size: inherit; } }
   .CreateForm__Header {
-    font-size: 2em;
-    margin-bottom: 0.5em; }
+    font-size: 2.2em; }
+    @media (min-height: 600px) {
+      .CreateForm__Header {
+        margin-bottom: 0.5em; } }
   .CreateForm .Logo {
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
-    font-size: 5em;
+    font-size: 6em;
+    margin-top: 0.1em;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
     @media (min-width: 600px) {
       .CreateForm .Logo {
         font-size: 8em; } }
+    @media (min-height: 600px) {
+      .CreateForm .Logo {
+        margin: 0.2em 0; } }
   .CreateForm__ButtonBox {
     margin-top: 10px;
     box-sizing: border-box; }

@@ -20,7 +20,18 @@ router.get('/create', (req, res) => {
   })
     .save()
     .then(lb => {
-      res.send(lb);
+      const newLB = {
+        gameName: lb.gameName,
+        ownerName: lb.ownerName,
+        email: lb.email,
+        privateKey: lb.privateKey,
+        publicKey: lb.publicKey,
+        data: lb.data,
+        dateCreated: lb.dateCreated,
+        id: lb._id,
+        admin: true
+      };
+      res.send(newLB);
     })
     .catch(err => {
       if (err) {
@@ -182,7 +193,6 @@ router.delete('/:key', (req, res) => {
       res.send('Your leaderboard has been deleted.');
     })
     .catch(err => {
-      console.log(err);
       res.send('Error performing delete request.');
     });
 });
