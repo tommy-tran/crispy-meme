@@ -27,6 +27,9 @@ router.get('/:user', (req, res) => {
           res.send(user);
         }
       );
+    })
+    .catch(err => {
+      res.status(404).send('No user found');
     });
 });
 
@@ -67,10 +70,17 @@ router.delete('/:user', (req, res) => {
             'Not authorized to delete user (requires private key of leaderboard)'
           );
       }
+    })
+    .catch(err => {
+      res.status(400).send('No user to delete');
     });
 });
 
 const postUserScore = (res, key, username, score) => {
+  if (!key || !username || !score) {
+    return res.status(404).send('Invalid parameters');
+  }
+
   const lbQuery = Leaderboard.findOne({
     privateKey: key
   })
@@ -85,7 +95,7 @@ const postUserScore = (res, key, username, score) => {
         },
         (err, user) => {
           let newUser = false;
-          if (err) res.status(500).send(err);
+          if (err) return res.status(400).send(err);
 
           if (user) {
             // User exists
@@ -108,7 +118,6 @@ const postUserScore = (res, key, username, score) => {
           user.save().then(user => {
             // Add reference to leaderboard on new user
             if (newUser) {
-              if (err) res.status(500).send('Error creating user');
               leaderboard.data.push(user._id);
               leaderboard.save();
               return res.send(user);
@@ -118,6 +127,9 @@ const postUserScore = (res, key, username, score) => {
           });
         }
       );
+    })
+    .catch(err => {
+      res.status(400).send('Invalid parameters for creating a user');
     });
 };
 

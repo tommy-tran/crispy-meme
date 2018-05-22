@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
  */
 const Leaderboard = require('./models/Leaderboard');
 mongoose.connect('mongodb://localhost/crispy-meme');
-
+mongoose.Promise = global.Promise;
 /**
  * Load routes
  */
