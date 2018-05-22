@@ -41,29 +41,7 @@ class Menu extends Component {
 
   render() {
     let menuOptions = null;
-    if (!this.props.leaderboard) {
-      menuOptions = (
-        <div className="Menu__Options">
-          <NavLink className="Menu__Option" to="/" onClick={this.props.clicked}>
-            Input a leaderboard key
-          </NavLink>
-          <NavLink
-            className="Menu__Option"
-            to="/create"
-            onClick={this.props.clicked}
-          >
-            Create a new Leaderboard
-          </NavLink>
-          <NavLink
-            className="Menu__Option"
-            to="/about"
-            onClick={this.props.clicked}
-          >
-            About
-          </NavLink>
-        </div>
-      );
-    } else {
+    if (this.props.leaderboard && this.props.leaderboard.admin) {
       menuOptions = (
         <div className="Menu__Options">
           <NavLink className="Menu__Option" to="/" onClick={this.props.clicked}>
@@ -89,6 +67,28 @@ class Menu extends Component {
           <div className="Menu__Option" onClick={this.onDeleteLeaderboard}>
             Delete Leaderboard
           </div>
+          <NavLink
+            className="Menu__Option"
+            to="/about"
+            onClick={this.props.clicked}
+          >
+            About
+          </NavLink>
+        </div>
+      );
+    } else {
+      menuOptions = (
+        <div className="Menu__Options">
+          <NavLink className="Menu__Option" to="/" onClick={this.props.clicked}>
+            Input a leaderboard key
+          </NavLink>
+          <NavLink
+            className="Menu__Option"
+            to="/create"
+            onClick={this.props.clicked}
+          >
+            Create a new Leaderboard
+          </NavLink>
           <NavLink
             className="Menu__Option"
             to="/about"
