@@ -1,0 +1,53 @@
+.DeleteLeaderboard {
+  background-color: rgb(240, 240, 240);
+  z-index: 100;
+  width: 90%;
+  height: 80%;
+  position: absolute;
+  margin: auto auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
+  @media (min-width: 600px) {
+    width: 70%;
+  }
+
+  @media (min-width: 750px) {
+    width: 60%;
+  }
+
+  @media (min-height: 550px) {
+    height: 60%;
+  }
+
+  @media (min-height: 700px) {
+    height: 50%;
+  }
+
+  &__Title {
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: 1em;
+    color: red;
+  }
+
+  &__Close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px 15px;
+    font-size: 2em;
+  }
+}
+
+.Button {
+  margin: 0 auto;
+}

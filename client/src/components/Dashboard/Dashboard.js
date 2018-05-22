@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
 import UserTable from './UserTable/UserTable';
 import AddUser from '../AddUser/AddUser';
+import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
 
 class Dashboard extends Component {
   state = {
-    showAdd: false
+    showAdd: false,
+    showDeleteLB: false
   };
 
   onAddUser = () => {
@@ -19,6 +21,18 @@ class Dashboard extends Component {
   onCloseAddUser = () => {
     this.setState({
       showAdd: false
+    });
+  };
+
+  onDeleteLeaderboard = () => {
+    this.setState({
+      showDeleteLB: true
+    });
+  };
+
+  onCloseDeleteLeaderboard = () => {
+    this.setState({
+      showDeleteLB: false
     });
   };
 
@@ -43,18 +57,30 @@ class Dashboard extends Component {
             className="fal fa-plus-circle Header__Options__Icon Green"
             onClick={this.onAddUser}
           />
-          <i className="fal fa-ban Header__Options__Icon Red" />
+          <i
+            className="fal fa-ban Header__Options__Icon Red"
+            onClick={this.onDeleteLeaderboard}
+          />
         </div>
       );
     }
 
     return (
       <div className="Container">
-        <AddUser
-          show={this.state.showAdd}
-          clicked={this.onCloseAddUser}
-          privateKey={this.props.leaderboard.privateKey}
-        />
+        {this.props.leaderboard ? (
+          <div>
+            <AddUser
+              show={this.state.showAdd}
+              clicked={this.onCloseAddUser}
+              privateKey={this.props.leaderboard.privateKey}
+            />
+            <DeleteLeaderboard
+              show={this.state.showDeleteLB}
+              clicked={this.onCloseDeleteLeaderboard}
+              privateKey={this.props.leaderboard.privateKey}
+            />
+          </div>
+        ) : null}
         <div className="Dashboard">
           <div className="Dashboard__Content">
             <div className="Dashboard__Section">
