@@ -24,10 +24,10 @@ const Input = props => {
       label = <span className="Label">Enter your email: </span>;
       break;
     case 'userName':
-      label = <span className="Label">Enter the user's name</span>;
+      label = <span className="Label">Enter the user's name: </span>;
       break;
     case 'score':
-      label = <span className="Label">Enter the user's score</span>;
+      label = <span className="Label">Enter the user's score: </span>;
       break;
     default:
   }

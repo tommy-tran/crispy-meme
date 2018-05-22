@@ -26,6 +26,7 @@ class DeleteLeaderboard extends Component {
             cancel
             handleClick={() => {
               this.props.delete(this.props.privateKey);
+              this.props.clicked();
             }}
           />
         </div>

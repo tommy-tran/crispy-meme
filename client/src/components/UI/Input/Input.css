@@ -16,10 +16,12 @@
       width: 40%; } }
 
 .Label {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  line-height: 2em;
+  padding-right: 10px; }
   @media (min-width: 600px) {
     .Label {
-      width: 40%;
+      width: 50%;
       text-align: right; } }
 
 .InputBox {

@@ -51,6 +51,7 @@ class AddUser extends Component {
                 this.state.userName,
                 this.state.score
               );
+              this.props.clicked();
             }}
           />
         </div>

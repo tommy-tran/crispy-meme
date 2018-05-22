@@ -1,6 +1,6 @@
 .AddUser {
   background-color: #f0f0f0;
-  z-index: 100;
+  z-index: 200;
   width: 90%;
   height: 80%;
   position: absolute;
@@ -15,22 +15,18 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column; }
-  @media (min-width: 600px) {
-    .AddUser {
-      width: 70%; } }
-  @media (min-width: 750px) {
-    .AddUser {
-      width: 60%; } }
   @media (min-height: 550px) {
     .AddUser {
-      height: 60%; } }
+      height: 70%; } }
   @media (min-height: 700px) {
     .AddUser {
       height: 50%; } }
+  @media (min-width: 750px) {
+    .AddUser {
+      width: 65%; } }
   .AddUser__Title {
     text-align: center;
-    font-size: 1.8em;
-    margin-top: 1em; }
+    font-size: 1.8em; }
   .AddUser__Close {
     position: absolute;
     right: 0;
@@ -39,4 +35,7 @@
     font-size: 2em; }
 
 .Button {
-  margin: 0 auto; }
+  margin: 20px auto !important; }
+  @media (min-width: 600px) {
+    .Button {
+      margin: 5px auto !important; } }
