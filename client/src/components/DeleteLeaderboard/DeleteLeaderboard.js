@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Backdrop from '../UI/Backdrop/Backdrop';
-import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
 import { deleteLeaderboard } from '../../actions/leaderboard';
 import { connect } from 'react-redux';
