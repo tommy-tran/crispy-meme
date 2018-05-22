@@ -1,52 +1,60 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Button from '../../components/UI/Button/Button';
 import { removeError } from '../../actions/leaderboard';
+import { connect } from 'react-redux';
+import './addErrorHandler.css';
 
 const addErrorHandler = WrappedComponent => {
-  return class extends Component {
+  class ErrorHandledComponent extends Component {
     closeError = () => {
       this.props.onCloseError();
     };
 
     render() {
-      const error = this.props.leaderboard
-        ? this.props.leaderboard.error
-        : null;
+      const error = this.props.error ? this.props.error : null;
 
-      const errorModal = errorModal ? (
-        <div className="ErrorHandler">
-          <div className="ErrorHandler__Message">
-            {this.props.leaderboard.error}
+      const errorModal = error ? (
+        <div className="ErrorContainer">
+          <div className="ErrorHandler">
+            <h1 style={{ margin: '0' }}>Error</h1>
+            <div>
+              <div className="ErrorHandler__Status">{error.status}</div>
+              <div className="ErrorHandler__Message">{error.message}</div>
+            </div>
+            <Button
+              className="ErrorHandler__Button"
+              confirm
+              handleClick={this.closeError}
+              label="OK"
+            />
           </div>
-          <Button confirm handleClick={this.closeError} label="OK" />
+          <Backdrop show={error ? true : false} />
         </div>
       ) : null;
 
       return (
         <div>
           {errorModal}
-          <Backdrop show={errorModal ? true : false} />
-          <WrappedComponent />
+          <WrappedComponent {...this.props} />
         </div>
       );
     }
+  }
+
+  const mapStateToProps = state => {
+    return {
+      error: state.leaderboard.error
+    };
   };
+
+  const mapDispatchToProps = dispatch => {
+    return {
+      onCloseError: () => dispatch(removeError)
+    };
+  };
+
+  return connect(mapStateToProps, mapDispatchToProps)(ErrorHandledComponent);
 };
 
-const mapStateToProps = state => {
-  return {
-    leaderboard: state.leaderboard.currentLeaderboard
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onCloseError: () => dispatch(removeError)
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  addErrorHandler(WrappedComponent)
-);
+export default addErrorHandler;

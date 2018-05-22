@@ -4,6 +4,7 @@ import KeyInput from '../KeyInput/KeyInput';
 import { connect } from 'react-redux';
 import { fetchLeaderboard } from '../../actions/leaderboard';
 import { Redirect } from 'react-router';
+import addUserHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 class Landing extends Component {
   render() {
@@ -15,7 +16,10 @@ class Landing extends Component {
       <div className="Landing">
         {redirect}
         <i className="far fa-trophy-alt fa-10x Landing__Logo" />
-        <KeyInput loading={this.props.loading} submitKeyHandler={this.props.onFetchLeaderboard} />
+        <KeyInput
+          loading={this.props.loading}
+          submitKeyHandler={this.props.onFetchLeaderboard}
+        />
       </div>
     );
   }
@@ -35,4 +39,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  addUserHandler(Landing)
+);

@@ -1,0 +1,35 @@
+.ErrorContainer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 900;
+}
+
+.ErrorHandler {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: auto auto;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+  text-align: center;
+  z-index: 5;
+
+  &__Status {
+    font-size: 1.2em;
+    margin: 1em;
+  }
+
+  &__Message {
+    font-size: 1.2em;
+    margin: 1em;
+  }
+}

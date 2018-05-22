@@ -5,6 +5,7 @@ import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
 import UserTable from './UserTable/UserTable';
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
+import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 class Dashboard extends Component {
   state = {
@@ -118,4 +119,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(addErrorHandler(Dashboard));

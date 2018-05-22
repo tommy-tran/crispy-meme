@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createLeaderboard } from '../../actions/leaderboard';
 import { Redirect } from 'react-router';
+import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 class CreateForm extends Component {
   state = {
@@ -40,7 +41,9 @@ class CreateForm extends Component {
     return (
       <div className="CreateForm">
         {redirect}
-        <div className="CreateForm__Header"><strong>Creating Leaderboard</strong></div>
+        <div className="CreateForm__Header">
+          <strong>Creating Leaderboard</strong>
+        </div>
         <i className="far fa-trophy-alt fa-10x Logo" />
         <Input inputType="gameName" changed={this.gameNameHandler} />
         <Input inputType="ownerName" changed={this.ownerNameHandler} />
@@ -80,4 +83,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  addErrorHandler(CreateForm)
+);
