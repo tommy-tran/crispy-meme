@@ -14,7 +14,10 @@
     flex-direction: column;
     width: 100%; }
   .Menu__Option {
-    border-top: 1px solid black; }
+    border-top: 1px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #3f3f3f; }
   .Menu__Option:last-child {
     border-bottom: 1px solid black; }
 

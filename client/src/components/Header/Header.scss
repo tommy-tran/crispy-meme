@@ -101,7 +101,7 @@
     height: 19px;
     position: relative;
     margin: auto auto;
-    z-index: 101;
+    z-index: 100;
 
     @media (min-width: 600px) {
       display: none;
@@ -150,6 +150,7 @@
     &::before {
       transform: rotate(30deg) scaleX(1.15);
       background-color: black;
+      height: 3px;
     }
 
     .Header__MenuIcon__Middle {
@@ -159,7 +160,7 @@
     }
 
     &::after {
-      transform: rotate(-30deg) scaleX(1.15) translateY(1px);
+      transform: rotate(-30deg) scaleX(1.14) translateY(1px);
       background-color: black;
     }
   }

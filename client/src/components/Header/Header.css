@@ -78,7 +78,7 @@
     height: 19px;
     position: relative;
     margin: auto auto;
-    z-index: 101; }
+    z-index: 100; }
     @media (min-width: 600px) {
       .Header__MenuIcon {
         display: none; } }
@@ -116,13 +116,14 @@
       border-radius: 2px; }
   .Header__MenuIcon--X::before {
     transform: rotate(30deg) scaleX(1.15);
-    background-color: black; }
+    background-color: black;
+    height: 3px; }
   .Header__MenuIcon--X .Header__MenuIcon__Middle {
     opacity: 0;
     transform: scaleX(0);
     background-color: black; }
   .Header__MenuIcon--X::after {
-    transform: rotate(-30deg) scaleX(1.15) translateY(1px);
+    transform: rotate(-30deg) scaleX(1.14) translateY(1px);
     background-color: black; }
   .Header__Link {
     display: none; }
