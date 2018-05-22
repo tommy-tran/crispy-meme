@@ -30,7 +30,7 @@ class Dashboard extends Component {
           rank: index + 1,
           ...user,
           date: user.date.split('T')[0],
-          id: user.id
+          _id: user._id
         };
       });
     }
@@ -50,7 +50,11 @@ class Dashboard extends Component {
 
     return (
       <div className="Container">
-        <AddUser show={this.state.showAdd} clicked={this.onCloseAddUser} />
+        <AddUser
+          show={this.state.showAdd}
+          clicked={this.onCloseAddUser}
+          privateKey={this.props.leaderboard.privateKey}
+        />
         <div className="Dashboard">
           <div className="Dashboard__Content">
             <div className="Dashboard__Section">

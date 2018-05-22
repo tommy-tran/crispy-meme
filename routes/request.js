@@ -84,6 +84,7 @@ router.post('/create', (req, res) => {
     });
 });
 
+router.use('/user', userRoute);
 router.use('/:key/user', userRoute);
 /**
  * Get all users from leaderboard
@@ -111,7 +112,7 @@ router.get('/:key', (req, res) => {
               username: user.username,
               date: user.date,
               score: user.score,
-              id: user._id
+              _id: user._id
             };
           })
           .sort((a, b) => {

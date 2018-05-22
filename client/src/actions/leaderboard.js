@@ -8,7 +8,8 @@ import {
   UNSET_LEADERBOARD,
   LOADING_LEADERBOARD,
   REDIRECTED_LEADERBOARD,
-  DELETE_USER
+  DELETE_USER,
+  ADD_USER
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
@@ -126,22 +127,26 @@ export const deleteUser = (key, userID) => async dispatch => {
   if (response.status === 200) {
     dispatch({
       type: DELETE_USER,
-      userID: userID
+      _id: userID
     });
   }
 };
 
-export const addUser = (key, userID) => async dispatch => {
+export const addUser = (key, username, score) => async dispatch => {
   const response = await axios
-    .post(`/lb/${key}/user/${userID}`)
+    .post('lb/user', {
+      key,
+      username,
+      score
+    })
     .catch(err => {
-      return dispatch(leaderboardError('deleting user'));
+      return dispatch(leaderboardError('adding user'));
     });
 
   if (response.status === 200) {
     dispatch({
-      type: DELETE_USER,
-      userID: userID
+      type: ADD_USER,
+      user: response.data
     });
   }
 };

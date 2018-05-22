@@ -9,12 +9,12 @@ const UserTable = props => {
   const deleteColumn = props.admin
     ? {
         Header: 'Delete',
-        accessor: 'id',
+        accessor: '_id',
         Cell: user => (
           <i
             className="fas fa-trash-alt"
             onClick={() => {
-              props.onDeleteUser(props.requestKey, user.original.id);
+              props.onDeleteUser(props.requestKey, user.original._id);
             }}
           />
         ),

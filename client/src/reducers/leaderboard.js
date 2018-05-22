@@ -7,6 +7,7 @@ import {
   UNSET_LEADERBOARD,
   LOADING_LEADERBOARD,
   REDIRECTED_LEADERBOARD,
+  ADD_USER,
   DELETE_USER
 } from '../actions/types';
 
@@ -72,8 +73,42 @@ const leaderboardReducer = (state = initialState, action) => {
         currentLeaderboard: {
           ...state.currentLeaderboard,
           data: state.currentLeaderboard.data.filter(user => {
-            return user.id !== action.userID;
+            return user._id !== action._id;
           })
+        }
+      };
+    case ADD_USER:
+      let found = false;
+      const updatedUser = action.user;
+
+      let newData = state.currentLeaderboard.data.map(user => {
+        if (user.username === updatedUser.username) {
+          found = true;
+          return updatedUser;
+        } else {
+          return user;
+        }
+      });
+
+      if (!found) {
+        newData = [...newData, updatedUser];
+      }
+
+      newData.sort((a, b) => {
+        if (a.score < b.score) {
+          return 1;
+        } else if (a.score > b.score) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+
+      return {
+        ...state,
+        currentLeaderboard: {
+          ...state.currentLeaderboard,
+          data: newData
         }
       };
     default:

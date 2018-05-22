@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
+import { addUser } from '../../actions/leaderboard';
+import { connect } from 'react-redux';
 import './AddUser.css';
 
 class AddUser extends Component {
@@ -37,7 +39,18 @@ class AddUser extends Component {
           </div>
           <Input inputType="userName" changed={this.onNameChange} />
           <Input inputType="score" changed={this.onScoreChange} />
-          <Button className="Button" label="Confirm" confirm />
+          <Button
+            className="Button"
+            label="Confirm"
+            confirm
+            handleClick={() => {
+              this.props.addUserSubmit(
+                this.props.privateKey,
+                this.state.userName,
+                this.state.score
+              );
+            }}
+          />
         </div>
       );
     }
@@ -50,4 +63,11 @@ class AddUser extends Component {
   }
 }
 
-export default AddUser;
+const mapDispatchToProps = dispatch => {
+  return {
+    addUserSubmit: (key, username, score) =>
+      dispatch(addUser(key, username, score))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddUser);
