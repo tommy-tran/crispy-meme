@@ -9,7 +9,8 @@ import {
   LOADING_LEADERBOARD,
   REDIRECTED_LEADERBOARD,
   DELETE_USER,
-  ADD_USER
+  ADD_USER,
+  REMOVE_ERROR
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
@@ -147,4 +148,10 @@ export const addUser = (key, username, score) => async dispatch => {
       user: response.data
     });
   }
+};
+
+export const removeError = dispatch => {
+  dispatch({
+    type: REMOVE_ERROR
+  });
 };

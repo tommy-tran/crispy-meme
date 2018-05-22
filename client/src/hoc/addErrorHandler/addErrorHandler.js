@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Button from '../../components/UI/Button/Button';
+import { removeError } from '../../actions/leaderboard';
 
 const addErrorHandler = WrappedComponent => {
   return class extends Component {
     closeError = () => {
-      this.props.removeError();
+      this.props.onCloseError();
     };
 
     render() {
@@ -34,6 +35,18 @@ const addErrorHandler = WrappedComponent => {
   };
 };
 
-export default addErrorHandler(
-  connect(mapStateToProps, mapDispatchToProps)(WrappedComponent)
+const mapStateToProps = state => {
+  return {
+    leaderboard: state.leaderboard.currentLeaderboard
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onCloseError: () => dispatch(removeError)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  addErrorHandler(WrappedComponent)
 );

@@ -8,7 +8,8 @@ import {
   LOADING_LEADERBOARD,
   REDIRECTED_LEADERBOARD,
   ADD_USER,
-  DELETE_USER
+  DELETE_USER,
+  REMOVE_ERROR
 } from '../actions/types';
 
 let initialState = { error: null };
@@ -59,6 +60,12 @@ const leaderboardReducer = (state = initialState, action) => {
           status: action.error.response.status,
           message: action.error.response.statusText
         }
+      };
+    case REMOVE_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: null
       };
     case LOADING_LEADERBOARD:
       return {
