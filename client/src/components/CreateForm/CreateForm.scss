@@ -1,7 +1,7 @@
 .CreateForm {
   display: flex;
-  font-size: 0.9em;
   flex-direction: column;
+  font-size: 0.8em;
   justify-content: center;
   margin: 0 auto;
   box-sizing: border-box;
@@ -11,6 +11,10 @@
 
   @media (min-width: 600px) {
     font-size: inherit;
+  }
+
+  @media (min-height: 600px) {
+    font-size: 0.9em;
   }
 
   &__Header {
@@ -46,7 +50,7 @@
     box-sizing: border-box;
 
     @media (min-width: 600px) {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 }
