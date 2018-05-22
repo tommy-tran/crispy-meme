@@ -1,6 +1,6 @@
 .Header {
   height: 2.8em;
-  line-height: 2.5em;
+  line-height: 2.8em;
   width: 100%;
   background-image: linear-gradient(to left, #292929 20%, black 100%);
   text-align: center;
@@ -94,13 +94,14 @@
     }
   }
 
-  &__Menu {
+  &__MenuIcon {
     display: block;
     font-size: 0.75em;
     width: 30px;
     height: 19px;
     position: relative;
     margin: auto auto;
+    z-index: 101;
 
     @media (min-width: 600px) {
       display: none;
@@ -115,7 +116,7 @@
       width: 30px;
       background-color: white;
       transform-origin: 0 0;
-      transition: transform 0.3s ease-out;
+      transition: transform 0.5s ease-out;
       border-radius: 2px;
     }
 
@@ -126,7 +127,7 @@
       width: 30px;
       height: 3px;
       background-color: white;
-      transition: all 0.3s ease-out;
+      transition: all 0.5s ease-out;
       transform-origin: 0 50%;
       border-radius: 2px;
     }
@@ -140,8 +141,26 @@
       height: 3px;
       background-color: white;
       transform-origin: 0 100%;
-      transition: transform 0.3s ease-out;
+      transition: transform 0.5s ease-out;
       border-radius: 2px;
+    }
+  }
+
+  &__MenuIcon--X {
+    &::before {
+      transform: rotate(30deg) scaleX(1.15);
+      background-color: black;
+    }
+
+    .Header__MenuIcon__Middle {
+      opacity: 0;
+      transform: scaleX(0);
+      background-color: black;
+    }
+
+    &::after {
+      transform: rotate(-30deg) scaleX(1.15) translateY(1px);
+      background-color: black;
     }
   }
 

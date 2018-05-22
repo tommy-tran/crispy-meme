@@ -1,0 +1,25 @@
+.Menu {
+  position: relative;
+  height: 100%;
+  color: black;
+  background-color: #f0f0f0;
+  z-index: 100;
+  width: 100%;
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+  .Menu__Options {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+  .Menu__Option {
+    border-top: 1px solid black; }
+  .Menu__Option:last-child {
+    border-bottom: 1px solid black; }
+
+.MenuContainer {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%; }
