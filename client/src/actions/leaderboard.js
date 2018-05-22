@@ -45,7 +45,7 @@ export const createLeaderboard = (
 ) => async dispatch => {
   dispatch(loadingLeaderboard);
   const response = await axios
-    .post('lb/create', {
+    .post('lb/', {
       gameName,
       ownerName,
       email

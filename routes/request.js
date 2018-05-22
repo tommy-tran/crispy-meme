@@ -6,9 +6,9 @@ const generateKeys = require('../helpers/generateKeys');
 const userRoute = require('./user');
 
 router.get('/create', (req, res) => {
-  const gameName = req.query.gameName;
-  const ownerName = req.query.ownerName;
-  const email = req.query.email;
+  const gameName = req.body.gameName || req.query.gameName;
+  const ownerName = req.body.ownerName || req.query.ownerName;
+  const email = req.body.email || req.query.email;
   const keys = generateKeys();
 
   new Leaderboard({
@@ -44,7 +44,7 @@ router.get('/create', (req, res) => {
     });
 });
 
-router.post('/create', (req, res) => {
+router.post('/', (req, res) => {
   const gameName = req.body.gameName || req.query.gameName;
   const ownerName = req.body.ownerName || req.query.ownerName;
   const email = req.body.email || req.query.email;
