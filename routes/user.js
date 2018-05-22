@@ -27,9 +27,6 @@ router.get('/:user', (req, res) => {
           res.send(user);
         }
       );
-    })
-    .catch(err => {
-      res.status(404).send('No user found');
     });
 });
 
@@ -70,9 +67,6 @@ router.delete('/:user', (req, res) => {
             'Not authorized to delete user (requires private key of leaderboard)'
           );
       }
-    })
-    .catch(err => {
-      res.status(400).send('No user to delete');
     });
 });
 
@@ -127,7 +121,7 @@ const postUserScore = (res, key, username, score) => {
           });
         }
       );
-    })
+    });
 };
 
 // Check for private key and post/update score
