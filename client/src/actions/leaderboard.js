@@ -17,11 +17,12 @@ export const fetchLeaderboard = key => async dispatch => {
   const requestLeaderboardInfo = await axios
     .get(`/lb/${key}/info`)
     .catch(err => {
-      return dispatch(leaderboardError('fetching leaderboard'));
+      return dispatch(leaderboardError(err));
     });
   const requestUsers = await axios.get(`/lb/${key}`).catch(err => {
-    return dispatch(leaderboardError('fetching leaderboard'));
+    return dispatch(leaderboardError(err));
   });
+
   if (requestLeaderboardInfo.status === 200 && requestUsers.status === 200) {
     const result = {
       ...requestLeaderboardInfo.data,
@@ -34,9 +35,6 @@ export const fetchLeaderboard = key => async dispatch => {
     });
 
     dispatch(redirectedLeaderboard);
-  } else {
-    const errorType = 'fetch leaderboard';
-    dispatch(leaderboardError(errorType));
   }
 };
 
@@ -53,7 +51,7 @@ export const createLeaderboard = (
       email
     })
     .catch(err => {
-      return dispatch(leaderboardError('creating leaderboard'));
+      return dispatch(leaderboardError(err));
     });
 
   if (response.status === 200) {
@@ -69,7 +67,7 @@ export const createLeaderboard = (
 export const deleteLeaderboard = key => async dispatch => {
   dispatch(loadingLeaderboard);
   const response = await axios.delete(`/lb/${key}`).catch(err => {
-    return dispatch(leaderboardError('deleting leaderboard'));
+    return dispatch(leaderboardError(err));
   });
 
   if (response.status === 200) {
@@ -82,7 +80,7 @@ export const deleteLeaderboard = key => async dispatch => {
 export const clearLeaderboard = key => async dispatch => {
   dispatch(loadingLeaderboard);
   const response = axios.get(`/lb/${key}/clear`).catch(err => {
-    return dispatch(leaderboardError('clearing leaderboard'));
+    return dispatch(leaderboardError(err));
   });
 
   if (response.status === 200) {
@@ -121,7 +119,7 @@ export const deleteUser = (key, userID) => async dispatch => {
   const response = await axios
     .delete(`/lb/${key}/user/${userID}`)
     .catch(err => {
-      return dispatch(leaderboardError('deleting user'));
+      return dispatch(leaderboardError(err));
     });
 
   if (response.status === 200) {
@@ -140,7 +138,7 @@ export const addUser = (key, username, score) => async dispatch => {
       score
     })
     .catch(err => {
-      return dispatch(leaderboardError('adding user'));
+      return dispatch(leaderboardError(err));
     });
 
   if (response.status === 200) {

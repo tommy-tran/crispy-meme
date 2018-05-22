@@ -55,7 +55,7 @@ const leaderboardReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.error
+        error: action.error.response.statusText
       };
     case LOADING_LEADERBOARD:
       return {

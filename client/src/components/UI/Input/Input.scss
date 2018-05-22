@@ -10,7 +10,11 @@
   flex-shrink: 1;
 
   @media (min-width: 600px) {
-    margin-right: 20%;
+    margin-right: 5%;
+  }
+
+  @media (min-width: 700px) {
+    margin-right: 10%;
   }
 }
 
@@ -35,7 +39,7 @@
 
   @media (min-width: 600px) {
     flex-direction: row;
-    margin: 20px auto;
+    margin: 30px auto;
     width: 90%;
   }
 }

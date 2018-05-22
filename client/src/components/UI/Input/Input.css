@@ -10,7 +10,10 @@
   flex-shrink: 1; }
   @media (min-width: 600px) {
     .Input {
-      margin-right: 20%; } }
+      margin-right: 5%; } }
+  @media (min-width: 700px) {
+    .Input {
+      margin-right: 10%; } }
 
 .Label {
   box-sizing: border-box;
@@ -31,5 +34,5 @@
   @media (min-width: 600px) {
     .InputBox {
       flex-direction: row;
-      margin: 20px auto;
+      margin: 30px auto;
       width: 90%; } }

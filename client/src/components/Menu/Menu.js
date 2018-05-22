@@ -67,7 +67,7 @@ class Menu extends Component {
       menuOptions = (
         <div className="Menu__Options">
           <NavLink className="Menu__Option" to="/" onClick={this.props.clicked}>
-            Input another key
+            Input another leaderboard key
           </NavLink>
           <NavLink
             className="Menu__Option"

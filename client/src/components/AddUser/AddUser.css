@@ -23,7 +23,10 @@
       height: 50%; } }
   @media (min-width: 750px) {
     .AddUser {
-      width: 65%; } }
+      width: 80%; } }
+  @media (min-width: 850px) {
+    .AddUser {
+      width: 70%; } }
   .AddUser__Title {
     text-align: center;
     font-size: 1.8em; }
