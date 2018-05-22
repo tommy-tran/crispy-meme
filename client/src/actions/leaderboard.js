@@ -138,7 +138,7 @@ export const deleteUser = (key, userID) => async dispatch => {
 
 export const addUser = (key, username, score) => async dispatch => {
   const response = await axios
-    .post('lb/user', {
+    .post('/lb/user', {
       key,
       username,
       score

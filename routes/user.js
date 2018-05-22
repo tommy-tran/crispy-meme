@@ -128,9 +128,6 @@ const postUserScore = (res, key, username, score) => {
         }
       );
     })
-    .catch(err => {
-      res.status(400).send('Invalid parameters for creating a user');
-    });
 };
 
 // Check for private key and post/update score
