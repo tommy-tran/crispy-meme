@@ -15,7 +15,12 @@ import {
 
 export const fetchLeaderboard = key => async dispatch => {
   if (!key) {
-    return;
+    dispatch(
+      leaderboardError({
+        status: 400,
+        message: 'Invalid leaderboard key'
+      })
+    );
   }
 
   dispatch(loadingLeaderboard);

@@ -19,7 +19,7 @@ class KeyInput extends Component {
     });
   };
 
-  rotateIcon = () => {
+  clearPlaceholder = () => {
     this.setState(oldState => {
       return { inputting: !oldState.inputting };
     });
@@ -30,11 +30,11 @@ class KeyInput extends Component {
     let input = (
       <input
         className="KeyInput__Input"
-        placeholder="Input your key here!"
+        placeholder={this.state.inputting ? '' : 'Input your key here!'}
         value={this.state.value}
         onChange={this.updateKeyInput}
-        onFocus={this.rotateIcon}
-        onBlur={this.rotateIcon}
+        onFocus={this.clearPlaceholder}
+        onBlur={this.clearPlaceholder}
       />
     );
 

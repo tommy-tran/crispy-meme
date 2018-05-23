@@ -57,8 +57,8 @@ const leaderboardReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: {
-          status: action.error.response.status,
-          message: action.error.response.statusText
+          status: action.error.status || action.error.response.status,
+          message: action.error.message || action.error.response.statusText
         }
       };
     case REMOVE_ERROR:
