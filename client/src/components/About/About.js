@@ -17,7 +17,7 @@ const About = props => {
           </li>
           <li>
             RESTful API aimed for game developers to leverage (details of API
-            usage will be on github repo)
+            endpoints will be on github repo)
           </li>
         </ul>
         <p>

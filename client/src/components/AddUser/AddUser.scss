@@ -32,6 +32,12 @@
     width: 70%;
   }
 
+  &__Inputbox {
+    @media (min-width: 800px) {
+      padding-top: 1em;
+    }
+  }
+
   &__Title {
     text-align: center;
     font-size: 1.8em;

@@ -37,7 +37,7 @@ class AddUser extends Component {
           <div className="AddUser__Title">
             <strong>Adding User</strong>
           </div>
-          <div>
+          <div className="AddUser__Inputbox">
             <Input inputType="userName" changed={this.onNameChange} />
             <Input inputType="score" changed={this.onScoreChange} />
           </div>

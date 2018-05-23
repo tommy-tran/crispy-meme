@@ -27,6 +27,9 @@
   @media (min-width: 850px) {
     .AddUser {
       width: 70%; } }
+  @media (min-width: 800px) {
+    .AddUser__Inputbox {
+      padding-top: 1em; } }
   .AddUser__Title {
     text-align: center;
     font-size: 1.8em; }
