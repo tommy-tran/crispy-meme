@@ -71,7 +71,7 @@ router.delete('/:user', (req, res) => {
 });
 
 const postUserScore = (res, key, username, score) => {
-  if (!key || !username || !score || typeof Number(score) !== 'number' || username.length < 1 || key.length !== 21) {
+  if (!key || !username || !score || typeof Number(score) != 'number' || key.length != 20) {
     return res.status(400).send('Invalid parameters');
   }
 

@@ -97,7 +97,7 @@ router.get('/:key', (req, res) => {
   const order = req.query.order || 'des';
   const key = req.params.key;
 
-  if (key.length !== 21) {
+  if (key.length !== 20) {
     return res.status(400).send('Invalid key');
   }
 
@@ -138,10 +138,6 @@ router.get('/:key', (req, res) => {
 // Shows information about leaderboard, requires private key
 router.get('/:key/info', (req, res) => {
   const key = req.params.key;
-
-  if (key.length !== 21) {
-    return res.status(400).send('Invalid key');
-  }
 
   Leaderboard.findOne({ privateKey: key }, (err, lb) => {
     if (err) res.status(500).send('Error fetching leaderboard information');

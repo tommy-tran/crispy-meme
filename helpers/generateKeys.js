@@ -16,7 +16,11 @@ const generateKeys = () => {
   const publicKey = randomKeys(2);
 
   // To handle unlikely case of both private and public keys being the same
-  if (privateKey === publicKey) {
+  if (
+    privateKey === publicKey ||
+    privateKey.length < 20 ||
+    publicKey.length < 20
+  ) {
     return generateKeys();
   }
 
@@ -29,8 +33,8 @@ const generateKeys = () => {
   });
 
   return {
-    privateKey,
-    publicKey
+    privateKey: privateKey.substring(0, 20),
+    publicKey: publicKey.substring(0, 20)
   };
 };
 
