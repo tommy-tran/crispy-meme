@@ -20,8 +20,6 @@ Ideally game developers encapsulate the private key within game logic to fully h
 
 ### To do:
 * Add About page
-* Add menu for mobile users to be able to do all actions
 * Clean up backend
-* Show success/error messages after actions/events
 * More endpoints such as key regeneration, key retrieval via email
 
