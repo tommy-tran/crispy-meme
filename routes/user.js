@@ -71,8 +71,8 @@ router.delete('/:user', (req, res) => {
 });
 
 const postUserScore = (res, key, username, score) => {
-  if (!key || !username || !score) {
-    return res.status(404).send('Invalid parameters');
+  if (!key || !username || !score || typeof score != 'number' || username.length < 1 || key.length !== 21) {
+    return res.status(400).send('Invalid parameters');
   }
 
   const lbQuery = Leaderboard.findOne({

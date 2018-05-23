@@ -95,9 +95,14 @@ router.use('/:key/user', userRoute);
 router.get('/:key', (req, res) => {
   const limit = req.query.limit || 50;
   const order = req.query.order || 'des';
+  const key = req.params.key;
+
+  if (key.length !== 21) {
+    return res.status(400).send('Invalid key');
+  }
 
   Leaderboard.findOne({
-    $or: [{ privateKey: req.params.key }, { publicKey: req.params.key }]
+    $or: [{ privateKey: key }, { publicKey: key }]
   })
     .select('data')
     .populate('data')
@@ -132,7 +137,13 @@ router.get('/:key', (req, res) => {
 
 // Shows information about leaderboard, requires private key
 router.get('/:key/info', (req, res) => {
-  Leaderboard.findOne({ privateKey: req.params.key }, (err, lb) => {
+  const key = req.params.key;
+
+  if (key.length !== 21) {
+    return res.status(400).send('Invalid key');
+  }
+
+  Leaderboard.findOne({ privateKey: key }, (err, lb) => {
     if (err) res.status(500).send('Error fetching leaderboard information');
     if (lb) {
       res.send({
@@ -145,7 +156,7 @@ router.get('/:key/info', (req, res) => {
         privateKey: lb.privateKey
       });
     } else {
-      Leaderboard.findOne({ publicKey: req.params.key }, (err, lb) => {
+      Leaderboard.findOne({ publicKey: key }, (err, lb) => {
         if (err) res.status(500).send('Error fetching leaderboard information');
         if (lb) {
           res.send({
