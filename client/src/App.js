@@ -5,8 +5,8 @@ import CreateForm from './components/CreateForm/CreateForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
 import Header from './components/Header/Header';
-import Login from './components/Login/Login';
-
+import About from './components/About/About';
+// import Login from './components/Login/Login';
 
 import { Route, Switch } from 'react-router-dom';
 
@@ -21,9 +21,10 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={Landing} />
-          <Route path="/login" component={Login} />
+          <Route path="/about" component={About} />
           <Route path="/create" component={CreateForm} />
           <Route path="/dashboard" component={Dashboard} />
+          {/* <Route path="/login" component={Login} /> */}
         </Switch>
       </div>
     );

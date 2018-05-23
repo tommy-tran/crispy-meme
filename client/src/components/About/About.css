@@ -1,0 +1,34 @@
+.About {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 5em; }
+  .About__Title {
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center; }
+    @media (min-height: 700px) {
+      .About__Title {
+        padding-bottom: 1.5em; } }
+    @media (min-width: 800px) {
+      .About__Title {
+        font-size: 2.5em; } }
+  .About__Description {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 0.8em; }
+    @media (min-width: 600px) {
+      .About__Description {
+        font-size: 0.9em; } }
+    @media (min-width: 800px) {
+      .About__Description {
+        font-size: 1em;
+        width: 80%; } }
+    @media (min-width: 1000px) {
+      .About__Description {
+        width: 60%; } }
+    .About__Description a {
+      color: #00aeff;
+      text-decoration: none; }
