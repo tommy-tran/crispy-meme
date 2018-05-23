@@ -26,10 +26,10 @@ const About = props => {
         </p>
         <p>
           <strong>Crispy Leaderboards</strong> is a leaderboard management
-          application that also exposes a fully funcional RESTful API. Users may
+          application that also exposes a fully functional RESTful API. Users may
           create and manage multiple leaderboards via the private key given
           after Leaderboard creation. This private key allows users to
-          reaccess already created leaderboards with full priveledges. In
+          reaccess already created leaderboards with full privileges. In
           addition to this, the creator of the leaderboard can share the public
           key which allows users to view the leaderboard without having access
           to management features.
