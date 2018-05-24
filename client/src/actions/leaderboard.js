@@ -14,11 +14,11 @@ import {
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
-  if (!key) {
-    dispatch(
+  if (!key || key.length !== 20) {
+    return dispatch(
       leaderboardError({
         status: 400,
-        message: 'Invalid leaderboard key'
+        customMessage: 'Please enter a valid key'
       })
     );
   }
@@ -55,6 +55,21 @@ export const createLeaderboard = (
   email
 ) => async dispatch => {
   dispatch(loadingLeaderboard);
+
+  if (!gameName || !ownerName || !email) {
+    let missingFields = [];
+    if (!gameName) missingFields.push('game name');
+    if (!ownerName) missingFields.push('your name');
+    if (!email) missingFields.push('your email');
+
+    return dispatch(
+      leaderboardError({
+        status: 400,
+        customMessage: `Invalid information entered: missing ${missingFields.join(', ')}`
+      })
+    );
+  }
+
   const response = await axios
     .post('lb/', {
       gameName,
@@ -77,6 +92,16 @@ export const createLeaderboard = (
 
 export const deleteLeaderboard = key => async dispatch => {
   dispatch(loadingLeaderboard);
+
+  if (!key || key.length !== 20) {
+    return dispatch(
+      leaderboardError({
+        status: 400,
+        customMessage: 'Please enter a valid key!'
+      })
+    );
+  }
+
   const response = await axios.delete(`/lb/${key}`).catch(err => {
     return dispatch(leaderboardError(err));
   });
@@ -90,6 +115,7 @@ export const deleteLeaderboard = key => async dispatch => {
 
 export const clearLeaderboard = key => async dispatch => {
   dispatch(loadingLeaderboard);
+
   const response = axios.get(`/lb/${key}/clear`).catch(err => {
     return dispatch(leaderboardError(err));
   });
@@ -142,6 +168,15 @@ export const deleteUser = (key, userID) => async dispatch => {
 };
 
 export const addUser = (key, username, score) => async dispatch => {
+  if (!username || !score || score <= 0) {
+    return dispatch(
+      leaderboardError({
+        status: 400,
+        customMessage: 'Please enter valid parameters!'
+      })
+    );
+  }
+
   const response = await axios
     .post('/lb/user', {
       key,

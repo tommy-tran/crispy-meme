@@ -11,8 +11,9 @@ const About = props => {
           <li>Security via uniquely generated keys</li>
           <li>
             Great responsive design that allows for full functionality on mobile
-            or small screened devices (<a href="http://mobiletest.me/htc_one_emulator/?u=https://hidden-plains-31601.herokuapp.com/">
-              try it yourself!
+            or small screened devices (using dev tools or{' '}
+            <a href="http://mobiletest.me/htc_one_emulator/?u=https://hidden-plains-31601.herokuapp.com/">
+              here
             </a>)
           </li>
           <li>
@@ -26,13 +27,13 @@ const About = props => {
         </p>
         <p>
           <strong>Crispy Leaderboards</strong> is a leaderboard management
-          application that also exposes a fully functional RESTful API. Users may
-          create and manage multiple leaderboards via the private key given
-          after Leaderboard creation. This private key allows users to
-          reaccess already created leaderboards with full privileges. In
-          addition to this, the creator of the leaderboard can share the public
-          key which allows users to view the leaderboard without having access
-          to management features.
+          application that also exposes a fully functional RESTful API. Users
+          may create and manage multiple leaderboards via the private key given
+          after Leaderboard creation. This private key allows users to reaccess
+          already created leaderboards with full privileges. In addition to
+          this, the creator of the leaderboard can share the public key which
+          allows users to view the leaderboard without having access to
+          management features.
         </p>
         <p>
           Actions that users with private access may perform are:
