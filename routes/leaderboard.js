@@ -5,45 +5,10 @@ const router = express.Router({ mergeParams: true });
 const generateKeys = require('../helpers/generateKeys');
 const userRoute = require('./user');
 
-router.get('/create', (req, res) => {
-  const gameName = req.body.gameName || req.query.gameName;
-  const ownerName = req.body.ownerName || req.query.ownerName;
-  const email = req.body.email || req.query.email;
-  const keys = generateKeys();
+router.use('/user', userRoute);
+router.use('/:key/user', userRoute);
 
-  new Leaderboard({
-    gameName,
-    ownerName,
-    email,
-    privateKey: keys.privateKey,
-    publicKey: keys.publicKey
-  })
-    .save()
-    .then(lb => {
-      const newLB = {
-        gameName: lb.gameName,
-        ownerName: lb.ownerName,
-        email: lb.email,
-        privateKey: lb.privateKey,
-        publicKey: lb.publicKey,
-        data: lb.data,
-        dateCreated: lb.dateCreated,
-        id: lb._id,
-        admin: true
-      };
-      res.send(newLB);
-    })
-    .catch(err => {
-      if (err) {
-        return res.status(400).send({
-          status: 400,
-          message: 'Invalid parameters'
-        });
-      }
-      res.status(400).send('Failed to create leaderboard.');
-    });
-});
-
+// Create Leaderboard
 router.post('/', (req, res) => {
   const gameName = req.body.gameName || req.query.gameName;
   const ownerName = req.body.ownerName || req.query.ownerName;
@@ -84,8 +49,6 @@ router.post('/', (req, res) => {
     });
 });
 
-router.use('/user', userRoute);
-router.use('/:key/user', userRoute);
 /**
  * Get all users from leaderboard
  * Query options:
@@ -170,11 +133,8 @@ router.get('/:key/info', (req, res) => {
   });
 });
 
-// TODO: Post to change leaderboard information
-
 // Clears leaderboard, requires private key
-router.get('/:key/clear', (req, res) => {
-  // Check if private key and clear leaderboard
+router.put('/:key', (req, res) => {
   Leaderboard.findOneAndUpdate(
     {
       privateKey: req.params.key

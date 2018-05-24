@@ -71,7 +71,7 @@ router.delete('/:user', (req, res) => {
 });
 
 const postUserScore = (res, key, username, score) => {
-  if (!key || !username || !score || typeof Number(score) != 'number' || key.length != 20) {
+  if (!key || !username || !score || isNaN(score) || key.length != 20) {
     return res.status(400).send('Invalid parameters');
   }
 
@@ -125,14 +125,21 @@ const postUserScore = (res, key, username, score) => {
 };
 
 // Check for private key and post/update score
-router.post('/:user/:score', (req, res) => {
-  const key = req.body.key || req.params.key;
-  const username = req.body.username || req.params.username;
-  const score = req.body.score || req.params.score;
+router.post('/', (req, res) => {
+  const key = req.body.key;
+  const username = req.body.username;
+  const score = req.body.score;
   postUserScore(res, key, username, score);
 });
 
-router.post('/', (req, res) => {
+router.post('/:user/:score', (req, res) => {
+  const key = req.params.key;
+  const username = req.params.username;
+  const score = req.params.score;
+  postUserScore(res, key, username, score);
+});
+
+router.put('/', (req, res) => {
   const key = req.body.key;
   const username = req.body.username;
   const score = req.body.score;

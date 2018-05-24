@@ -12,11 +12,11 @@ mongoose.Promise = global.Promise;
 /**
  * Load routes
  */
-const requestRoutes = require('./routes/request');
+const leaderboardRoutes = require('./routes/leaderboard');
 
 const app = express();
 app.use(bodyParser.json());
-app.use('/lb', requestRoutes);
+app.use('/lb', leaderboardRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');
