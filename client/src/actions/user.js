@@ -9,7 +9,7 @@ export const deleteUser = (key, userID) => async dispatch => {
       return dispatch(leaderboardError(err));
     });
 
-  if (response.status === 200) {
+  if (response && response.status === 200) {
     dispatch({
       type: DELETE_USER,
       _id: userID

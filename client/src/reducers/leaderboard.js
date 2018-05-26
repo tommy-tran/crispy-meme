@@ -47,7 +47,6 @@ const leaderboardReducer = (state = initialState, action) => {
         currentLeaderboard: { ...state.currentLeaderboard, data: [] }
       };
     case DELETE_LEADERBOARD:
-      localStorage.removeItem('leaderboard');
       return {
         ...state,
         error: null,

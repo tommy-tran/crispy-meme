@@ -56,11 +56,13 @@ class CreateForm extends Component {
           <i
             className="fal fa-check-circle fa-5x confirm"
             onClick={() => {
-              this.props.sendCreateRequest(
-                this.state.gameName,
-                this.state.ownerName,
-                this.state.email
-              );
+              if (!this.props.loading) {
+                this.props.sendCreateRequest(
+                  this.state.gameName,
+                  this.state.ownerName,
+                  this.state.email
+                );
+              }
             }}
           />
           <Link to="/">
@@ -75,7 +77,8 @@ class CreateForm extends Component {
 const mapStateToProps = state => {
   return {
     leaderboard: state.leaderboard.currentLeaderboard,
-    redirect: state.leaderboard.redirectToDashboard
+    redirect: state.leaderboard.redirectToDashboard,
+    loading: state.leaderboard.loading
   };
 };
 

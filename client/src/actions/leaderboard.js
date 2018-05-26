@@ -35,7 +35,12 @@ export const fetchLeaderboard = key => async dispatch => {
     return dispatch(leaderboardError(err));
   });
 
-  if (requestLeaderboardInfo.status === 200 && requestUsers.status === 200) {
+  if (
+    requestLeaderboardInfo &&
+    requestUsers &&
+    requestLeaderboardInfo.status === 200 &&
+    requestUsers.status === 200
+  ) {
     const result = {
       ...requestLeaderboardInfo.data,
       data: requestUsers.data
@@ -110,6 +115,7 @@ export const deleteLeaderboard = key => async dispatch => {
   });
 
   if (response && response.status === 200) {
+    localStorage.removeItem('leaderboard');
     dispatch({
       type: DELETE_LEADERBOARD
     });
@@ -148,31 +154,35 @@ export const loadLeaderboard = async dispatch => {
   const localLeaderboard = JSON.parse(localStorage.getItem('leaderboard'));
   if (localLeaderboard) {
     key = localLeaderboard.privateKey || localLeaderboard.publicKey;
-  }
 
-  const requestLeaderboardInfo = await axios.get(`/lb/${key}/info`);
-  const requestUsers = await axios.get(`/lb/${key}`);
+    const requestLeaderboardInfo = await axios
+      .get(`/lb/${key}/info`)
+      .catch(err => console.log(err));
+    const requestUsers = await axios
+      .get(`/lb/${key}`)
+      .catch(err => console.log(err));
 
-  if (
-    requestLeaderboardInfo &&
-    requestUsers &&
-    requestLeaderboardInfo.status === 200 &&
-    requestUsers.status === 200
-  ) {
-    const result = {
-      ...requestLeaderboardInfo.data,
-      data: requestUsers.data
-    };
+    if (
+      requestLeaderboardInfo &&
+      requestUsers &&
+      requestLeaderboardInfo.status === 200 &&
+      requestUsers.status === 200
+    ) {
+      const result = {
+        ...requestLeaderboardInfo.data,
+        data: requestUsers.data
+      };
 
-    dispatch({
-      type: LOAD_LEADERBOARD,
-      payload: result
-    });
-  } else {
-    dispatch({
-      type: LOAD_LEADERBOARD,
-      payload: null
-    });
+      dispatch({
+        type: LOAD_LEADERBOARD,
+        payload: result
+      });
+    } else {
+      dispatch({
+        type: LOAD_LEADERBOARD,
+        payload: null
+      });
+    }
   }
 };
 

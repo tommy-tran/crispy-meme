@@ -42,17 +42,15 @@ class About extends Component {
             public key which allows users to view the leaderboard without having
             access to management features.
           </p>
-          <p>
-            Actions that users with private access may perform are:
-            <ul>
-              <li>Add Users</li>
-              <li>Delete Users</li>
-              <li>Delete the leaderboard</li>
-              <li>Clear the leaderboard data</li>
-            </ul>
-            Users with public access may only view limited learderboard
-            information and may not perform any of the above actions
-          </p>
+          Actions that users with private access may perform are:
+          <ul>
+            <li>Add Users</li>
+            <li>Delete Users</li>
+            <li>Delete the leaderboard</li>
+            <li>Clear the leaderboard data</li>
+          </ul>
+          Users with public access may only view limited learderboard
+          information and may not perform any of the above actions
         </div>
       </div>
     );
