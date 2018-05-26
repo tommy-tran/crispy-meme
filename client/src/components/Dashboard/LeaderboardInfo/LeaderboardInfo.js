@@ -1,6 +1,5 @@
 import React from 'react';
 import './LeaderboardInfo.css';
-import { Redirect } from 'react-router-dom';
 
 const LeaderboardInfo = props => {
   let redirect = null;
@@ -8,9 +7,7 @@ const LeaderboardInfo = props => {
   let privateMsg = null;
   let privateRow = null;
 
-  if (!props.leaderboard) {
-    redirect = <Redirect to="/" />;
-  } else {
+  if (props.leaderboard) {
     const {
       gameName,
       ownerName,

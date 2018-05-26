@@ -9,7 +9,8 @@ import {
   REDIRECTED_LEADERBOARD,
   ADD_USER,
   DELETE_USER,
-  REMOVE_ERROR
+  REMOVE_ERROR,
+  LOAD_LEADERBOARD
 } from '../actions/types';
 
 let initialState = { error: null };
@@ -17,6 +18,9 @@ let initialState = { error: null };
 const leaderboardReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_LEADERBOARD:
+      // Save fetched leaderboard to local storage
+      localStorage.setItem('leaderboard', JSON.stringify(action.payload));
+
       return {
         ...state,
         error: null,
@@ -25,6 +29,9 @@ const leaderboardReducer = (state = initialState, action) => {
         currentLeaderboard: action.payload
       };
     case FETCH_LEADERBOARD:
+      // Save fetched leaderboard to local storage
+      localStorage.setItem('leaderboard', JSON.stringify(action.payload));
+
       return {
         ...state,
         error: null,
@@ -58,7 +65,8 @@ const leaderboardReducer = (state = initialState, action) => {
         loading: false,
         error: {
           status: action.error.status || action.error.response.status,
-          message: action.error.customMessage || action.error.response.statusText
+          message:
+            action.error.customMessage || action.error.response.statusText
         }
       };
     case REMOVE_ERROR:
@@ -72,6 +80,15 @@ const leaderboardReducer = (state = initialState, action) => {
         ...state,
         loading: true
       };
+    case LOAD_LEADERBOARD:
+      const localLeaderboard = JSON.parse(localStorage.getItem('leaderboard'));
+      if (localLeaderboard) {
+        return {
+          ...state,
+          currentLeaderboard: localLeaderboard
+        };
+      }
+      return state;
     case REDIRECTED_LEADERBOARD:
       return {
         ...state,

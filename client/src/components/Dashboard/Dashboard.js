@@ -6,12 +6,26 @@ import UserTable from './UserTable/UserTable';
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
+import { loadLeaderboard } from '../../actions/leaderboard';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   state = {
     showAdd: false,
-    showDeleteLB: false
+    showDeleteLB: false,
+    hasLocalLeaderboard: true
   };
+
+  componentDidMount() {
+    const localLeaderboard = localStorage.getItem('leaderboard');
+    if (!localLeaderboard) {
+      this.setState({
+        hasLocalLeaderboard: false
+      });
+    } else {
+      this.props.loadLocal();
+    }
+  }
 
   onAddUser = () => {
     this.setState({
@@ -39,6 +53,12 @@ class Dashboard extends Component {
 
   render() {
     let tableData = [];
+    let redirect = null;
+
+    if (!this.state.hasLocalLeaderboard && !this.props.leaderboard) {
+      redirect = <Redirect to="/" />;
+    }
+
     if (this.props.leaderboard) {
       tableData = this.props.leaderboard.data.map((user, index) => {
         return {
@@ -68,6 +88,7 @@ class Dashboard extends Component {
 
     return (
       <div className="Container">
+        {redirect}
         {this.props.leaderboard ? (
           <div>
             <AddUser
@@ -119,4 +140,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(addErrorHandler(Dashboard));
+const mapDispatchToProps = dispatch => {
+  return {
+    loadLocal: () => dispatch(loadLeaderboard)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  addErrorHandler(Dashboard)
+);

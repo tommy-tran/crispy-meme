@@ -10,7 +10,8 @@ import {
   REDIRECTED_LEADERBOARD,
   DELETE_USER,
   ADD_USER,
-  REMOVE_ERROR
+  REMOVE_ERROR,
+  LOAD_LEADERBOARD
 } from './types';
 
 export const fetchLeaderboard = key => async dispatch => {
@@ -65,7 +66,9 @@ export const createLeaderboard = (
     return dispatch(
       leaderboardError({
         status: 400,
-        customMessage: `Invalid information entered: missing ${missingFields.join(', ')}`
+        customMessage: `Invalid information entered: missing ${missingFields.join(
+          ', '
+        )}`
       })
     );
   }
@@ -143,6 +146,12 @@ export const leaderboardError = error => dispatch =>
 export const loadingLeaderboard = dispatch => {
   dispatch({
     type: LOADING_LEADERBOARD
+  });
+};
+
+export const loadLeaderboard = dispatch => {
+  dispatch({
+    type: LOAD_LEADERBOARD
   });
 };
 
