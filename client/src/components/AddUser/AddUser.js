@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
-import { addUser } from '../../actions/leaderboard';
+import { addUser } from '../../actions/user';
 import { connect } from 'react-redux';
 import './AddUser.css';
 

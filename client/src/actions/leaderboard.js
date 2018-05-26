@@ -4,15 +4,15 @@ import {
   DELETE_LEADERBOARD,
   CLEAR_LEADERBOARD,
   FETCH_LEADERBOARD,
-  LEADERBOARD_ERROR,
   UNSET_LEADERBOARD,
   LOADING_LEADERBOARD,
   REDIRECTED_LEADERBOARD,
-  DELETE_USER,
-  ADD_USER,
+  LEADERBOARD_ERROR,
   REMOVE_ERROR,
   LOAD_LEADERBOARD
 } from './types';
+
+import { leaderboardError } from './error';
 
 export const fetchLeaderboard = key => async dispatch => {
   if (!key || key.length !== 20) {
@@ -83,7 +83,7 @@ export const createLeaderboard = (
       return dispatch(leaderboardError(err));
     });
 
-  if (response.status === 200) {
+  if (response && response.status === 200) {
     dispatch({
       type: CREATE_LEADERBOARD,
       payload: response.data
@@ -109,7 +109,7 @@ export const deleteLeaderboard = key => async dispatch => {
     return dispatch(leaderboardError(err));
   });
 
-  if (response.status === 200) {
+  if (response && response.status === 200) {
     dispatch({
       type: DELETE_LEADERBOARD
     });
@@ -137,75 +137,47 @@ export const unsetLeaderboard = dispatch => {
   });
 };
 
-export const leaderboardError = error => dispatch =>
-  dispatch({
-    type: LEADERBOARD_ERROR,
-    error: error
-  });
-
 export const loadingLeaderboard = dispatch => {
   dispatch({
     type: LOADING_LEADERBOARD
   });
 };
 
-export const loadLeaderboard = dispatch => {
-  dispatch({
-    type: LOAD_LEADERBOARD
-  });
+export const loadLeaderboard = async dispatch => {
+  let key = null;
+  const localLeaderboard = JSON.parse(localStorage.getItem('leaderboard'));
+  if (localLeaderboard) {
+    key = localLeaderboard.privateKey || localLeaderboard.publicKey;
+  }
+
+  const requestLeaderboardInfo = await axios.get(`/lb/${key}/info`);
+  const requestUsers = await axios.get(`/lb/${key}`);
+
+  if (
+    requestLeaderboardInfo &&
+    requestUsers &&
+    requestLeaderboardInfo.status === 200 &&
+    requestUsers.status === 200
+  ) {
+    const result = {
+      ...requestLeaderboardInfo.data,
+      data: requestUsers.data
+    };
+
+    dispatch({
+      type: LOAD_LEADERBOARD,
+      payload: result
+    });
+  } else {
+    dispatch({
+      type: LOAD_LEADERBOARD,
+      payload: null
+    });
+  }
 };
 
 export const redirectedLeaderboard = dispatch => {
   dispatch({
     type: REDIRECTED_LEADERBOARD
-  });
-};
-
-export const deleteUser = (key, userID) => async dispatch => {
-  const response = await axios
-    .delete(`/lb/${key}/user/${userID}`)
-    .catch(err => {
-      return dispatch(leaderboardError(err));
-    });
-
-  if (response.status === 200) {
-    dispatch({
-      type: DELETE_USER,
-      _id: userID
-    });
-  }
-};
-
-export const addUser = (key, username, score) => async dispatch => {
-  if (!username || !score || score <= 0) {
-    return dispatch(
-      leaderboardError({
-        status: 400,
-        customMessage: 'Please enter valid parameters!'
-      })
-    );
-  }
-
-  const response = await axios
-    .post('/lb/user', {
-      key,
-      username,
-      score
-    })
-    .catch(err => {
-      return dispatch(leaderboardError(err));
-    });
-
-  if (response.status === 200) {
-    dispatch({
-      type: ADD_USER,
-      user: response.data
-    });
-  }
-};
-
-export const removeError = dispatch => {
-  dispatch({
-    type: REMOVE_ERROR
   });
 };

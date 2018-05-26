@@ -41,7 +41,8 @@ class Dashboard extends Component {
 
   onDeleteLeaderboard = () => {
     this.setState({
-      showDeleteLB: true
+      showDeleteLB: true,
+      hasLocalLeaderboard: false
     });
   };
 

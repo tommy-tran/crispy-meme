@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Button from '../../components/UI/Button/Button';
-import { removeError } from '../../actions/leaderboard';
+import { removeError } from '../../actions/error';
 import { connect } from 'react-redux';
 import './addErrorHandler.css';
 

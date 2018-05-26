@@ -47,6 +47,7 @@ const leaderboardReducer = (state = initialState, action) => {
         currentLeaderboard: { ...state.currentLeaderboard, data: [] }
       };
     case DELETE_LEADERBOARD:
+      localStorage.removeItem('leaderboard');
       return {
         ...state,
         error: null,
@@ -81,14 +82,10 @@ const leaderboardReducer = (state = initialState, action) => {
         loading: true
       };
     case LOAD_LEADERBOARD:
-      const localLeaderboard = JSON.parse(localStorage.getItem('leaderboard'));
-      if (localLeaderboard) {
-        return {
-          ...state,
-          currentLeaderboard: localLeaderboard
-        };
-      }
-      return state;
+      return {
+        ...state,
+        currentLeaderboard: action.payload
+      };
     case REDIRECTED_LEADERBOARD:
       return {
         ...state,
