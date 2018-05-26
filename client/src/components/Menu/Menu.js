@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import './Menu.css';
 import { NavLink } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
-
 import Backdrop from '../UI/Backdrop/Backdrop';
-import './Menu.css';
 
 class Menu extends Component {
   state = {

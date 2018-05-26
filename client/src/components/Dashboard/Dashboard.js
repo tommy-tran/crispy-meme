@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
+import { Redirect } from 'react-router-dom';
+
 import { connect } from 'react-redux';
+import { loadLeaderboard } from '../../actions/leaderboard';
+
 import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
 import UserTable from './UserTable/UserTable';
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
-import { loadLeaderboard } from '../../actions/leaderboard';
-import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   state = {

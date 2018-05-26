@@ -1,7 +1,8 @@
 import React from 'react';
-import 'react-table/react-table.css';
-import ReactTable from 'react-table';
 import './UserTable.css';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
+
 import { deleteUser } from '../../../actions/user';
 import { connect } from 'react-redux';
 

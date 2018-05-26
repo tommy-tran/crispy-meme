@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import './addErrorHandler.css';
+
+import { connect } from 'react-redux';
+import { removeError } from '../../actions/error';
+
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Button from '../../components/UI/Button/Button';
-import { removeError } from '../../actions/error';
-import { connect } from 'react-redux';
-import './addErrorHandler.css';
 
 const addErrorHandler = WrappedComponent => {
   class ErrorHandledComponent extends Component {

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './CreateForm.css';
-import Input from '../UI/Input/Input';
+import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { createLeaderboard, loadLeaderboard } from '../../actions/leaderboard';
-import { Redirect } from 'react-router';
+
+import Input from '../UI/Input/Input';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 class CreateForm extends Component {

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './Landing.css';
-import KeyInput from '../KeyInput/KeyInput';
+import { Redirect } from 'react-router';
+
 import { connect } from 'react-redux';
 import { fetchLeaderboard, loadLeaderboard } from '../../actions/leaderboard';
-import { Redirect } from 'react-router';
+
+import KeyInput from '../KeyInput/KeyInput';
 import addUserHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 class Landing extends Component {

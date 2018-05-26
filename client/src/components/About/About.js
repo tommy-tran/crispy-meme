@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import './About.css';
+
 import { connect } from 'react-redux';
 import { loadLeaderboard } from '../../actions/leaderboard';
-import './About.css';
 
 class About extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class About extends Component {
             <li>Security via uniquely generated keys</li>
             <li>
               Great responsive design that allows for full functionality on
-              mobile or small screened devices (using dev tools or{' '}
+              mobile or small screened devices (try using dev tools or{' '}
               <a href="http://mobiletest.me/htc_one_emulator/?u=https://hidden-plains-31601.herokuapp.com/">
                 here
               </a>)

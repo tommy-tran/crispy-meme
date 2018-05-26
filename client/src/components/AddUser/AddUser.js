@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './AddUser.css';
+
+import { connect } from 'react-redux';
+import { addUser } from '../../actions/user';
+
 import Backdrop from '../UI/Backdrop/Backdrop';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
-import { addUser } from '../../actions/user';
-import { connect } from 'react-redux';
-import './AddUser.css';
 
 class AddUser extends Component {
   state = {

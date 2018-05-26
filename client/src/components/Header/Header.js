@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './Header.css';
-import Menu from '../Menu/Menu';
 import { NavLink } from 'react-router-dom';
-import { unsetLeaderboard } from '../../actions/leaderboard';
+
 import { connect } from 'react-redux';
+import { unsetLeaderboard } from '../../actions/leaderboard';
+
+import Menu from '../Menu/Menu';
 
 class Header extends Component {
   state = {

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import './DeleteLeaderboard.css';
+
+import { connect } from 'react-redux';
+import { deleteLeaderboard } from '../../actions/leaderboard';
+
 import Backdrop from '../UI/Backdrop/Backdrop';
 import Button from '../UI/Button/Button';
-import { deleteLeaderboard } from '../../actions/leaderboard';
-import { connect } from 'react-redux';
-import './DeleteLeaderboard.css';
 
 class DeleteLeaderboard extends Component {
   render() {
