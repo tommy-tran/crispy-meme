@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DELETE_USER, ADD_USER } from './types';
-import { leaderboardError, removeError } from './error';
+import { leaderboardError } from './error';
 
 export const deleteUser = (key, userID) => async dispatch => {
   const response = await axios

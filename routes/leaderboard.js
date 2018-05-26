@@ -40,9 +40,15 @@ router.post('/', (req, res) => {
     })
     .catch(err => {
       if (err) {
+        if (err.errors) {
+          return res.status(400).send({
+            status: 400,
+            message: err.errors.email.message
+          });
+        }
         return res.status(400).send({
           status: 400,
-          message: err
+          message: 'Game name already exists'
         });
       }
       res.status(400).send('Failed to create leaderboard.');

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { LEADERBOARD_ERROR, REMOVE_ERROR } from './types';
 
 export const leaderboardError = error => dispatch => {

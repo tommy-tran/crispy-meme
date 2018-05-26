@@ -85,6 +85,7 @@ export const createLeaderboard = (
       email
     })
     .catch(err => {
+      console.log(err.response);
       return dispatch(leaderboardError(err));
     });
 
