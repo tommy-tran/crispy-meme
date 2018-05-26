@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 
 import CreateForm from './components/CreateForm/CreateForm';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -8,7 +9,8 @@ import Header from './components/Header/Header';
 import About from './components/About/About';
 // import Login from './components/Login/Login';
 
-import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loadLeaderboard } from './actions/leaderboard';
 
 class App extends Component {
   render() {
@@ -31,4 +33,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadLocal: () => dispatch(loadLeaderboard)
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);
