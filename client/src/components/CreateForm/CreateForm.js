@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { createLeaderboard, loadLeaderboard } from '../../actions/leaderboard';
+import { createLeaderboard } from '../../actions/leaderboard';
 
 import Input from '../UI/Input/Input';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
@@ -15,10 +15,6 @@ class CreateForm extends Component {
     ownerName: '',
     email: ''
   };
-
-  componentDidMount() {
-    this.props.loadLocal();
-  }
 
   gameNameHandler = event => {
     this.setState({
@@ -88,8 +84,7 @@ const mapDispatchToProps = dispatch => {
   return {
     sendCreateRequest: (gameName, ownerName, email) => {
       dispatch(createLeaderboard(gameName, ownerName, email));
-    },
-    loadLocal: () => dispatch(loadLeaderboard)
+    }
   };
 };
 

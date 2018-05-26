@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import './Dashboard.css';
 import { Redirect } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-import { loadLeaderboard } from '../../actions/leaderboard';
-
 import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
 import UserTable from './UserTable/UserTable';
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
+
+import { connect } from 'react-redux';
 
 class Dashboard extends Component {
   state = {
@@ -24,8 +23,6 @@ class Dashboard extends Component {
       this.setState({
         hasLocalLeaderboard: false
       });
-    } else {
-      this.props.loadLocal();
     }
   }
 
@@ -143,12 +140,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadLocal: () => dispatch(loadLeaderboard)
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  addErrorHandler(Dashboard)
-);
+export default connect(mapStateToProps)(addErrorHandler(Dashboard));

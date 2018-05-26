@@ -3,16 +3,12 @@ import './Landing.css';
 import { Redirect } from 'react-router';
 
 import { connect } from 'react-redux';
-import { fetchLeaderboard, loadLeaderboard } from '../../actions/leaderboard';
+import { fetchLeaderboard } from '../../actions/leaderboard';
 
 import KeyInput from '../KeyInput/KeyInput';
 import addUserHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 class Landing extends Component {
-  componentDidMount() {
-    this.props.loadLocal();
-  }
-
   render() {
     let redirect = null;
     if (this.props.redirect) {
@@ -41,8 +37,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchLeaderboard: key => dispatch(fetchLeaderboard(key)),
-    loadLocal: () => dispatch(loadLeaderboard)
+    onFetchLeaderboard: key => dispatch(fetchLeaderboard(key))
   };
 };
 

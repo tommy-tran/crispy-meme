@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 
 import CreateForm from './components/CreateForm/CreateForm';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -13,7 +13,12 @@ import { connect } from 'react-redux';
 import { loadLeaderboard } from './actions/leaderboard';
 
 class App extends Component {
+  componentDidMount() {
+      this.props.loadLocal();
+  }
+
   render() {
+  
     /**
      * Landing, Header, Login page, Profile page(reset password, change email)
      * Panel(create lb, delete lbs, view lbs(add,delete,modify users)), Userlist(User)
@@ -39,4 +44,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));
