@@ -22,15 +22,17 @@ class DeleteLeaderboard extends Component {
             <strong>Delete Leaderboard</strong>
           </div>
           <div style={{ fontSize: '2em' }}>Are you sure?</div>
-          <Button
-            className="Button"
-            label="Confirm"
-            cancel
-            handleClick={() => {
-              this.props.delete(this.props.privateKey);
-              this.props.clicked();
-            }}
-          />
+          <div style={{ margin: '0 auto' }}>
+            <Button
+              className="Button"
+              label="Confirm"
+              cancel
+              handleClick={() => {
+                this.props.delete(this.props.privateKey);
+                this.props.clicked();
+              }}
+            />
+          </div>
         </div>
       );
     }

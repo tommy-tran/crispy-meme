@@ -136,6 +136,7 @@ export const clearLeaderboard = key => async dispatch => {
 };
 
 export const unsetLeaderboard = dispatch => {
+  localStorage.removeItem('leaderboard');
   dispatch(redirectedLeaderboard);
   dispatch({
     type: UNSET_LEADERBOARD

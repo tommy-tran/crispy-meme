@@ -8,7 +8,7 @@
   }
 
   &__Header {
-    font-size: 3em;
+    font-size: 2.5em;
     font-style: oblique;
     width: 100%;
     padding: 0.5% 0% 0% 2%;
@@ -51,11 +51,11 @@
 .Header {
   &__Title {
     width: 100%;
-    font-size: 0.8em;
     flex-shrink: 1;
+    display: none;
 
-    @media (min-width: 700px) {
-      font-size: 1em;
+    @media (min-width: 800px) {
+      display: block;
     }
   }
 

@@ -5,7 +5,7 @@
     height: 100%;
     position: relative; }
   .Dashboard__Header {
-    font-size: 3em;
+    font-size: 2.5em;
     font-style: oblique;
     width: 100%;
     padding: 0.5% 0% 0% 2%;
@@ -35,11 +35,11 @@
 
 .Header__Title {
   width: 100%;
-  font-size: 0.8em;
-  flex-shrink: 1; }
-  @media (min-width: 700px) {
+  flex-shrink: 1;
+  display: none; }
+  @media (min-width: 800px) {
     .Header__Title {
-      font-size: 1em; } }
+      display: block; } }
 
 .Header__Options {
   width: 100%;

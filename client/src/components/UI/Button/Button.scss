@@ -1,52 +1,43 @@
 .Button {
-  background: #1aab8a;
+  background: black;
   color: #fff;
   border: none;
   border-radius: 10px;
   position: relative;
-  height: 60px;
-  width: 160px;
-  font-size: 1.6em;
-  padding: 0 1.2em;
+  height: 45px;
+  width: 90px;
+  font-size: 16px;
+  padding: 0 0px;
   cursor: pointer;
-  transition: 600ms ease-out all;
+  transition: 200ms ease-out all;
   outline: none;
-  margin: 10px 10px;
+
+  @media (min-width: 700px) {
+    margin: auto 2% !important;
+  }
+
+  @media (min-width: 900px) {
+    width: 100px;
+    font-size: 20px;
+  }
 
   &--Confirm {
-    background-color: transparent;
-    color: rgb(134, 190, 134);
-    text-shadow: 1px 1px rgb(98, 168, 81);
-    border: 1px solid rgb(134, 190, 134);
-
-    &:hover {
-      color: white;
-      background-color: rgb(134, 190, 134);
-    }
+    background-color: rgb(119, 209, 119);
 
     &:active {
-      color: white;
-      border: 3px solid rgb(134, 190, 134);
-      background-color: rgb(93, 133, 93);
+      background-color: rgb(187, 235, 187);
     }
   }
 
   &--Cancel {
-    background-color: transparent;
-    text-shadow: 1px 1px rgb(180, 67, 67);
-    border: 1px solid rgb(238, 168, 168);
-    color: rgb(238, 168, 168);
-
-    &:hover {
-      color: white;
-      background-color: rgb(238, 168, 168);
-    }
+    background-color: rgb(240, 137, 137);
 
     &:active {
-      color: white;
-      background-color: rgb(194, 110, 110);
-      box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      border: 3px solid rgb(238, 168, 168);
+      background-color: rgb(250, 185, 185);
     }
+  }
+
+  &--Logout {
+    background-color: black;
   }
 }

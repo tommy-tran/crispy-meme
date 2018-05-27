@@ -1,39 +1,30 @@
 .Button {
-  background: #1aab8a;
+  background: black;
   color: #fff;
   border: none;
   border-radius: 10px;
   position: relative;
-  height: 60px;
-  width: 160px;
-  font-size: 1.6em;
-  padding: 0 1.2em;
+  height: 45px;
+  width: 90px;
+  font-size: 16px;
+  padding: 0 0px;
   cursor: pointer;
-  transition: 600ms ease-out all;
-  outline: none;
-  margin: 10px 10px; }
+  transition: 200ms ease-out all;
+  outline: none; }
+  @media (min-width: 700px) {
+    .Button {
+      margin: auto 2% !important; } }
+  @media (min-width: 900px) {
+    .Button {
+      width: 100px;
+      font-size: 20px; } }
   .Button--Confirm {
-    background-color: transparent;
-    color: #86be86;
-    text-shadow: 1px 1px #62a851;
-    border: 1px solid #86be86; }
-    .Button--Confirm:hover {
-      color: white;
-      background-color: #86be86; }
+    background-color: #77d177; }
     .Button--Confirm:active {
-      color: white;
-      border: 3px solid #86be86;
-      background-color: #5d855d; }
+      background-color: #bbebbb; }
   .Button--Cancel {
-    background-color: transparent;
-    text-shadow: 1px 1px #b44343;
-    border: 1px solid #eea8a8;
-    color: #eea8a8; }
-    .Button--Cancel:hover {
-      color: white;
-      background-color: #eea8a8; }
+    background-color: #f08989; }
     .Button--Cancel:active {
-      color: white;
-      background-color: #c26e6e;
-      box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      border: 3px solid #eea8a8; }
+      background-color: #fab9b9; }
+  .Button--Logout {
+    background-color: black; }

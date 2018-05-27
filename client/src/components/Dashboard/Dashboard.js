@@ -6,9 +6,11 @@ import LeaderboardInfo from './LeaderboardInfo/LeaderboardInfo';
 import UserTable from './UserTable/UserTable';
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
+import Button from '../UI/Button/Button';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 import { connect } from 'react-redux';
+import { unsetLeaderboard } from '../../actions/leaderboard';
 
 class Dashboard extends Component {
   state = {
@@ -51,6 +53,13 @@ class Dashboard extends Component {
     });
   };
 
+  onLogout = () => {
+    this.setState({
+      hasLocalLeaderboard: false
+    });
+    this.props.logout();
+  };
+
   render() {
     let tableData = [];
     let redirect = null;
@@ -74,14 +83,13 @@ class Dashboard extends Component {
     if (this.props.leaderboard && this.props.leaderboard.admin) {
       options = (
         <div className="Header__Options">
-          <i
-            className="fal fa-plus-circle Header__Options__Icon Green"
-            onClick={this.onAddUser}
+          <Button handleClick={this.onAddUser} label="Add User" confirm />
+          <Button
+            handleClick={this.onDeleteLeaderboard}
+            label="Delete LB"
+            cancel
           />
-          <i
-            className="fal fa-ban Header__Options__Icon Red"
-            onClick={this.onDeleteLeaderboard}
-          />
+          <Button handleClick={this.onLogout} label="Logout" logout />
         </div>
       );
     }
@@ -140,4 +148,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(addErrorHandler(Dashboard));
+const mapDispatchToProps = dispatch => {
+  return { logout: () => dispatch(unsetLeaderboard) };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  addErrorHandler(Dashboard)
+);

@@ -43,19 +43,21 @@ class AddUser extends Component {
             <Input inputType="userName" changed={this.onNameChange} />
             <Input inputType="score" changed={this.onScoreChange} />
           </div>
-          <Button
-            className="Button"
-            label="Confirm"
-            confirm
-            handleClick={() => {
-              this.props.addUserSubmit(
-                this.props.privateKey,
-                this.state.userName,
-                this.state.score
-              );
-              this.props.clicked();
-            }}
-          />
+          <div style={{ margin: '0 auto' }}>
+            <Button
+              className="Button"
+              label="Confirm"
+              confirm
+              handleClick={() => {
+                this.props.addUserSubmit(
+                  this.props.privateKey,
+                  this.state.userName,
+                  this.state.score
+                );
+                this.props.clicked();
+              }}
+            />
+          </div>
         </div>
       );
     }
