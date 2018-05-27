@@ -7,7 +7,8 @@ import {
   UNSET_LEADERBOARD,
   LOADING_LEADERBOARD,
   REDIRECTED_LEADERBOARD,
-  LOAD_LEADERBOARD
+  LOAD_LEADERBOARD,
+  SET_LOCAL_LEADERBOARD
 } from './types';
 
 import { leaderboardError } from './error';
@@ -184,6 +185,13 @@ export const loadLeaderboard = async dispatch => {
       });
     }
   }
+};
+
+export const setLocalLeaderboard = value => dispatch => {
+  dispatch({
+    type: SET_LOCAL_LEADERBOARD,
+    payload: value
+  });
 };
 
 export const redirectedLeaderboard = dispatch => {

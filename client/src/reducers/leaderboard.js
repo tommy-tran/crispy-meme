@@ -10,10 +10,11 @@ import {
   REDIRECTED_LEADERBOARD,
   ADD_USER,
   DELETE_USER,
-  REMOVE_ERROR
+  REMOVE_ERROR,
+  SET_LOCAL_LEADERBOARD
 } from '../actions/types';
 
-let initialState = { error: null };
+let initialState = { error: null, hasLocalLeaderboard: true };
 
 const leaderboardReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -86,6 +87,11 @@ const leaderboardReducer = (state = initialState, action) => {
       return {
         ...state,
         currentLeaderboard: action.payload
+      };
+    case SET_LOCAL_LEADERBOARD:
+      return {
+        ...state,
+        hasLocalLeaderboard: action.payload
       };
     case REDIRECTED_LEADERBOARD:
       return {

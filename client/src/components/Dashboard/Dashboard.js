@@ -10,21 +10,21 @@ import Button from '../UI/Button/Button';
 import addErrorHandler from '../../hoc/addErrorHandler/addErrorHandler';
 
 import { connect } from 'react-redux';
-import { unsetLeaderboard } from '../../actions/leaderboard';
+import {
+  unsetLeaderboard,
+  setLocalLeaderboard
+} from '../../actions/leaderboard';
 
 class Dashboard extends Component {
   state = {
     showAdd: false,
-    showDeleteLB: false,
-    hasLocalLeaderboard: true
+    showDeleteLB: false
   };
 
   componentDidMount() {
     const localLeaderboard = localStorage.getItem('leaderboard');
     if (!localLeaderboard) {
-      this.setState({
-        hasLocalLeaderboard: false
-      });
+      this.props.setLocal(false);
     }
   }
 
@@ -42,9 +42,10 @@ class Dashboard extends Component {
 
   onDeleteLeaderboard = () => {
     this.setState({
-      showDeleteLB: true,
-      hasLocalLeaderboard: false
+      showDeleteLB: true
     });
+
+    this.props.setLocal(false);
   };
 
   onCloseDeleteLeaderboard = () => {
@@ -54,9 +55,7 @@ class Dashboard extends Component {
   };
 
   onLogout = () => {
-    this.setState({
-      hasLocalLeaderboard: false
-    });
+    this.props.setLocal(false);
     this.props.logout();
   };
 
@@ -64,7 +63,7 @@ class Dashboard extends Component {
     let tableData = [];
     let redirect = null;
 
-    if (!this.state.hasLocalLeaderboard && !this.props.leaderboard) {
+    if (!this.props.hasLocalLeaderboard && !this.props.leaderboard) {
       redirect = <Redirect to="/" />;
     }
 
@@ -144,12 +143,16 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
   return {
-    leaderboard: state.leaderboard.currentLeaderboard
+    leaderboard: state.leaderboard.currentLeaderboard,
+    hasLocalLeaderboard: state.leaderboard.hasLocalLeaderboard
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return { logout: () => dispatch(unsetLeaderboard) };
+  return {
+    logout: () => dispatch(unsetLeaderboard),
+    setLocal: val => dispatch(setLocalLeaderboard(val))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
