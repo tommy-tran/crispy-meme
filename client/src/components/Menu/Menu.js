@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './Menu.css';
 import { NavLink } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-
 import AddUser from '../AddUser/AddUser';
 import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
 import Backdrop from '../UI/Backdrop/Backdrop';
+
+import { connect } from 'react-redux';
+import { unsetLeaderboard } from '../../actions/leaderboard';
 
 class Menu extends Component {
   state = {
@@ -40,13 +41,25 @@ class Menu extends Component {
     this.props.clicked();
   };
 
+  onLogout = () => {
+    this.props.logout();
+    this.props.clicked();
+  };
+
   render() {
     let menuOptions = null;
     if (this.props.leaderboard && this.props.leaderboard.admin) {
       menuOptions = (
         <div className="Menu__Options">
           <NavLink className="Menu__Option" to="/" onClick={this.props.clicked}>
-            Use another leaderboard
+            Input another Leaderboard key
+          </NavLink>
+          <NavLink
+            className="Menu__Option"
+            to="/dashboard"
+            onClick={this.props.clicked}
+          >
+            View current Leaderboard
           </NavLink>
           <NavLink
             className="Menu__Option"
@@ -54,13 +67,6 @@ class Menu extends Component {
             onClick={this.props.clicked}
           >
             Create a new Leaderboard
-          </NavLink>
-          <NavLink
-            className="Menu__Option"
-            to="/dashboard"
-            onClick={this.props.clicked}
-          >
-            Current Leaderboard
           </NavLink>
           <div className="Menu__Option" onClick={this.onAddUser}>
             Add User
@@ -75,6 +81,9 @@ class Menu extends Component {
           >
             About
           </NavLink>
+          <div className="Menu__Option" onClick={this.onLogout}>
+            Logout
+          </div>
         </div>
       );
     } else {
@@ -139,4 +148,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Menu);
+const mapDispatchToProps = dispatch => {
+  return { logout: () => dispatch(unsetLeaderboard) };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

@@ -12,12 +12,24 @@
   .Menu__Options {
     display: flex;
     flex-direction: column;
-    width: 100%; }
+    width: 100%;
+    font-size: 0.8em;
+    height: 100%; }
   .Menu__Option {
     border-top: 1px solid black;
     border-radius: 5px;
     text-decoration: none;
-    color: #3f3f3f; }
+    color: #3f3f3f;
+    height: 50px;
+    line-height: 50px; }
+    @media (min-height: 500px) {
+      .Menu__Option {
+        height: 60px;
+        line-height: 60px; } }
+    @media (min-height: 600px) {
+      .Menu__Option {
+        height: 70px;
+        line-height: 70px; } }
   .Menu__Option:last-child {
     border-bottom: 1px solid black; }
 
