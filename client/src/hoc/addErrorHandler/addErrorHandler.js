@@ -24,12 +24,14 @@ const addErrorHandler = WrappedComponent => {
               <div className="ErrorHandler__Status">{error.status}</div>
               <div className="ErrorHandler__Message">{error.message}</div>
             </div>
-            <Button
-              className="ErrorHandler__Button"
-              confirm
-              handleClick={this.closeError}
-              label="OK"
-            />
+            <div style={{margin: '0 auto'}}>
+              <Button
+                className="ErrorHandler__Button"
+                confirm
+                handleClick={this.closeError}
+                label="OK"
+              />
+            </div>
           </div>
           <Backdrop show={error ? true : false} />
         </div>
