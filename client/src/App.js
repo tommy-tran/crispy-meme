@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { withRouter, Route, Switch } from 'react-router-dom';
 
 import CreateForm from './components/CreateForm/CreateForm';
@@ -14,11 +13,10 @@ import { loadLeaderboard } from './actions/leaderboard';
 
 class App extends Component {
   componentDidMount() {
-      this.props.loadLocal();
+    this.props.loadLocal();
   }
 
   render() {
-  
     /**
      * Landing, Header, Login page, Profile page(reset password, change email)
      * Panel(create lb, delete lbs, view lbs(add,delete,modify users)), Userlist(User)
