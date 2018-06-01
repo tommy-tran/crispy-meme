@@ -27,9 +27,9 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={Landing} />
-          <Route path="/about" component={About} />
-          <Route path="/create" component={CreateForm} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/about" exact component={About} />
+          <Route path="/create" exact component={CreateForm} />
+          <Route path="/dashboard" exact component={Dashboard} />
           <Route component={NoMatch} />
           {/* <Route path="/login" component={Login} /> */}
         </Switch>
