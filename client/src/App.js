@@ -4,6 +4,7 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import CreateForm from './components/CreateForm/CreateForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
+import NoMatch from './components/NoMatch/NoMatch';
 import Header from './components/Header/Header';
 import About from './components/About/About';
 // import Login from './components/Login/Login';
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/create" component={CreateForm} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route component={NoMatch} />
           {/* <Route path="/login" component={Login} /> */}
         </Switch>
       </div>
