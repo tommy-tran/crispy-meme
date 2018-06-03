@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: auto;
   transition: 0.3s;
@@ -11,7 +11,12 @@
   font-size: 10px; }
   @media (min-width: 600px) {
     .KeyInput {
-      font-size: inherit; } }
+      font-size: inherit;
+      width: 80%; } }
+  @media (min-width: 800px) {
+    .KeyInput {
+      font-size: inherit;
+      width: 60%; } }
   .KeyInput__Header {
     font-size: 3em;
     margin: 20px 0;
@@ -41,10 +46,10 @@
     margin: 20px auto;
     margin-top: 10px;
     padding: 5px 0;
-    width: 95%;
+    width: 100%;
     text-align: center;
     outline-color: lightblue;
-    flex-grow: 5; }
+    flex-grow: 6; }
     @media (min-width: 600px) {
       .KeyInput__Input {
         width: 60%;

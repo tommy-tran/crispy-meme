@@ -15,7 +15,7 @@
       text-align: left; } }
   @media (min-width: 700px) {
     .Input {
-      margin-right: 25%; } }
+      margin-right: 20%; } }
 
 .Label {
   box-sizing: border-box;
