@@ -19,7 +19,11 @@
 
 .Label {
   box-sizing: border-box;
-  line-height: 2em; }
+  line-height: 2em;
+  font-size: 0.8em; }
+  @media (min-height: 400px) {
+    .Label {
+      font-size: inherit; } }
   @media (min-width: 600px) {
     .Label {
       width: 100%;
@@ -30,9 +34,12 @@
 
 .InputBox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 1.4em;
   margin: 8px 0; }
+  @media (min-height: 400px) {
+    .InputBox {
+      flex-direction: column; } }
   @media (min-width: 600px) {
     .InputBox {
       flex-direction: row;

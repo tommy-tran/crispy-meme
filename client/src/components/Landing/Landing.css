@@ -7,6 +7,7 @@
   text-align: center;
   font-size: 0.8em; }
   .Landing__Logo {
+    display: none;
     margin-top: auto;
     padding-top: 0.5em;
     font-size: 8em;
@@ -14,6 +15,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
+    @media screen and (min-height: 400px) {
+      .Landing__Logo {
+        display: block; } }
   @media (min-width: 600px) {
     .Landing {
       font-size: 1em; } }

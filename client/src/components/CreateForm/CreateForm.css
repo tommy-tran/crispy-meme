@@ -20,12 +20,16 @@
       .CreateForm__Header {
         margin-bottom: 0.5em; } }
   .CreateForm .Logo {
+    display: none;
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
     font-size: 6em;
     margin-top: 0.1em;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
+    @media screen and (min-height: 400px) {
+      .CreateForm .Logo {
+        display: block; } }
     @media (min-width: 600px) {
       .CreateForm .Logo {
         font-size: 8em; } }

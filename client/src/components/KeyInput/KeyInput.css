@@ -3,17 +3,20 @@
   flex-direction: column;
   text-align: center;
   width: 100%;
-  margin: 0 auto;
+  margin: auto auto;
   margin-bottom: auto;
   transition: 0.3s;
   border-radius: 5px;
   color: black;
   font-size: 10px; }
-  @media (min-width: 600px) {
+  @media screen and (min-height: 400px) {
+    .KeyInput {
+      margin-top: 0; } }
+  @media screen and (min-width: 600px) and (min-height: 500px) {
     .KeyInput {
       font-size: inherit;
       width: 80%; } }
-  @media (min-width: 800px) {
+  @media screen and (min-width: 800px) and (min-height: 1080px) {
     .KeyInput {
       font-size: inherit;
       width: 60%; } }

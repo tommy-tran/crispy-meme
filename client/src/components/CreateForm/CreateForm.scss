@@ -28,6 +28,7 @@
   }
 
   .Logo {
+    display: none;
     background: -webkit-linear-gradient(#434343, black);
     background-clip: text;
     font-size: 6em;
@@ -35,6 +36,10 @@
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media screen and (min-height: 400px) {
+      display: block;
+    }
 
     @media (min-width: 600px) {
       font-size: 8em;

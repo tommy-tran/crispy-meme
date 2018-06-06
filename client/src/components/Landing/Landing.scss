@@ -8,6 +8,7 @@
   font-size: 0.8em;
 
   &__Logo {
+    display: none;
     margin-top: auto;
     padding-top: 0.5em;
     font-size: 8em;
@@ -15,6 +16,10 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media screen and (min-height: 400px) {
+      display: block;
+    }
   }
 
   @media (min-width: 600px) {
