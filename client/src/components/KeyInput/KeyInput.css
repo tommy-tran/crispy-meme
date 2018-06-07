@@ -8,7 +8,9 @@
   transition: 0.3s;
   border-radius: 5px;
   color: black;
-  font-size: 10px; }
+  font-size: 10px;
+  color: white;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5); }
   @media screen and (min-height: 400px) {
     .KeyInput {
       margin-top: 0; } }
@@ -23,7 +25,6 @@
   .KeyInput__Header {
     font-size: 3em;
     margin: 20px 0;
-    font-style: oblique;
     user-select: none; }
   .KeyInput__ButtonBox {
     font-size: 16px; }

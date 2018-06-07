@@ -2,7 +2,7 @@
   height: 2.8em;
   line-height: 2.8em;
   width: 100%;
-  background-image: linear-gradient(to left, #292929 20%, black 100%);
+  background-color: #798397;
   text-align: center;
   font-size: 1.6em;
   color: #fff;
@@ -149,19 +149,16 @@
   &__MenuIcon--X {
     &::before {
       transform: rotate(30deg) scaleX(1.15);
-      background-color: black;
       height: 3px;
     }
 
     .Header__MenuIcon__Middle {
       opacity: 0;
       transform: scaleX(0);
-      background-color: black;
     }
 
     &::after {
       transform: rotate(-30deg) scaleX(1.14) translateY(1px);
-      background-color: black;
     }
   }
 

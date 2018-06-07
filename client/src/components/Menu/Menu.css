@@ -1,14 +1,16 @@
 .Menu {
   position: relative;
   height: 100%;
-  color: black;
-  background-color: #f0f0f0;
   z-index: 100;
   width: 100%;
   margin: auto auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: space-around;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/bg.png");
+  background-size: cover; }
+  .Menu__Header {
+    background-color: #798397; }
   .Menu__Options {
     display: flex;
     flex-direction: column;
@@ -17,6 +19,7 @@
     height: 100%; }
   .Menu__Option {
     border-top: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 5px;
     text-decoration: none;
     color: #3f3f3f;
@@ -43,5 +46,4 @@
   height: 100vh;
   width: 100%;
   position: absolute;
-  color: black;
   font-size: 14px; }

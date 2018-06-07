@@ -6,19 +6,21 @@
   height: 100vh;
   text-align: center;
   font-size: 0.8em;
+  background-image: url('../../assets/bg.png');
+  background-size: cover;
 
   &__Logo {
     display: none;
-    margin-top: auto;
-    padding-top: 0.5em;
-    font-size: 8em;
-    background: -webkit-linear-gradient(#626262, black);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
     @media screen and (min-height: 400px) {
       display: block;
+      margin-top: auto;
+      padding-top: 0.5em;
+      font-size: 8em;
+      background: -webkit-linear-gradient(#ffe96c, #fbffbd);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 

@@ -2,7 +2,7 @@
   height: 2.8em;
   line-height: 2.8em;
   width: 100%;
-  background-image: linear-gradient(to left, #292929 20%, black 100%);
+  background-color: #798397;
   text-align: center;
   font-size: 1.6em;
   color: #fff;
@@ -116,15 +116,12 @@
       border-radius: 2px; }
   .Header__MenuIcon--X::before {
     transform: rotate(30deg) scaleX(1.15);
-    background-color: black;
     height: 3px; }
   .Header__MenuIcon--X .Header__MenuIcon__Middle {
     opacity: 0;
-    transform: scaleX(0);
-    background-color: black; }
+    transform: scaleX(0); }
   .Header__MenuIcon--X::after {
-    transform: rotate(-30deg) scaleX(1.14) translateY(1px);
-    background-color: black; }
+    transform: rotate(-30deg) scaleX(1.14) translateY(1px); }
   .Header__Link {
     display: none; }
     @media (min-width: 600px) {

@@ -7,8 +7,11 @@
   margin-bottom: auto;
   transition: 0.3s;
   border-radius: 5px;
-  color: rgb(0, 0, 0);
+  color: black;
   font-size: 10px;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+    -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
 
   @media screen and (min-height: 400px) {
     margin-top: 0;
@@ -27,7 +30,6 @@
   &__Header {
     font-size: 3em;
     margin: 20px 0;
-    font-style: oblique;
     user-select: none;
   }
 

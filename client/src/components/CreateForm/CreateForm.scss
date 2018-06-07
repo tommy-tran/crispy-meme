@@ -8,6 +8,13 @@
   height: 100vh;
   text-align: center;
   padding-top: 5em;
+  color: rgb(92, 92, 92);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
+    url('../../assets/bg.png');
+  background-size: cover;
 
   @media (min-width: 600px) {
     font-size: inherit;
@@ -18,7 +25,11 @@
   }
 
   &__Header {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+      -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
     font-size: 2.2em;
+    color: white;
+
     @media (min-width: 600px) {
     }
 
@@ -29,7 +40,7 @@
 
   .Logo {
     display: none;
-    background: -webkit-linear-gradient(#434343, black);
+    background: -webkit-linear-gradient(#ffe96c, #fbffbd);
     background-clip: text;
     font-size: 6em;
     margin-top: 0.1em;
@@ -51,6 +62,8 @@
   }
 
   &__ButtonBox {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+      -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
     margin-top: 10px;
     box-sizing: border-box;
 

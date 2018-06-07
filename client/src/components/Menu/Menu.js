@@ -128,9 +128,7 @@ class Menu extends Component {
         ) : null}
         <div className="MenuContainer">
           <div className="Menu">
-            <span>
-              <strong>Menu</strong>
-            </span>
+            <span className="Menu__Header">Menu</span>
             {menuOptions}
           </div>
           <Backdrop show={this.props.show} clicked={this.props.clicked} />
@@ -152,4 +150,7 @@ const mapDispatchToProps = dispatch => {
   return { logout: () => dispatch(unsetLeaderboard) };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Menu);

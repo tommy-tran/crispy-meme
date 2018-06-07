@@ -7,7 +7,10 @@
   box-sizing: border-box;
   height: 100vh;
   text-align: center;
-  padding-top: 5em; }
+  padding-top: 5em;
+  color: #5c5c5c;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("../../assets/bg.png");
+  background-size: cover; }
   @media (min-width: 600px) {
     .CreateForm {
       font-size: inherit; } }
@@ -15,13 +18,15 @@
     .CreateForm {
       font-size: 0.9em; } }
   .CreateForm__Header {
-    font-size: 2.2em; }
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+    font-size: 2.2em;
+    color: white; }
     @media (min-height: 600px) {
       .CreateForm__Header {
         margin-bottom: 0.5em; } }
   .CreateForm .Logo {
     display: none;
-    background: -webkit-linear-gradient(#434343, black);
+    background: -webkit-linear-gradient(#ffe96c, #fbffbd);
     background-clip: text;
     font-size: 6em;
     margin-top: 0.1em;
@@ -37,6 +42,7 @@
       .CreateForm .Logo {
         margin: 0.2em 0; } }
   .CreateForm__ButtonBox {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
     margin-top: 10px;
     box-sizing: border-box; }
     @media (min-width: 600px) {

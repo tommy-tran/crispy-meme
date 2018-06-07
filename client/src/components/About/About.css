@@ -4,7 +4,9 @@
   justify-content: center;
   height: 100vh;
   box-sizing: border-box;
-  padding-top: 5em; }
+  padding-top: 5em;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/bg.png");
+  background-size: cover; }
   .About__Title {
     font-size: 2em;
     font-weight: 600;

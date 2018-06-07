@@ -5,19 +5,21 @@
   margin: 0 auto;
   height: 100vh;
   text-align: center;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  background-image: url("../../assets/bg.png");
+  background-size: cover; }
   .Landing__Logo {
-    display: none;
-    margin-top: auto;
-    padding-top: 0.5em;
-    font-size: 8em;
-    background: -webkit-linear-gradient(#626262, black);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    display: none; }
     @media screen and (min-height: 400px) {
       .Landing__Logo {
-        display: block; } }
+        display: block;
+        margin-top: auto;
+        padding-top: 0.5em;
+        font-size: 8em;
+        background: -webkit-linear-gradient(#ffe96c, #fbffbd);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; } }
   @media (min-width: 600px) {
     .Landing {
       font-size: 1em; } }
