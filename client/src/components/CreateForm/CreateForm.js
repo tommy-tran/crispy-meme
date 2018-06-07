@@ -34,6 +34,22 @@ class CreateForm extends Component {
     });
   };
 
+  createRequest = () => {
+    if (!this.props.loading) {
+      this.props.sendCreateRequest(
+        this.state.gameName,
+        this.state.ownerName,
+        this.state.email
+      );
+    }
+  };
+
+  keyPressHandler = event => {
+    if (event.keyCode === 13) {
+      this.createRequest();
+    }
+  };
+
   render() {
     let redirect = null;
     if (this.props.redirect) {
@@ -41,7 +57,7 @@ class CreateForm extends Component {
     }
 
     return (
-      <div className="CreateForm">
+      <div className="CreateForm" onKeyDown={this.keyPressHandler}>
         {redirect}
         <div className="CreateForm__Header">
           <strong>Creating Leaderboard</strong>
@@ -53,15 +69,7 @@ class CreateForm extends Component {
         <div className="CreateForm__ButtonBox">
           <i
             className="fal fa-check-circle fa-5x confirm"
-            onClick={() => {
-              if (!this.props.loading) {
-                this.props.sendCreateRequest(
-                  this.state.gameName,
-                  this.state.ownerName,
-                  this.state.email
-                );
-              }
-            }}
+            onClick={this.createRequest}
           />
           <Link to="/">
             <i className="fal fa-times-circle fa-5x clear" />
@@ -88,6 +96,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  addErrorHandler(CreateForm)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(addErrorHandler(CreateForm));

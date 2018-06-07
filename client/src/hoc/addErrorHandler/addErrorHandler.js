@@ -13,6 +13,10 @@ const addErrorHandler = WrappedComponent => {
       this.props.onCloseError();
     };
 
+    keyDownHandler = event => {
+      console.log(event.keyCode);
+    };
+
     render() {
       const error = this.props.error ? this.props.error : null;
 
@@ -24,7 +28,7 @@ const addErrorHandler = WrappedComponent => {
               <div className="ErrorHandler__Status">{error.status}</div>
               <div className="ErrorHandler__Message">{error.message}</div>
             </div>
-            <div style={{margin: '0 auto'}}>
+            <div style={{ margin: '0 auto' }}>
               <Button
                 className="ErrorHandler__Button"
                 confirm
@@ -58,7 +62,10 @@ const addErrorHandler = WrappedComponent => {
     };
   };
 
-  return connect(mapStateToProps, mapDispatchToProps)(ErrorHandledComponent);
+  return connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ErrorHandledComponent);
 };
 
 export default addErrorHandler;

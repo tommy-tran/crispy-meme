@@ -7,7 +7,7 @@
   font-size: 1.6em;
   color: #fff;
   position: absolute;
-  border-bottom: 1px solid #c8c8c8;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.4);
   z-index: 2;
   display: flex;
   justify-content: space-between;

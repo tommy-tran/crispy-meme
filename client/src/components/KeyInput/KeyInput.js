@@ -25,6 +25,12 @@ class KeyInput extends Component {
     });
   };
 
+  keyPressHandler = event => {
+    if (event.keyCode === 13) {
+      this.props.submitKeyHandler(this.state.value);
+    }
+  };
+
   render() {
     let keyIcon = <i className="far fa-key KeyInput__Icon" />;
     let input = (
@@ -52,7 +58,7 @@ class KeyInput extends Component {
     }
 
     return (
-      <div className="KeyInput">
+      <div className="KeyInput" onKeyDown={this.keyPressHandler}>
         <span className="KeyInput__Header">
           Have a leaderboard key already?
         </span>
