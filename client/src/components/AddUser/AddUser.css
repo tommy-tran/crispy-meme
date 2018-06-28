@@ -1,5 +1,5 @@
 .AddUser {
-  background-color: #f0f0f0;
+  background-image: linear-gradient(to right, #c3dfe4, #b6edee);
   z-index: 200;
   width: 90%;
   height: 80%;
@@ -14,7 +14,8 @@
   text-align: center;
   display: flex;
   justify-content: space-around;
-  flex-direction: column; }
+  flex-direction: column;
+  text-shadow: 1px 1px 2px black; }
   @media (min-height: 550px) {
     .AddUser {
       height: 70%; } }
