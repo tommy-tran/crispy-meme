@@ -5,18 +5,21 @@
   height: 100vh;
   box-sizing: border-box;
   padding-top: 5em;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/bg.png");
-  background-size: cover; }
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1)), url("../../assets/bg.png");
+  background-size: cover;
+  color: #4c9b8a;
+  text-shadow: 1px 0 0 black;
+  font-weight: 400; }
   .About__Title {
-    font-size: 2em;
-    font-weight: 600;
+    font-size: 2.5em;
+    font-weight: 500;
     text-align: center; }
     @media (min-height: 700px) {
       .About__Title {
         padding-bottom: 1.5em; } }
     @media (min-width: 800px) {
       .About__Title {
-        font-size: 2.5em; } }
+        font-size: 3em; } }
   .About__Description {
     width: 95%;
     margin: 0 auto;
@@ -26,7 +29,7 @@
         font-size: 0.9em; } }
     @media (min-width: 800px) {
       .About__Description {
-        font-size: 1em;
+        font-size: 1.2em;
         width: 80%; } }
     @media (min-width: 1000px) {
       .About__Description {
