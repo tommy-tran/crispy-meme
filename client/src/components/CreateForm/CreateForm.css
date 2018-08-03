@@ -9,7 +9,7 @@
   text-align: center;
   padding-top: 5em;
   color: #5c5c5c;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("../../assets/bg.png");
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.1)), url("../../assets/bg.png");
   background-size: cover; }
   @media (min-width: 600px) {
     .CreateForm {

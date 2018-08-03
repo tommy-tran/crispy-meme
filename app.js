@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/config');
+const cors = require('cors');
 
 /**
  * Load models
@@ -16,6 +17,8 @@ const leaderboardRoutes = require('./routes/leaderboard');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
+
 app.use('/lb', leaderboardRoutes);
 
 if (process.env.NODE_ENV === 'production') {

@@ -28,7 +28,7 @@ const LeaderboardInfo = props => {
 
     if (privateKey) {
       privateMsg = (
-        <div style={{ textAlign: 'center', color: 'red', marginTop: '10px' }}>
+        <div style={{ textAlign: 'center', color: '#ff9595', marginTop: '10px' }}>
           Please save and protect your private key!
         </div>
       );

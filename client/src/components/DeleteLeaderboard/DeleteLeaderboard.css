@@ -1,5 +1,5 @@
 .DeleteLeaderboard {
-  background-image: linear-gradient(to right, #ffd2d2, #ffa7a7);
+  background-color: #ffe0e0;
   z-index: 100;
   width: 90%;
   height: 80%;
@@ -9,13 +9,12 @@
   left: 0;
   bottom: 0;
   top: 0;
-  border: 2px solid black;
-  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
   text-align: center;
   display: flex;
   justify-content: space-around;
-  flex-direction: column;
-  text-shadow: 1px 1px 2px black; }
+  flex-direction: column; }
   @media (min-width: 600px) {
     .DeleteLeaderboard {
       width: 70%; } }

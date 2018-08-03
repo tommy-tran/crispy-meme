@@ -1,10 +1,10 @@
 .Header {
-  height: 2.8em;
-  line-height: 2.8em;
+  height: 4.5rem;
+  line-height: 4.5rem;
   width: 100%;
-  background-color: #798397;
+  background-color: #141414;
   text-align: center;
-  font-size: 1.6em;
+  font-size: 1.6rem;
   color: #fff;
   position: absolute;
   border-bottom: 1px solid rgba(200, 200, 200, 0.4);
@@ -12,7 +12,8 @@
   display: flex;
   justify-content: space-between;
   transition: transform 0.3s ease-out;
-  user-select: none; }
+  user-select: none;
+  font-weight: 400; }
   .Header__Name {
     text-shadow: 1px 1px black;
     width: 100%;

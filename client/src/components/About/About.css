@@ -5,10 +5,10 @@
   height: 100vh;
   box-sizing: border-box;
   padding-top: 5em;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1)), url("../../assets/bg.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/bg.png");
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
   background-size: cover;
-  color: #4c9b8a;
-  text-shadow: 1px 0 0 black;
+  color: white;
   font-weight: 400; }
   .About__Title {
     font-size: 2.5em;

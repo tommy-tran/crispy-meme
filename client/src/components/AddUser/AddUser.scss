@@ -1,8 +1,5 @@
 .AddUser {
-  background-image: linear-gradient(to right,
-    rgb(195, 223, 228),
-    rgb(182, 237, 238)
-  );
+  background-color: rgb(240, 255, 215);
   z-index: 200;
   width: 90%;
   height: 80%;
@@ -12,13 +9,12 @@
   left: 0;
   bottom: 0;
   top: 0;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   text-align: center;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  text-shadow: 1px 1px 2px black;
 
   @media (min-height: 550px) {
     height: 70%;
@@ -45,6 +41,7 @@
   &__Title {
     text-align: center;
     font-size: 1.8em;
+    color: rgb(0, 170, 0);
   }
 
   &__Close {
