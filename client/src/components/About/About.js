@@ -17,13 +17,13 @@ const About = () => {
             </a>)
           </li>
           <li>
-            RESTful API aimed for game developers to leverage (details of API
-            endpoints will be on github repo)
+            Exposes RESTful API aimed for game developers to leverage (details of API
+            endpoints are on the <a href="https://github.com/tommy-tran/crispy-meme">github repo</a>)
           </li>
         </ul>
         <p>
           Leaderboards are scoreboards which show information about the top
-          players within a game or competition.
+          players within a game or competition. 
         </p>
         <p>
           <strong>Crispy Leaderboards</strong> is a leaderboard management
