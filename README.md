@@ -11,6 +11,7 @@ Users may create a leaderboard (and save the private key) to fully interact with
 Ideally game developers do not share their private key in any way (ignore in source control if open source), allowing for safe use of their private key within their game to fully handle any interactions with the API. For non-gaming competitions the owner shall be able to interact with the web application to add, modify and delete scores.
 
 ### Endpoints
+Base URL of the application is currently https://hidden-plains-31601.herokuapp.com/[insert endpoint in here]
 
 #### Leaderboards
 Type | Endpoint | Description
@@ -18,8 +19,8 @@ Type | Endpoint | Description
 POST |/lb | Body or query parameters necessary: gameName, ownerName, email. Returns newly generated leaderboard.
 GET | /lb/:key | Can use query parameter 'limit' to fetch specified number of users as JSON. 'order' query parameter is for score ordering and is default 'des' but 'asc' can be used. Finally, the query parameter 'key' is necessary (private or public) for fetching. Returns users within specified leaderboard.
 GET | /lb/:key/info | The private key is required as query parameter 'key'. Returns leaderboard information object.
-PUT | /:key | Clears leaderboard for specified private key.
-DELETE | /:key | Removes leaderboard for specified key.
+PUT | /lb/:key | Clears leaderboard for specified private key.
+DELETE | /lb/:key | Removes leaderboard for specified key.
 
 #### Users
 Type | Endpoint | Description
