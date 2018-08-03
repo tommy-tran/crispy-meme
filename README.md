@@ -11,7 +11,7 @@ Users may create a leaderboard (and save the private key) to fully interact with
 Ideally game developers do not share their private key in any way (ignore in source control if open source), allowing for safe use of their private key within their game to fully handle any interactions with the API. For non-gaming competitions the owner shall be able to interact with the web application to add, modify and delete scores.
 
 ### Endpoints
-Base URL of the application is currently https://hidden-plains-31601.herokuapp.com/[insert endpoint in here]
+Base URL of the application is currently https://hidden-plains-31601.herokuapp.com/
 
 #### Leaderboards
 Type | Endpoint | Description
