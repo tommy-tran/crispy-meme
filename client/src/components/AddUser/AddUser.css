@@ -1,5 +1,5 @@
 .AddUser {
-  background-color: #f0ffd7;
+  background-color: #eef5e5;
   z-index: 200;
   width: 90%;
   height: 80%;
@@ -33,7 +33,8 @@
   .AddUser__Title {
     text-align: center;
     font-size: 1.8em;
-    color: #00aa00; }
+    color: #93f193;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5); }
   .AddUser__Close {
     position: absolute;
     right: 0;

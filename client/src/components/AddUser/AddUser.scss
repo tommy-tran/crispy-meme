@@ -1,5 +1,5 @@
 .AddUser {
-  background-color: rgb(240, 255, 215);
+  background-color: rgb(238, 245, 229);
   z-index: 200;
   width: 90%;
   height: 80%;
@@ -41,7 +41,9 @@
   &__Title {
     text-align: center;
     font-size: 1.8em;
-    color: rgb(0, 170, 0);
+    color: rgb(147, 241, 147);
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+      -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
   }
 
   &__Close {

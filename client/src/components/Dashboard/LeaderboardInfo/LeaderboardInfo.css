@@ -1,6 +1,6 @@
 .LeaderboardInfo {
   width: 100%;
-  background-color: rgba(24, 161, 0, 0.5);
+  background-color: #94bbf1;
   font-size: 1.1em;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.6), 1px -1px 0 rgba(0, 0, 0, 0.6), -1px 1px 0 rgba(0, 0, 0, 0.6), 1px 1px 0 rgba(0, 0, 0, 0.6);
   line-height: 2.2rem;
@@ -26,7 +26,7 @@
         color: white;
         background-color: #141414;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.6em;
         justify-content: center;
-        height: 3em;
+        height: 3.2em;
         font-weight: 100; } }

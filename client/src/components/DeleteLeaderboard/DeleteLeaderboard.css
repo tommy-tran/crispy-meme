@@ -1,5 +1,5 @@
 .DeleteLeaderboard {
-  background-color: #ffe0e0;
+  background-color: #faf5f5;
   z-index: 100;
   width: 90%;
   height: 80%;
@@ -31,7 +31,8 @@
     text-align: center;
     font-size: 1.8em;
     margin-top: 1em;
-    color: red; }
+    color: #fd8989;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5); }
   .DeleteLeaderboard__Close {
     position: absolute;
     right: 0;
