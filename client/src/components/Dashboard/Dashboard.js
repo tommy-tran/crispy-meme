@@ -82,7 +82,7 @@ class Dashboard extends Component {
     if (this.props.leaderboard && this.props.leaderboard.admin) {
       options = (
         <div className="Header__Options">
-          <Button handleClick={this.onAddUser} label="Add User" confirm />
+          <Button handleClick={this.onAddUser} label="Update User" confirm />
           <Button
             handleClick={this.onDeleteLeaderboard}
             label="Delete LB"

@@ -7,7 +7,10 @@ import DeleteLeaderboard from '../DeleteLeaderboard/DeleteLeaderboard';
 import Backdrop from '../UI/Backdrop/Backdrop';
 
 import { connect } from 'react-redux';
-import { unsetLeaderboard } from '../../actions/leaderboard';
+import {
+  unsetLeaderboard,
+  setLocalLeaderboard
+} from '../../actions/leaderboard';
 
 class Menu extends Component {
   state = {
@@ -43,6 +46,7 @@ class Menu extends Component {
 
   onLogout = () => {
     this.props.logout();
+    this.props.setLocalLeaderboard(false);
     this.props.clicked();
   };
 
@@ -147,7 +151,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return { logout: () => dispatch(unsetLeaderboard) };
+  return {
+    logout: () => dispatch(unsetLeaderboard),
+    setLocalLeaderboard: value => dispatch(setLocalLeaderboard(value))
+  };
 };
 
 export default connect(
