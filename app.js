@@ -11,11 +11,6 @@ const Leaderboard = require('./models/Leaderboard');
 mongoose.connect(config.mongoURI);
 mongoose.Promise = global.Promise;
 
-if (process.env.NODE_ENV === 'production') {
-  const path = require('path');
-  app.use(express.static(path.resolve(__dirname, './client/build')));
-}
-
 /**
  * Load routes
  */
@@ -24,6 +19,11 @@ const leaderboardRoutes = require('./routes/leaderboard');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+  app.use(express.static(path.resolve(__dirname, './client/build')));
+}
 
 app.use('/lb', leaderboardRoutes);
 
